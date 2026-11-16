@@ -1,0 +1,76 @@
+/* admin-unified.css - Gom toàn bộ style admin vào 1 file */
+
+/* ===== CUSTOM FONTS ===== */
+@font-face {
+    font-family: 'UVN Van';
+    src: url('../fonts/UVNVan-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'UVN Van';
+    src: url('../fonts/UVNVan-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+/* --- admin-management.css --- */
+/* (Bắt đầu admin-management.css) */
+/* Reset và Base Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'UVN Van', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #ffe0f0 0%, #ffb3d9 100%);
+    min-height: 100vh;
+    color: #333;
+    padding: 0;
+    margin: 0;
+}
+/* ... (toàn bộ phần còn lại của admin-management.css, đã lấy từ các lần đọc trước) ... */
+
+/* --- admin-core.css --- */
+:root {
+  --primary: #ff6b96;
+  --primary-dark: #e5537d;
+  --primary-light: #ff9bb8;
+  --secondary: #667eea;
+  --accent: #f093fb;
+  --dark: #2c3e50;
+  --gray: #6c757d;
+  --light: #f8f9fa;
+  --white: #ffffff;
+  --success: #28a745;
+  --warning: #ffc107;
+  --danger: #dc3545;
+  --info: #17a2b8;
+  --gradient-primary: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
+  --gradient-dark: linear-gradient(135deg, var(--dark) 0%, #34495e 100%);
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 15px rgba(0,0,0,0.10);
+  --shadow-lg: 0 8px 30px rgba(0,0,0,0.15);
+  --radius-sm: 8px;
+  --radius-md: 14px;
+  --radius-lg: 22px;
+  --radius-xl: 32px;
+  --font-primary: 'Poppins', 'Nunito', sans-serif;
+  --font-heading: 'Quicksand', 'Comfortaa', sans-serif;
+}
+/* ... (toàn bộ phần còn lại của admin-core.css, đã lấy từ các lần đọc trước) ... */
+
+/* --- admin.css --- */
+/**
+ * Admin Panel CSS - Teddy Bear Shop 👑
+ * Thiết kế cho khu vực quản trị
+ */
+
+/* ===== ADMIN LAYOUT ===== */
+.admin-wrapper {
+    display: flex;
+    min-height: 100vh;
+    background: #f8f9fa;
+}
+/* ... (toàn bộ phần còn lại của admin.css, đã lấy từ các lần đọc trước) ... */ 

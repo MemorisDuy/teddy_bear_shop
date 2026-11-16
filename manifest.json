@@ -1,0 +1,8 @@
+{
+  "name": "Teddy Bear Paradise",
+  "short_name": "TeddyShop",
+  "start_url": "/teddy_bear_shop/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ff69b4"
+}

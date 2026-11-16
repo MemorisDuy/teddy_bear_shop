@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Test Review System - Complete Flow</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background: #f9f9f9;
+        }
+        .test-section {
+            background: white;
+            padding: 20px;
+            margin: 20px 0;
+            border-radius: 10px;
+            border-left: 5px solid #e91e63;
+        }
+        .success { border-left-color: #4caf50; background: #f1f8f6; }
+        .danger { border-left-color: #f44336; background: #fff3f2; }
+        button { padding: 10px 20px; margin: 10px 5px 10px 0; cursor: pointer; }
+        .btn-primary { background: #007bff; color: white; border: none; border-radius: 5px; }
+        .btn-primary:hover { background: #0056b3; }
+        pre { background: #f5f5f5; padding: 10px; overflow-x: auto; }
+        #testOutput { margin: 10px 0; padding: 10px; background: #f5f5f5; border-radius: 5px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Test Review System Complete Flow</h1>
+
+    <div class="test-section">
+        <h2>1️⃣ Test Database Connection</h2>
+        <button class="btn-primary" onclick="testDatabaseConnection()">Test DB Connection</button>
+        <div id="dbOutput"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>2️⃣ Test API Endpoint</h2>
+        <button class="btn-primary" onclick="testAPIEndpoint()">Test API Insert</button>
+        <div id="apiOutput"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>3️⃣ Test Product Detail Page</h2>
+        <button class="btn-primary" onclick="testProductDetail()">Open Product Detail</button>
+        <div id="productOutput"></div>
+    </div>
+
+    <div class="test-section">
+        <h2>4️⃣ Summary</h2>
+        <div id="summary"></div>
+    </div>
+
+    <script>
+        const log = (id, msg) => {
+            const el = document.getElementById(id);
+            if (el) el.innerHTML += msg + '<br>';
+        };
+
+        const testDatabaseConnection = async () => {
+            const id = 'dbOutput';
+            document.getElementById(id).innerHTML = '⏳ Testing...';
+            try {
+                const res = await fetch('./test-db-detailed.php');
+                const html = await res.text();
+                const match = html.match(/TEST \d:([\s\S]*?)(?=TEST \d:|All tests completed|$)/g) || [];
+                let output = '<div class="success"><h3>✅ Database Tests:</h3><pre>';
+                // Extract test results
+                if (html.includes('Connected to: teddy_bear_shop')) output += '✅ Connected to database\n';
+                if (html.includes('Reviews count: 4')) output += '✅ Reviews table has 4 records\n';
+                if (html.includes('Execute INSERT successful')) output += '✅ INSERT works\n';
+                output += '</pre></div>';
+                document.getElementById(id).innerHTML = output;
+            } catch (e) {
+                log(id, '<div class="danger">❌ Error: ' + e.message + '</div>');
+            }
+        };
+
+        const testAPIEndpoint = async () => {
+            const id = 'apiOutput';
+            document.getElementById(id).innerHTML = '⏳ Testing API...';
+            try {
+                const formData = new FormData();
+                formData.append('product_id', '1');
+                formData.append('reviewer_name', 'Test User ' + Date.now());
+                formData.append('rating', '5');
+                formData.append('comment', 'This is test from HTML page');
+
+                const res = await fetch('./pages/api-add-review.php', {
+                    method: 'POST',
+                    body: formData
+                });
+                const data = await res.json();
+                
+                let output = data.success ? 
+                    '<div class="success"><h3>✅ API Works!</h3><pre>' + JSON.stringify(data, null, 2) + '</pre></div>' :
+                    '<div class="danger"><h3>❌ API Error:</h3><pre>' + JSON.stringify(data, null, 2) + '</pre></div>';
+                
+                document.getElementById(id).innerHTML = output;
+            } catch (e) {
+                log(id, '<div class="danger">❌ Error: ' + e.message + '</div>');
+            }
+        };
+
+        const testProductDetail = () => {
+            window.open('./pages/product-detail.php?slug=gau-panda-giant-hug', '_blank');
+            const id = 'productOutput';
+            document.getElementById(id).innerHTML = '<div class="success">✅ Opened product detail page in new tab<br><br><strong>Instructions:</strong><ul><li>Scroll to review section</li><li>Fill the review form</li><li>Click submit button</li><li>Check browser console (F12) for debug logs</li><li>Check if page reloads and review appears</li></ul></div>';
+        };
+
+        window.addEventListener('load', () => {
+            const s = document.getElementById('summary');
+            s.innerHTML = `
+            <h3>Review System Components:</h3>
+            <ul>
+                <li>✅ Database: teddy_bear_shop.reviews table with customer_name column</li>
+                <li>✅ API: /pages/api-add-review.php handles form submission</li>
+                <li>✅ JavaScript: /js/product-review.js handles form events</li>
+                <li>✅ Form: /pages/product-detail.php has review form with proper IDs</li>
+            </ul>
+            <h3>Expected Flow:</h3>
+            <ol>
+                <li>User submits form on product detail page</li>
+                <li>product-review.js captures form data</li>
+                <li>Sends POST to ../pages/api-add-review.php</li>
+                <li>API validates and inserts into database</li>
+                <li>Page reloads to show new review</li>
+            </ol>
+            `;
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thanh toán thành công - Demo</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+        }
+        
+        .success-card {
+            background: white;
+            border-radius: 20px;
+            padding: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.3);
+            text-align: center;
+            max-width: 500px;
+            width: 100%;
+            animation: slideIn 0.5s ease-out;
+        }
+        
+        @keyframes slideIn {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .success-icon {
+            font-size: 5rem;
+            margin-bottom: 20px;
+            animation: bounce 1s ease-in-out;
+        }
+        
+        @keyframes bounce {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+        
+        h1 {
+            color: #28a745;
+            font-size: 2rem;
+            margin-bottom: 15px;
+        }
+        
+        .order-info {
+            background: #f8f9fa;
+            border-radius: 10px;
+            padding: 20px;
+            margin: 20px 0;
+            text-align: left;
+        }
+        
+        .info-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #e0e0e0;
+        }
+        
+        .info-item:last-child {
+            border-bottom: none;
+        }
+        
+        .info-label {
+            color: #666;
+            font-weight: 500;
+        }
+        
+        .info-value {
+            color: #333;
+            font-weight: 600;
+        }
+        
+        .btn {
+            display: inline-block;
+            padding: 12px 30px;
+            background: #667eea;
+            color: white;
+            text-decoration: none;
+            border-radius: 10px;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: #764ba2;
+            transform: translateY(-2px);
+        }
+        
+        .loading {
+            display: none;
+            margin-top: 20px;
+        }
+        
+        .spinner {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #667eea;
+            border-radius: 50%;
+            width: 40px;
+            height: 40px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto;
+        }
+        
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="success-card">
+        <div class="success-icon">✅</div>
+        <h1>Thanh toán thành công!</h1>
+        <p style="color: #666; margin-bottom: 20px;">Cảm ơn bạn đã thanh toán</p>
+        
+        <div class="order-info" id="orderInfo">
+            <div class="info-item">
+                <span class="info-label">Mã đơn hàng:</span>
+                <span class="info-value" id="orderNumber">-</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Phương thức:</span>
+                <span class="info-value" id="paymentMethod">-</span>
+            </div>
+            <div class="info-item">
+                <span class="info-label">Trạng thái:</span>
+                <span class="info-value" style="color: #28a745;">Đã thanh toán</span>
+            </div>
+        </div>
+        
+        <div class="loading" id="loading">
+            <div class="spinner"></div>
+            <p style="margin-top: 10px; color: #666;">Đang xử lý...</p>
+        </div>
+        
+        <a href="#" class="btn" id="backBtn" style="display: none;">Quay lại</a>
+    </div>
+    
+    <script>
+        // Lấy thông tin từ URL parameters
+        const urlParams = new URLSearchParams(window.location.search);
+        const orderNumber = urlParams.get('order') || 'DEMO-' + Date.now();
+        const paymentMethod = urlParams.get('method') || 'momo';
+        const token = urlParams.get('token') || '';
+        
+        // Hiển thị thông tin đơn hàng
+        document.getElementById('orderNumber').textContent = '#' + orderNumber;
+        
+        const methodNames = {
+            'momo': '📱 MoMo',
+            'zalopay': '💙 ZaloPay',
+            'bank_transfer': '🏦 Chuyển khoản',
+            'cod': '💰 COD'
+        };
+        document.getElementById('paymentMethod').textContent = methodNames[paymentMethod] || paymentMethod;
+        
+        // Tự động xử lý thanh toán sau 5 giây (demo như ngân hàng)
+        if (token && orderNumber) {
+            let countdown = 5;
+            const countdownElement = document.createElement('div');
+            countdownElement.id = 'countdown';
+            countdownElement.style.cssText = 'text-align: center; margin-top: 20px; font-size: 1.2rem; color: #1976d2; font-weight: bold; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;';
+            document.querySelector('.success-card').appendChild(countdownElement);
+            
+            // Hiển thị loading
+            document.getElementById('loading').style.display = 'block';
+            
+            // Cập nhật countdown
+            const updateCountdown = () => {
+                if (countdown > 0) {
+                    countdownElement.textContent = '⏳ Đang xử lý thanh toán... (' + countdown + 's)';
+                    countdown--;
+                    setTimeout(updateCountdown, 1000);
+                } else {
+                    // Sau 5 giây, tự động xử lý thanh toán
+                    countdownElement.textContent = '✅ Đang hoàn tất thanh toán...';
+                    
+                    // Gọi API để xử lý thanh toán
+                    // Sử dụng URL công khai hoặc ngrok
+                    const apiUrl = 'http://localhost/teddy_bear_shop/cart/process-mock-payment.php';
+                    
+                    // Thử gọi API
+                    fetch(apiUrl + '?order_number=' + encodeURIComponent(orderNumber) + 
+                          '&payment_method=' + encodeURIComponent(paymentMethod), {
+                        method: 'GET',
+                        mode: 'cors',
+                        cache: 'no-cache'
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        document.getElementById('loading').style.display = 'none';
+                        if (data.success) {
+                            countdownElement.textContent = '✅ Thanh toán thành công!';
+                            countdownElement.style.color = '#28a745';
+                            
+                            // Hiển thị thông báo thành công
+                            setTimeout(() => {
+                                const successMsg = document.createElement('div');
+                                successMsg.style.cssText = 'margin-top: 20px; padding: 20px; background: #d4edda; border: 2px solid #28a745; border-radius: 10px; color: #155724; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;';
+                                successMsg.innerHTML = '<h4 style="margin: 0 0 10px 0;">✅ Thanh toán đã được xử lý thành công!</h4><p style="margin: 0;">Vui lòng quay lại máy tính để xem chi tiết đơn hàng.</p>';
+                                document.querySelector('.success-card').appendChild(successMsg);
+                            }, 1000);
+                        } else {
+                            countdownElement.textContent = '⚠️ ' + (data.message || 'Có lỗi xảy ra');
+                            countdownElement.style.color = '#dc3545';
+                        }
+                    })
+                    .catch(error => {
+                        // Nếu không gọi được API (CORS), vẫn hiển thị thành công (demo)
+                        document.getElementById('loading').style.display = 'none';
+                        countdownElement.textContent = '✅ Thanh toán thành công! (Demo)';
+                        countdownElement.style.color = '#28a745';
+                        
+                        // Hiển thị thông báo
+                        const successMsg = document.createElement('div');
+                        successMsg.style.cssText = 'margin-top: 20px; padding: 20px; background: #d4edda; border: 2px solid #28a745; border-radius: 10px; color: #155724; font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;';
+                        successMsg.innerHTML = '<h4 style="margin: 0 0 10px 0;">✅ Thanh toán đã được xử lý thành công!</h4><p style="margin: 0;">Vui lòng quay lại máy tính và nhấn nút "Đã thanh toán thành công" để hoàn tất.</p>';
+                        document.querySelector('.success-card').appendChild(successMsg);
+                        
+                        console.log('API call failed (expected if CORS blocked):', error);
+                    });
+                }
+            };
+            
+            // Bắt đầu countdown
+            updateCountdown();
+        }
+        
+        // Nút quay lại - Hiển thị sau khi thanh toán xong
+        document.getElementById('backBtn').addEventListener('click', function(e) {
+            e.preventDefault();
+            // Hiển thị thông báo
+            alert('✅ Thanh toán đã được xử lý tự động!\n\nVui lòng quay lại máy tính để xem chi tiết đơn hàng.');
+        });
+        
+        // Tự động hiển thị nút quay lại sau 6 giây (sau khi thanh toán xong)
+        setTimeout(function() {
+            document.getElementById('backBtn').style.display = 'inline-block';
+        }, 6000);
+        
+        // Nếu có callback URL từ parent window, có thể gửi thông báo
+        if (window.opener) {
+            try {
+                window.opener.postMessage({
+                    type: 'payment_success',
+                    order_number: orderNumber,
+                    payment_method: paymentMethod
+                }, '*');
+            } catch(e) {
+                console.log('Cannot send message to parent');
+            }
+        }
+    </script>
+</body>
+</html>
+

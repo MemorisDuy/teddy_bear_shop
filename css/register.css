@@ -1,0 +1,808 @@
+/**
+ * REGISTER PAGE CSS - Teddy Bear Shop 🐻
+ * External CSS file for better organization
+ * Path: css/register.css
+ */
+
+/* ===== ALLOW FONT AWESOME CDN TO WORK ===== */
+/* Simply allow Font Awesome CDN's content property to work */
+i[class*="fa-"],
+.fa, .fas, .far, .fal, .fad, .fab {
+    /* Don't override font-family - let CDN handle it */
+    font-style: normal;
+    font-variant: normal;
+    text-rendering: auto;
+    text-decoration: inherit;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+
+
+/* Custom Font */
+@font-face {
+    font-family: 'UVN Van';
+    src: url('../fonts/UVNVan-Regular.ttf') format('truetype');
+    font-weight: 400;
+}
+
+@font-face {
+    font-family: 'UVN Van';
+    src: url('../fonts/UVNVan-Bold.ttf') format('truetype');
+    font-weight: 700;
+}
+
+/* Teddy Bear Shop - REGISTER PAGE MODERN GRADIENT UI */
+
+/* ===== MAIN CONTAINER ===== */
+.register-container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: none;
+}
+
+/* ===== REGISTER CARD ===== */
+.register-card {
+    background: #fff0f6;
+    border-radius: 32px;
+    box-shadow: 0 8px 40px rgba(255,182,213,0.13), 0 1.5px 8px rgba(255,182,213,0.08);
+    padding: 48px 36px 36px 36px;
+    max-width: 480px;
+    width: 100%;
+    margin: 32px 0;
+    position: relative;
+    animation: fadeInUp 0.7s cubic-bezier(.4,0,.2,1);
+}
+
+/* ===== HEADER SECTION ===== */
+.register-header {
+    text-align: center;
+    margin-bottom: 32px;
+}
+
+.logo-circle {
+    width: 80px;
+    height: 80px;
+    background: linear-gradient(135deg, #ffb6d5 0%, #ffd6e0 100%);
+    border-radius: 50%;
+    margin: 0 auto 18px auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2.7rem;
+    color: #fff;
+    box-shadow: 0 4px 18px #ffb6d5a0;
+    border: 3px solid #ffd6e0;
+}
+
+.register-title {
+    color: #ff6b96;
+    font-size: 2.1rem;
+    font-weight: 800;
+    margin-bottom: 8px;
+    letter-spacing: 1px;
+}
+
+.register-subtitle {
+    color: #ff6b96;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 18px;
+}
+
+/* ===== FORM STYLING ===== */
+.register-form {
+    margin-bottom: 18px;
+}
+
+.form-group {
+    margin-bottom: 22px;
+    position: relative;
+}
+
+.form-control-custom {
+    width: 100%;
+    padding: 15px 18px 15px 48px;
+    border: 2px solid #ffb6d5;
+    border-radius: 18px;
+    font-size: 1.08rem;
+    background: #fffafd;
+    color: #ff6b96;
+    font-weight: 600;
+    transition: border 0.2s, box-shadow 0.2s;
+    box-shadow: 0 2px 8px rgba(255,182,213,0.04);
+}
+
+.form-control-custom:focus {
+    border-color: #ff6b96;
+    box-shadow: 0 0 0 2px #ffd6e080;
+    background: #fff;
+}
+
+.form-control-custom::placeholder {
+    color: #ffb6d5;
+    opacity: 0.7;
+}
+
+.input-icon {
+    position: absolute;
+    left: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #ff6b96 !important;
+    font-size: 1.2rem;
+    z-index: 2;
+}
+
+/* ===== VALIDATION STYLING ===== */
+.form-control-custom.is-invalid {
+    border-color: #dc3545;
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.15);
+}
+
+.form-control-custom.is-valid {
+    border-color: #28a745;
+    box-shadow: 0 0 0 3px rgba(40, 167, 69, 0.15);
+}
+
+.invalid-feedback {
+    display: block;
+    color: #dc3545;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    margin-left: 45px;
+}
+
+.valid-feedback {
+    display: block;
+    color: #28a745;
+    font-size: 0.875rem;
+    margin-top: 5px;
+    margin-left: 45px;
+}
+
+/* ===== PASSWORD STRENGTH ===== */
+.password-strength {
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.password-strength .progress {
+    height: 5px;
+    border-radius: 10px;
+    background: #e9ecef;
+    overflow: hidden;
+}
+
+.password-strength .progress-bar {
+    border-radius: 10px;
+    transition: width 0.3s ease;
+}
+
+.strength-text {
+    display: block;
+    margin-top: 5px;
+    font-weight: 500;
+}
+
+/* ===== CHECKBOX STYLING ===== */
+.form-check-custom {
+    display: flex;
+    align-items: center;
+    margin: 12px 0 0 0;
+}
+
+.form-check-input-custom {
+    width: 18px;
+    height: 18px;
+    margin-right: 10px;
+    accent-color: #ff6b96;
+}
+
+.form-check-label-custom {
+    color: #ff6b96;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.form-check-label-custom a {
+    color: #ff6b96;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.form-check-label-custom a:hover {
+    text-decoration: underline;
+}
+
+/* ===== BUTTON STYLING ===== */
+.btn-register, .btn-register:active, .btn-register:focus {
+    width: 100%;
+    padding: 14px 0;
+    background: linear-gradient(135deg, #ff6b96 0%, #ffd6e0 100%);
+    color: #fff;
+    border: none;
+    border-radius: 18px;
+    font-weight: 700;
+    font-size: 1.13rem;
+    box-shadow: 0 2px 8px rgba(255,182,213,0.13);
+    margin-top: 8px;
+    transition: background 0.2s, box-shadow 0.2s;
+}
+
+.btn-register:hover {
+    background: linear-gradient(135deg, #ffb6d5 0%, #ff6b96 100%);
+    color: #fff;
+    box-shadow: 0 4px 16px rgba(255,182,213,0.18);
+}
+
+/* ===== DIVIDER ===== */
+.divider {
+    text-align: center;
+    margin: 18px 0;
+    position: relative;
+}
+
+.divider::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 50%;
+    height: 1.5px;
+    background: linear-gradient(90deg, #e0c3fc 0%, #fbc2eb 100%);
+    z-index: 0;
+}
+
+.divider span {
+    background: #f8f6ff;
+    padding: 0 18px;
+    color: #a18cd1;
+    font-weight: 700;
+    position: relative;
+    z-index: 1;
+}
+
+/* ===== SOCIAL BUTTONS ===== */
+.social-buttons {
+    margin: 18px 0 0 0;
+    display: flex;
+    gap: 12px;
+    justify-content: center;
+}
+
+.social-btn {
+    flex: 1;
+    padding: 12px 0;
+    border-radius: 14px;
+    font-weight: 700;
+    border: 1.5px solid #ffb6d5;
+    background: #fff0f6;
+    color: #ff6b96;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    transition: background 0.2s, color 0.2s;
+    font-size: 1.08rem;
+}
+
+.social-btn i {
+    font-size: 1.3rem;
+}
+
+.social-btn:hover {
+    background: #ffb6d5;
+    color: #fff;
+}
+
+/* ===== LOGIN LINK ===== */
+.login-link {
+    text-align: center;
+    margin-top: 20px;
+    padding: 15px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 10px;
+}
+
+.login-link-text {
+    color: #2c3e50;
+    margin: 0;
+    font-size: 0.95rem;
+}
+
+.login-link a {
+    color: #ff6b96;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.login-link a:hover {
+    text-decoration: underline;
+}
+
+/* ===== BENEFITS SECTION ===== */
+.benefits-section {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.benefits-section h6 {
+    color: #ff6b96;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.benefit-item {
+    padding: 15px 10px;
+    transition: transform 0.3s ease;
+}
+
+.benefit-item:hover {
+    transform: translateY(-5px);
+}
+
+.benefit-item i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #ff6b96 !important;
+}
+
+.benefit-item h6 {
+    font-size: 0.9rem;
+    font-weight: bold;
+    margin-bottom: 8px;
+    color: #2c3e50;
+}
+
+.benefit-item p {
+    font-size: 0.8rem;
+    line-height: 1.4;
+    color: #6c757d;
+    margin: 0;
+}
+
+.benefits-section h6, .benefit-item h6, .benefit-item p {
+    font-family: 'Quicksand','Nunito','Poppins','Comfortaa',sans-serif !important;
+    color: #ff6b96;
+}
+
+/* ===== FLASH MESSAGES ===== */
+.alert {
+    border-radius: 14px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 14px;
+    padding: 12px 18px;
+    box-shadow: 0 2px 8px rgba(161,140,209,0.07);
+}
+
+.alert-success {
+    background: #ffe4ef;
+    color: #ff6b96;
+    border: 1.5px solid #ffb6d5;
+}
+
+.alert-danger, .alert-info {
+    background: #fff0f6;
+    color: #ff6b96;
+    border: 1.5px solid #ffb6d5;
+}
+
+.alert i {
+    margin-right: 8px;
+}
+
+/* ===== ANIMATIONS ===== */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===== RESPONSIVE DESIGN ===== */
+@media (max-width: 600px) {
+    .register-card {
+        padding: 28px 8px 18px 8px;
+        border-radius: 18px;
+    }
+
+    .logo-circle {
+        width: 60px;
+        height: 60px;
+        font-size: 2rem;
+    }
+
+    .register-title {
+        font-size: 1.3rem;
+    }
+
+    .form-control-custom {
+        padding: 12px 12px 12px 38px;
+        font-size: 0.98rem;
+    }
+
+    .btn-register {
+        font-size: 1rem;
+    }
+}
+
+/* ===== DARK MODE SUPPORT ===== */
+@media (prefers-color-scheme: dark) {
+    .register-card {
+        background: rgba(45, 55, 72, 0.95);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .register-title {
+        color: #f7fafc;
+    }
+
+    .register-subtitle {
+        color: #a0aec0;
+    }
+
+    .form-control-custom {
+        background: rgba(255, 255, 255, 0.1);
+        color: #f7fafc;
+        border-color: rgba(255, 255, 255, 0.2);
+    }
+
+    .form-control-custom::placeholder {
+        color: #a0aec0;
+    }
+
+    .form-check-label-custom {
+        color: #f7fafc;
+    }
+
+    .login-link-text {
+        color: #f7fafc;
+    }
+
+    .benefit-item h6 {
+        color: #f7fafc;
+    }
+
+    .benefit-item p {
+        color: #a0aec0;
+    }
+}
+
+/* ===== PRINT STYLES ===== */
+@media print {
+    .register-container {
+        background: white !important;
+        min-height: 100vh;
+        padding: 20px;
+    }
+
+    .register-card {
+        background: white !important;
+        box-shadow: none !important;
+        border: 1px solid #ccc !important;
+    }
+
+    .social-buttons,
+    .login-link,
+    .benefits-section {
+        display: none !important;
+    }
+}
+
+/* ===== HIGH CONTRAST MODE ===== */
+@media (prefers-contrast: high) {
+    .register-card {
+        background: white !important;
+        border: 3px solid #000 !important;
+    }
+
+    .register-title {
+        color: #000 !important;
+    }
+
+    .form-control-custom {
+        border: 2px solid #000 !important;
+        background: white !important;
+        color: #000 !important;
+    }
+
+    .form-control-custom:focus {
+        border-color: #000 !important;
+        box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.3) !important;
+    }
+
+    .btn-register {
+        background: #000 !important;
+        color: white !important;
+        border: 2px solid #000 !important;
+    }
+
+    .input-icon {
+        color: #000 !important;
+    }
+}
+
+/* ===== REDUCED MOTION ===== */
+@media (prefers-reduced-motion: reduce) {
+    .register-card,
+    .form-group,
+    .form-control-custom,
+    .btn-register,
+    .social-btn,
+    .benefit-item {
+        animation: none !important;
+        transition: none !important;
+    }
+
+    .form-control-custom:focus {
+        transform: none !important;
+    }
+
+    .btn-register:hover {
+        transform: none !important;
+    }
+
+    .social-btn:hover,
+    .benefit-item:hover {
+        transform: none !important;
+    }
+}
+
+/* ===== FOCUS VISIBLE (ACCESSIBILITY) ===== */
+.form-control-custom:focus-visible {
+    outline: 3px solid #ff6b96;
+    outline-offset: 2px;
+}
+
+.btn-register:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 2px;
+}
+
+.form-check-input-custom:focus-visible {
+    outline: 3px solid #ff6b96;
+    outline-offset: 2px;
+}
+
+/* ===== LOADING STATES ===== */
+.btn-register.loading {
+    pointer-events: none;
+    opacity: 0.7;
+}
+
+.btn-register.loading::before {
+    content: '';
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    border: 2px solid transparent;
+    border-top: 2px solid #ffffff;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-right: 8px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ===== FORM VALIDATION ANIMATIONS ===== */
+.form-control-custom.is-valid {
+    animation: validField 0.3s ease;
+}
+
+.form-control-custom.is-invalid {
+    animation: invalidField 0.3s ease;
+}
+
+@keyframes validField {
+    0% { 
+        border-color: #e3e6f0; 
+        transform: scale(1);
+    }
+    50% { 
+        transform: scale(1.02);
+    }
+    100% { 
+        border-color: #28a745; 
+        transform: scale(1);
+    }
+}
+
+@keyframes invalidField {
+    0% { 
+        border-color: #e3e6f0; 
+        transform: translateX(0);
+    }
+    25% { 
+        border-color: #dc3545; 
+        transform: translateX(-5px);
+    }
+    75% { 
+        transform: translateX(5px);
+    }
+    100% { 
+        border-color: #dc3545; 
+        transform: translateX(0);
+    }
+}
+
+/* ===== CUSTOM SCROLLBAR ===== */
+.register-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.register-card::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 3px;
+}
+
+.register-card::-webkit-scrollbar-thumb {
+    background: linear-gradient(135deg, #ff6b96, #f093fb);
+    border-radius: 3px;
+}
+
+.register-card::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(135deg, #f093fb, #ff6b96);
+}
+
+/* ===== GLASS MORPHISM EFFECT ===== */
+.register-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, 
+        rgba(255, 255, 255, 0.1) 0%, 
+        rgba(255, 255, 255, 0.05) 100%);
+    border-radius: 25px;
+    pointer-events: none;
+}
+
+/* ===== TOOLTIP STYLES ===== */
+[data-tooltip] {
+    position: relative;
+}
+
+[data-tooltip]:hover::after {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+    white-space: nowrap;
+    z-index: 1000;
+    margin-bottom: 5px;
+}
+
+[data-tooltip]:hover::before {
+    content: '';
+    position: absolute;
+    bottom: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    border: 5px solid transparent;
+    border-top-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+/* ===== ERROR SHAKE ANIMATION ===== */
+.shake {
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    10%, 30%, 50%, 70%, 90% { transform: translateX(-5px); }
+    20%, 40%, 60%, 80% { transform: translateX(5px); }
+}
+
+/* ===== SUCCESS PULSE ANIMATION ===== */
+.pulse-success {
+    animation: pulseSuccess 0.6s ease;
+}
+
+@keyframes pulseSuccess {
+    0% { 
+        transform: scale(1); 
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0.4);
+    }
+    50% { 
+        transform: scale(1.05); 
+        box-shadow: 0 0 0 10px rgba(40, 167, 69, 0);
+    }
+    100% { 
+        transform: scale(1); 
+        box-shadow: 0 0 0 0 rgba(40, 167, 69, 0);
+    }
+}
+
+/* ===== FINAL TOUCHES ===== */
+* {
+    box-sizing: border-box;
+}
+
+*:focus {
+    outline: none;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Remove number input arrows */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+}
+
+/* Custom selection color */
+::selection {
+    background: rgba(255, 107, 150, 0.3);
+    color: #2c3e50;
+}
+
+::-moz-selection {
+    background: rgba(255, 107, 150, 0.3);
+    color: #2c3e50;
+}
+
+/* Register page custom classes */
+.register-label-custom {
+    color: #7b4397 !important;
+    font-family: 'Quicksand','Nunito','Poppins','Comfortaa',sans-serif !important;
+}
+.register-icon-custom {
+    color: #a18cd1 !important;
+    font-size: 1.3em;
+    vertical-align: middle;
+}
+.register-input-custom {
+    border-radius: 16px;
+    font-family: 'Quicksand','Nunito','Poppins','Comfortaa',sans-serif;
+    font-size: 1.1rem;
+}
+.register-btn-custom {
+    background: linear-gradient(90deg,#43cea2 0%,#185a9d 100%) !important;
+    color: #fff !important;
+    border-radius: 16px;
+    font-weight: 700;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 16px rgba(161,140,209,0.10);
+    border: none;
+}
+.register-btn-custom:hover {
+    background: linear-gradient(90deg,#fbc2eb 0%,#a18cd1 100%) !important;
+    color: #7b4397 !important;
+}
+
+.input-icon,
+.register-icon-custom,
+.benefit-item i,
+.fa, .fas, .fab, .far {
+    color: #ff6b96 !important;
+}
