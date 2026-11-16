@@ -56,64 +56,68 @@ try {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard - Admin Panel</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
         body { 
-            font-family: 'Poppins', sans-serif; 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            margin: 0; padding: 20px; min-height: 100vh;
+            font-family: 'Quicksand', 'Nunito', sans-serif; 
+            background: linear-gradient(135deg, #fff5f7 0%, #ffe4ec 100%);
+            margin: 0; padding: 20px; min-height: 100vh; color: #1e293b;
         }
         .dashboard { max-width: 1200px; margin: 0 auto; }
         .header { 
-            background: rgba(255,255,255,0.95); color: #333; 
-            padding: 30px; border-radius: 15px; margin-bottom: 30px; 
+            background: #ffffff; color: #1e293b; 
+            padding: 28px; border-radius: 18px; margin-bottom: 24px; 
             text-align: center; position: relative;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            box-shadow: 0 4px 20px rgba(255, 107, 150, 0.08);
+            border: 1px solid #ffe4ec;
         }
-        .welcome { font-size: 28px; margin-bottom: 10px; font-weight: 600; }
-        .subtitle { opacity: 0.7; font-size: 16px; }
+        .welcome { font-size: 26px; margin-bottom: 8px; font-weight: 700; color: #1e293b; }
+        .subtitle { color: #64748b; font-size: 15px; }
         .logout-btn { 
             position: absolute; top: 20px; right: 20px; 
-            background: #ff4757; padding: 10px 20px; border-radius: 25px; 
-            text-decoration: none; color: white; font-weight: 500;
-            transition: all 0.3s ease;
+            background: #ff6b96; padding: 8px 18px; border-radius: 999px; 
+            text-decoration: none; color: white; font-weight: 600; font-size: 14px;
+            transition: all 0.25s ease;
         }
-        .logout-btn:hover { background: #ff3742; transform: translateY(-2px); }
+        .logout-btn:hover { background: #ff5284; transform: translateY(-2px); color: white; }
         
-        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 20px; margin-bottom: 30px; }
+        .stats { display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr)); gap: 18px; margin-bottom: 24px; }
         .stat-card { 
-            background: rgba(255,255,255,0.95); padding: 25px; border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); text-align: center; 
-            transition: transform 0.3s ease;
+            background: #ffffff; padding: 22px; border-radius: 16px; 
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04); text-align: center; 
+            border: 1px solid #f1f5f9;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-        .stat-card:hover { transform: translateY(-5px); }
-        .stat-number { font-size: 32px; font-weight: bold; color: #667eea; margin-bottom: 10px; }
-        .stat-label { color: #666; font-weight: 500; font-size: 14px; }
+        .stat-card:hover { transform: translateY(-4px); box-shadow: 0 10px 24px rgba(255, 107, 150, 0.12); }
+        .stat-number { font-size: 28px; font-weight: 700; color: #ff6b96; margin-bottom: 8px; }
+        .stat-label { color: #64748b; font-weight: 600; font-size: 14px; }
         
-        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 30px; }
+        .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
         .content-card { 
-            background: rgba(255,255,255,0.95); border-radius: 15px; 
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1); padding: 25px;
+            background: #ffffff; border-radius: 16px; 
+            box-shadow: 0 4px 16px rgba(0,0,0,0.04); padding: 24px;
+            border: 1px solid #f1f5f9;
         }
-        .card-title { font-size: 20px; font-weight: 600; margin-bottom: 20px; color: #333; }
+        .card-title { font-size: 18px; font-weight: 700; margin-bottom: 18px; color: #1e293b; }
         
         .recent-item { 
-            padding: 15px; margin-bottom: 10px; background: #f8f9fa; 
-            border-radius: 8px; display: flex; justify-content: space-between; align-items: center;
+            padding: 14px; margin-bottom: 10px; background: #f8fafc; 
+            border-radius: 12px; display: flex; justify-content: space-between; align-items: center;
         }
-        .item-info h6 { margin: 0; font-weight: 600; color: #333; }
-        .item-info small { color: #666; }
-        .item-value { font-weight: bold; color: #28a745; }
+        .item-info h6 { margin: 0; font-weight: 600; color: #1e293b; }
+        .item-info small { color: #64748b; }
+        .item-value { font-weight: bold; color: #10b981; }
         
-        .quick-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-top: 30px; }
+        .quick-actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-top: 24px; }
         .action-card { 
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
-            color: white; padding: 20px; border-radius: 12px; 
-            text-decoration: none; text-align: center; transition: transform 0.3s;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%); 
+            color: white; padding: 20px; border-radius: 16px; 
+            text-decoration: none; text-align: center; transition: transform 0.25s ease, box-shadow 0.25s ease;
+            box-shadow: 0 4px 14px rgba(255, 107, 150, 0.25);
         }
-        .action-card:hover { transform: translateY(-3px); color: white; }
-        .action-icon { font-size: 28px; margin-bottom: 10px; display: block; }
+        .action-card:hover { transform: translateY(-3px); color: white; box-shadow: 0 8px 22px rgba(255, 107, 150, 0.35); }
+        .action-icon { font-size: 26px; margin-bottom: 10px; display: block; }
         
         @media (max-width: 768px) { 
             body { padding: 12px; }
@@ -138,40 +142,40 @@ try {
     <div class="dashboard">
         <div class="header">
             <a href="logout.php" class="logout-btn">
-                <span>🚪</span> Đăng xuất
+                <i class="fas fa-sign-out-alt"></i> Đăng xuất
             </a>
-            <div class="welcome">🎉 Chào mừng, <?php echo htmlspecialchars($admin_name); ?>!</div>
+            <div class="welcome"><i class="fas fa-star"></i> Chào mừng, <?php echo htmlspecialchars($admin_name); ?>!</div>
             <div class="subtitle">Bảng điều khiển quản trị Teddy Bear Shop</div>
         </div>
 
         <!-- Statistics -->
         <div class="stats">
             <div class="stat-card">
-                <div class="stat-number"><span>📦</span> <?php echo number_format($stats['total_products']); ?></div>
+                <div class="stat-number"><i class="fas fa-box"></i> <?php echo number_format($stats['total_products']); ?></div>
                 <div class="stat-label">Sản phẩm</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number"><span>🛒</span> <?php echo number_format($stats['total_orders']); ?></div>
+                <div class="stat-number"><i class="fas fa-shopping-cart"></i> <?php echo number_format($stats['total_orders']); ?></div>
                 <div class="stat-label">Đơn hàng</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number"><span>👥</span> <?php echo number_format($stats['total_users']); ?></div>
+                <div class="stat-number"><i class="fas fa-users"></i> <?php echo number_format($stats['total_users']); ?></div>
                 <div class="stat-label">Khách hàng</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number"><span>💰</span> <?php echo formatPrice($stats['total_revenue']); ?></div>
+                <div class="stat-number"><i class="fas fa-coins"></i> <?php echo formatPrice($stats['total_revenue']); ?></div>
                 <div class="stat-label">Doanh thu</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number"><span>⏳</span> <?php echo number_format($stats['pending_orders']); ?></div>
+                <div class="stat-number"><i class="fas fa-clock"></i> <?php echo number_format($stats['pending_orders']); ?></div>
                 <div class="stat-label">Chờ xử lý</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number"><span>📅</span> <?php echo number_format($stats['today_orders']); ?></div>
+                <div class="stat-number"><i class="fas fa-calendar-alt"></i> <?php echo number_format($stats['today_orders']); ?></div>
                 <div class="stat-label">Đơn hôm nay</div>
             </div>
             <div class="stat-card">
-                <div class="stat-number"><span>🏷️</span> <?php echo number_format($stats['active_coupons']); ?></div>
+                <div class="stat-number"><i class="fas fa-tag"></i> <?php echo number_format($stats['active_coupons']); ?></div>
                 <div class="stat-label">Mã giảm giá</div>
             </div>
         </div>
@@ -181,12 +185,12 @@ try {
             <!-- Recent Orders -->
             <div class="content-card">
                 <div class="card-header-enhanced">
-                    <h3 class="card-title"><span>🛒</span> Đơn hàng gần đây</h3>
+                    <h3 class="card-title"><i class="fas fa-shopping-cart"></i> Đơn hàng gần đây</h3>
                     <a href="manage-orders.php" class="view-all-btn">Xem tất cả</a>
                 </div>
                 <?php if (empty($recent_orders)): ?>
                     <div class="empty-state">
-                        <div class="empty-icon">📦</div>
+                        <div class="empty-icon"><i class="fas fa-box"></i></div>
                         <h4>Chưa có đơn hàng nào</h4>
                         <p>Đơn hàng mới sẽ xuất hiện ở đây</p>
                     </div>
@@ -283,14 +287,14 @@ try {
         <!-- Enhanced Quick Actions -->
         <div class="enhanced-actions">
             <div class="actions-header">
-                <h3><span>🚀</span> Thao tác nhanh</h3>
+                <h3><i class="fas fa-rocket"></i> Thao tác nhanh</h3>
                 <p>Quản lý shop của bạn một cách hiệu quả</p>
             </div>
             
             <div class="action-grid">
                 <a href="manage-products.php" class="action-card-enhanced">
                     <div class="action-icon-wrapper">
-                        <span class="action-icon">📦</span>
+                        <span class="action-icon"><i class="fas fa-box"></i></span>
                         <div class="action-badge"><?php echo $stats['total_products']; ?></div>
                     </div>
                     <div class="action-content">
@@ -302,7 +306,7 @@ try {
                 
                 <a href="manage-orders.php" class="action-card-enhanced">
                     <div class="action-icon-wrapper">
-                        <span class="action-icon">🛒</span>
+                        <span class="action-icon"><i class="fas fa-shopping-cart"></i></span>
                         <div class="action-badge pending"><?php echo $stats['pending_orders']; ?></div>
                     </div>
                     <div class="action-content">
@@ -314,7 +318,7 @@ try {
                 
                 <a href="manage-users.php" class="action-card-enhanced">
                     <div class="action-icon-wrapper">
-                        <span class="action-icon">👥</span>
+                        <span class="action-icon"><i class="fas fa-users"></i></span>
                         <div class="action-badge"><?php echo $stats['total_users']; ?></div>
                     </div>
                     <div class="action-content">
@@ -326,7 +330,7 @@ try {
                 
                 <a href="manage-coupons.php" class="action-card-enhanced">
                     <div class="action-icon-wrapper">
-                        <span class="action-icon">🏷️</span>
+                        <span class="action-icon"><i class="fas fa-tag"></i></span>
                         <div class="action-badge coupon"><?php echo $stats['active_coupons']; ?></div>
                     </div>
                     <div class="action-content">
@@ -338,8 +342,8 @@ try {
                 
                 <a href="manage-custom-orders.php" class="action-card-enhanced">
                     <div class="action-icon-wrapper">
-                        <span class="action-icon">🎨</span>
-                        <div class="action-badge">🎨</div>
+                        <span class="action-icon"><i class="fas fa-palette"></i></span>
+                        <div class="action-badge"><i class="fas fa-palette"></i></div>
                     </div>
                     <div class="action-content">
                         <h4>Đơn đặt mẫu riêng</h4>
@@ -350,7 +354,7 @@ try {
                 
                 <a href="add-product.php" class="action-card-enhanced special">
                     <div class="action-icon-wrapper">
-                        <span class="action-icon">➕</span>
+                        <span class="action-icon"><i class="fas fa-plus"></i></span>
                         <div class="action-sparkle">✨</div>
                     </div>
                     <div class="action-content">
@@ -388,7 +392,7 @@ try {
                 </div>
                 
                 <div class="performance-card">
-                    <div class="performance-icon">🎯</div>
+                    <div class="performance-icon"><i class="fas fa-bolt"></i></div>
                     <div class="performance-info">
                         <h4>Tỷ lệ chuyển đổi</h4>
                         <p class="performance-value">3.8%</p>
@@ -406,7 +410,7 @@ try {
                 </div>
                 
                 <div class="performance-card">
-                    <div class="performance-icon">🚀</div>
+                    <div class="performance-icon"><i class="fas fa-rocket"></i></div>
                     <div class="performance-info">
                         <h4>Sản phẩm HOT</h4>
                         <p class="performance-value"><?php echo $stats['total_products']; ?></p>

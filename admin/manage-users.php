@@ -89,10 +89,10 @@ include 'partials/menu.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý khách hàng - Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
+        body { font-family: 'Quicksand', 'Nunito', sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
         .main-content { margin-left: 260px; padding: 30px; }
         .page-header { 
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
@@ -178,14 +178,14 @@ include 'partials/menu.php';
     <div class="main-content">
         <div class="page-header">
             <h1 class="page-title">
-                <span>👥</span>
+                <i class="fas fa-users"></i>
                 Quản lý khách hàng
             </h1>
         </div>
 
         <?php if ($message): ?>
         <div class="alert alert-<?php echo $message_type; ?>">
-            <span><?php echo $message_type === 'success' ? '✅' : '⚠️'; ?></span>
+            <span><?php echo $message_type === 'success' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-triangle"></i>'; ?></span>
             <?php echo htmlspecialchars($message); ?>
         </div>
         <?php endif; ?>
@@ -233,7 +233,7 @@ include 'partials/menu.php';
                         <?php if (empty($users)): ?>
                         <tr>
                             <td colspan="7" style="text-align: center; padding: 40px; color: #666;">
-                                <span style="font-size: 48px; display: block; margin-bottom: 15px;">👥</span>
+                                <span style="font-size: 48px; display: block; margin-bottom: 15px;"><i class="fas fa-users"></i></span>
                                 Chưa có khách hàng nào
                             </td>
                         </tr>
@@ -277,13 +277,13 @@ include 'partials/menu.php';
                                     <a href="?action=delete&id=<?php echo $user['id']; ?>" 
                                        class="btn btn-danger"
                                        onclick="return confirm('Vô hiệu hóa tài khoản này?')">
-                                        <span>🚫</span> Vô hiệu hóa
+                                        <i class="fas fa-ban"></i> Vô hiệu hóa
                                     </a>
                                     <?php else: ?>
                                     <a href="?action=activate&id=<?php echo $user['id']; ?>" 
                                        class="btn btn-success"
                                        onclick="return confirm('Kích hoạt lại tài khoản này?')">
-                                        <span>✅</span> Kích hoạt
+                                        <i class="fas fa-check-circle"></i> Kích hoạt
                                     </a>
                                     <?php endif; ?>
                                 </div>
@@ -314,7 +314,7 @@ include 'partials/menu.php';
                 
                 <?php if ($page < $total_pages): ?>
                     <a href="?page=<?php echo $page+1; ?>">
-                        Sau <span>➡️</span>
+                        Sau <i class="fas fa-arrow-right"></i>
                     </a>
                 <?php endif; ?>
             </div>

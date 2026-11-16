@@ -121,10 +121,10 @@ include 'partials/menu.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý đơn hàng - Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
+        body { font-family: 'Quicksand', 'Nunito', sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
         .main-content { margin-left: 260px; padding: 30px; }
         .page-header { 
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
@@ -234,14 +234,14 @@ include 'partials/menu.php';
     <div class="main-content">
         <div class="page-header">
             <h1 class="page-title">
-                <span>🛒</span>
+                <i class="fas fa-shopping-cart"></i>
                 Quản lý đơn hàng
             </h1>
         </div>
 
         <?php if ($message): ?>
         <div class="alert alert-<?php echo $message_type; ?>">
-            <span><?php echo $message_type === 'success' ? '✅' : '⚠️'; ?></span>
+            <span><?php echo $message_type === 'success' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-triangle"></i>'; ?></span>
             <?php echo htmlspecialchars($message); ?>
         </div>
         <?php endif; ?>
@@ -305,7 +305,7 @@ include 'partials/menu.php';
                 <div class="filter-group">
                     <label>&nbsp;</label>
                     <button type="submit" class="btn btn-primary">
-                        <span>🔍</span> Lọc
+                        <i class="fas fa-search"></i> Lọc
                     </button>
                 </div>
             </form>
@@ -329,7 +329,7 @@ include 'partials/menu.php';
                         <?php if (empty($orders)): ?>
                         <tr>
                             <td colspan="8" style="text-align: center; padding: 40px; color: #666;">
-                                <span style="font-size: 48px; display: block; margin-bottom: 15px;">🛒</span>
+                                <span style="font-size: 48px; display: block; margin-bottom: 15px;"><i class="fas fa-shopping-cart"></i></span>
                                 Chưa có đơn hàng nào
                             </td>
                         </tr>
@@ -389,35 +389,35 @@ include 'partials/menu.php';
                                     <?php if ($order['order_status'] === 'pending'): ?>
                                     <a href="?action=update_status&id=<?php echo $order['id']; ?>&status=confirmed" 
                                        class="btn btn-success" onclick="return confirm('Xác nhận đơn hàng này?')">
-                                        <span>✅</span> Xác nhận
+                                        <i class="fas fa-check-circle"></i> Xác nhận
                                     </a>
                                     <?php endif; ?>
                                     
                                     <?php if ($order['order_status'] === 'confirmed'): ?>
                                     <a href="?action=update_status&id=<?php echo $order['id']; ?>&status=processing" 
                                        class="btn btn-info" onclick="return confirm('Chuyển sang đang xử lý?')">
-                                        <span>⚙️</span> Xử lý
+                                        <i class="fas fa-cog"></i> Xử lý
                                     </a>
                                     <?php endif; ?>
                                     
                                     <?php if ($order['order_status'] === 'processing'): ?>
                                     <a href="?action=update_status&id=<?php echo $order['id']; ?>&status=shipping" 
                                        class="btn btn-warning" onclick="return confirm('Chuyển sang đang giao?')">
-                                        <span>🚚</span> Giao hàng
+                                        <i class="fas fa-truck"></i> Giao hàng
                                     </a>
                                     <?php endif; ?>
                                     
                                     <?php if ($order['order_status'] === 'shipping'): ?>
                                     <a href="?action=update_status&id=<?php echo $order['id']; ?>&status=delivered" 
                                        class="btn btn-success" onclick="return confirm('Đánh dấu đã giao?')">
-                                        <span>🎉</span> Đã giao
+                                        <i class="fas fa-star"></i> Đã giao
                                     </a>
                                     <?php endif; ?>
                                     
                                     <?php if (in_array($order['order_status'], ['pending', 'confirmed'])): ?>
                                     <a href="?action=update_status&id=<?php echo $order['id']; ?>&status=cancelled" 
                                        class="btn btn-danger" onclick="return confirm('Hủy đơn hàng này?')">
-                                        <span>❌</span> Hủy
+                                        <i class="fas fa-times"></i> Hủy
                                     </a>
                                     <?php endif; ?>
                                 </div>
@@ -448,7 +448,7 @@ include 'partials/menu.php';
                 
                 <?php if ($page < $total_pages): ?>
                     <a href="?page=<?php echo $page+1; ?>&search=<?php echo urlencode($search); ?>&status=<?php echo $status_filter; ?>&date=<?php echo $date_filter; ?>">
-                        Sau <span>➡️</span>
+                        Sau <i class="fas fa-arrow-right"></i>
                     </a>
                 <?php endif; ?>
             </div>

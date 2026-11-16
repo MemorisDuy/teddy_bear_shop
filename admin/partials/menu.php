@@ -22,16 +22,16 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <div class="sidebar-header">
         <div class="sidebar-header-top">
             <div class="logo">
-                <span class="logo-icon">🧸</span>
+                <span class="logo-icon"><i class="fas fa-heart"></i></span>
                 <span class="logo-text">Teddy Admin</span>
             </div>
             <button type="button" class="mobile-menu-toggle" onclick="document.getElementById('adminSidebar').classList.toggle('menu-open')" aria-label="Toggle Menu">
-                ☰ Menu
+                <i class="fas fa-bars"></i> Menu
             </button>
         </div>
         <div class="admin-info">
             <div class="admin-avatar">
-                <span>🛡️</span>
+                <i class="fas fa-shield-alt"></i>
             </div>
             <div class="admin-details">
                 <div class="admin-name"><?php echo htmlspecialchars($admin_name); ?></div>
@@ -43,42 +43,42 @@ $current_page = basename($_SERVER['PHP_SELF']);
     <ul class="sidebar-menu">
         <li class="menu-item <?php echo ($current_page == 'dashboard.php') ? 'active' : ''; ?>">
             <a href="dashboard.php">
-                <span style="width: 24px; margin-right: 10px; text-align: center;">📊</span>
+                <span style="width: 24px; margin-right: 10px; text-align: center;"><i class="fas fa-chart-bar"></i></span>
                 <span>Dashboard</span>
             </a>
         </li>
 
         <li class="menu-item <?php echo (in_array($current_page, ['manage-products.php', 'add-product.php', 'edit-product.php'])) ? 'active' : ''; ?>">
             <a href="manage-products.php">
-                <span style="width: 24px; margin-right: 10px; text-align: center;">📦</span>
+                <span style="width: 24px; margin-right: 10px; text-align: center;"><i class="fas fa-box"></i></span>
                 <span>Quản lý sản phẩm</span>
             </a>
         </li>
 
         <li class="menu-item <?php echo ($current_page == 'manage-orders.php') ? 'active' : ''; ?>">
             <a href="manage-orders.php">
-                <span style="width: 24px; margin-right: 10px; text-align: center;">🛒</span>
+                <span style="width: 24px; margin-right: 10px; text-align: center;"><i class="fas fa-shopping-cart"></i></span>
                 <span>Quản lý đơn hàng</span>
             </a>
         </li>
 
         <li class="menu-item <?php echo ($current_page == 'manage-users.php') ? 'active' : ''; ?>">
             <a href="manage-users.php">
-                <span style="width: 24px; margin-right: 10px; text-align: center;">👥</span>
+                <span style="width: 24px; margin-right: 10px; text-align: center;"><i class="fas fa-users"></i></span>
                 <span>Quản lý khách hàng</span>
             </a>
         </li>
 
         <li class="menu-item <?php echo ($current_page == 'manage-coupons.php') ? 'active' : ''; ?>">
             <a href="manage-coupons.php">
-                <span style="width: 24px; margin-right: 10px; text-align: center;">🏷️</span>
+                <span style="width: 24px; margin-right: 10px; text-align: center;"><i class="fas fa-tag"></i></span>
                 <span>Mã giảm giá</span>
             </a>
         </li>
 
         <li class="menu-item <?php echo ($current_page == 'manage-custom-orders.php') ? 'active' : ''; ?>">
             <a href="manage-custom-orders.php">
-                <span style="width: 24px; margin-right: 10px; text-align: center;">🎨</span>
+                <span style="width: 24px; margin-right: 10px; text-align: center;"><i class="fas fa-palette"></i></span>
                 <span>Đơn đặt mẫu riêng</span>
             </a>
         </li>
@@ -92,7 +92,7 @@ $current_page = basename($_SERVER['PHP_SELF']);
 
         <li class="menu-item">
             <a href="logout.php" onclick="return confirm('Bạn có chắc muốn đăng xuất?')">
-                <span style="width: 24px; margin-right: 10px; text-align: center;">🚪</span>
+                <span style="width: 24px; margin-right: 10px; text-align: center;"><i class="fas fa-sign-out-alt"></i></span>
                 <span>Đăng xuất</span>
             </a>
         </li>

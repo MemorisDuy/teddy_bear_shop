@@ -39,10 +39,10 @@ include 'partials/menu.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý sản phẩm - Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
+        body { font-family: 'Quicksand', 'Nunito', sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
         .main-content { margin-left: 260px; padding: 30px; }
         .page-header { 
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
@@ -104,19 +104,19 @@ include 'partials/menu.php';
     <div class="main-content">
         <div class="page-header">
             <h1 class="page-title">
-                <span>📦</span>
+                <i class="fas fa-box"></i>
                 Quản lý sản phẩm
             </h1>
         </div>
 
         <?php if ($flash_success = getFlashMessage('success')): ?>
             <div style="padding: 15px; border-radius: 8px; margin-bottom: 20px; background: #d4edda; color: #155724; border: 1px solid #c3e6cb;">
-                ✅ <?php echo htmlspecialchars($flash_success); ?>
+                <i class="fas fa-check-circle"></i> <?php echo htmlspecialchars($flash_success); ?>
             </div>
         <?php endif; ?>
         <?php if ($flash_error = getFlashMessage('error')): ?>
             <div style="padding: 15px; border-radius: 8px; margin-bottom: 20px; background: #f8d7da; color: #721c24; border: 1px solid #f5c6cb;">
-                ❌ <?php echo htmlspecialchars($flash_error); ?>
+                <i class="fas fa-times"></i> <?php echo htmlspecialchars($flash_error); ?>
             </div>
         <?php endif; ?>
 
@@ -145,14 +145,14 @@ include 'partials/menu.php';
             <div class="card-header">
                 <h3 class="card-title">Danh sách sản phẩm (<?php echo count($products); ?>)</h3>
                 <a href="add-product.php" class="btn btn-success">
-                    <span>➕</span> Thêm sản phẩm
+                    <i class="fas fa-plus"></i> Thêm sản phẩm
                 </a>
             </div>
             
             <div class="products-grid">
                 <?php if (empty($products)): ?>
                 <div style="grid-column: 1/-1; text-align: center; padding: 40px; color: #666;">
-                    <span style="font-size: 48px; display: block; margin-bottom: 15px;">📦</span>
+                    <span style="font-size: 48px; display: block; margin-bottom: 15px;"><i class="fas fa-box"></i></span>
                     Chưa có sản phẩm nào. Hãy thêm sản phẩm đầu tiên!
                 </div>
                 <?php else: ?>
@@ -164,7 +164,7 @@ include 'partials/menu.php';
                                  alt="<?php echo htmlspecialchars($product['name']); ?>">
                         <?php else: ?>
                             <div class="product-placeholder">
-                                <span>🧸</span>
+                                <i class="fas fa-heart"></i>
                             </div>
                         <?php endif; ?>
                     </div>
@@ -172,7 +172,7 @@ include 'partials/menu.php';
                     <div class="product-info">
                         <div class="product-name"><?php echo htmlspecialchars($product['name']); ?></div>
                         <div class="product-category">
-                            <span>🏷️</span> <?php echo htmlspecialchars($product['category_name'] ?? 'Chưa phân loại'); ?>
+                            <i class="fas fa-tag"></i> <?php echo htmlspecialchars($product['category_name'] ?? 'Chưa phân loại'); ?>
                         </div>
                         
                         <div class="product-price">
@@ -187,16 +187,16 @@ include 'partials/menu.php';
                         </div>
                         
                         <div class="product-stock <?php echo $product['stock_quantity'] > 0 ? 'stock-in' : 'stock-out'; ?>">
-                            <span>🏪</span> 
+                            <i class="fas fa-store"></i> 
                             <?php echo $product['stock_quantity']; ?> trong kho
                         </div>
                         
                         <div style="margin-top: 15px; display: flex; gap: 8px;">
                             <a href="edit-product.php?id=<?php echo $product['id']; ?>" class="btn btn-primary">
-                                <span>✏️</span> Sửa
+                                <i class="fas fa-edit"></i> Sửa
                             </a>
                             <a href="../pages/product-detail.php?slug=<?php echo urlencode($product['slug']); ?>" target="_blank" class="btn btn-success">
-                                <span>👁️</span> Xem
+                                <i class="fas fa-eye"></i> Xem
                             </a>
                         </div>
                     </div>

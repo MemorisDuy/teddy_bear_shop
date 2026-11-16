@@ -69,7 +69,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upgrade'])) {
     <title>Upgrade to Admin - Teddy Bear Shop</title>
     <style>
         body {
-            font-family: 'Poppins', sans-serif;
+            font-family: 'Quicksand', 'Nunito', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
             display: flex;
@@ -147,7 +147,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upgrade'])) {
     <div class="upgrade-container">
         <?php if ($success): ?>
             <div class="alert alert-success">
-                <h3>🎉 Upgrade thành công!</h3>
+                <h3><i class="fas fa-star"></i> Upgrade thành công!</h3>
                 <p>Bạn đã trở thành Admin. Đang chuyển hướng...</p>
             </div>
             <script>
@@ -156,7 +156,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upgrade'])) {
                 }, 2000);
             </script>
         <?php else: ?>
-            <div class="upgrade-icon">👑</div>
+            <div class="upgrade-icon"><i class="fas fa-crown"></i></div>
             <h1 class="upgrade-title">Upgrade to Admin</h1>
             <p class="upgrade-text">
                 Bạn hiện đang đăng nhập với tài khoản thường. 
@@ -178,7 +178,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['upgrade'])) {
 
             <form method="post">
                 <button type="submit" name="upgrade" class="btn btn-primary">
-                    🚀 Nâng cấp thành Admin
+                    <i class="fas fa-rocket"></i> Nâng cấp thành Admin
                 </button>
             </form>
             

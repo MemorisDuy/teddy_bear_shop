@@ -74,7 +74,7 @@ include '../includes/header.php';
     <div class="row mb-4">
         <div class="col-md-8">
             <h1 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; color: #ff6b9d;">
-                <span style="font-size: 1.5rem; margin-right: 10px;">🎨</span> Quản lý đơn đặt mẫu riêng
+                <span style="font-size: 1.5rem; margin-right: 10px;"><i class="fas fa-palette"></i></span> Quản lý đơn đặt mẫu riêng
             </h1>
         </div>
         <div class="col-md-4 text-end">
@@ -90,10 +90,10 @@ include '../includes/header.php';
     <div class="row mb-4">
         <?php
         $stats = [
-            ['label' => 'Tất cả yêu cầu', 'icon' => '📋', 'query' => 'SELECT COUNT(*) as count FROM custom_orders', 'color' => '#ff6b9d'],
-            ['label' => 'Yêu cầu mới', 'icon' => '🆕', 'query' => "SELECT COUNT(*) as count FROM custom_orders WHERE status IN ('waiting_images', 'image_selected', 'confirmed')", 'color' => '#FFC107'],
-            ['label' => 'Đã xem', 'icon' => '👀', 'query' => "SELECT COUNT(*) as count FROM custom_orders WHERE status = 'viewed'", 'color' => '#2196F3'],
-            ['label' => 'Đã phản hồi', 'icon' => '💬', 'query' => "SELECT COUNT(*) as count FROM custom_orders WHERE status = 'responded'", 'color' => '#4CAF50'],
+            ['label' => 'Tất cả yêu cầu', 'icon' => '<i class="fas fa-clipboard-list"></i>', 'query' => 'SELECT COUNT(*) as count FROM custom_orders', 'color' => '#ff6b9d'],
+            ['label' => 'Yêu cầu mới', 'icon' => '<i class="fas fa-bolt"></i>', 'query' => "SELECT COUNT(*) as count FROM custom_orders WHERE status IN ('waiting_images', 'image_selected', 'confirmed')", 'color' => '#FFC107'],
+            ['label' => 'Đã xem', 'icon' => '<i class="fas fa-eye"></i>', 'query' => "SELECT COUNT(*) as count FROM custom_orders WHERE status = 'viewed'", 'color' => '#2196F3'],
+            ['label' => 'Đã phản hồi', 'icon' => '<i class="fas fa-comment"></i>', 'query' => "SELECT COUNT(*) as count FROM custom_orders WHERE status = 'responded'", 'color' => '#4CAF50'],
         ];
         
         foreach ($stats as $stat) {
@@ -140,7 +140,7 @@ include '../includes/header.php';
             <div class="card">
                 <div class="card-header" style="background: linear-gradient(135deg, #ff6b9d, #ff8e72); color: white;">
                     <h5 class="mb-0" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
-                        📋 Danh sách yêu cầu (<?php echo count($custom_orders); ?>/<?php echo $total_count; ?>)
+                        <i class="fas fa-clipboard-list"></i> Danh sách yêu cầu (<?php echo count($custom_orders); ?>/<?php echo $total_count; ?>)
                     </h5>
                 </div>
                 <div class="table-responsive">
@@ -163,26 +163,26 @@ include '../includes/header.php';
                                     <div>
                                         <strong><?php echo htmlspecialchars($order['customer_name']); ?></strong>
                                         <div style="font-size: 0.85em; color: #999;">
-                                            📧 <?php echo htmlspecialchars($order['customer_email']); ?>
+                                            <i class="fas fa-envelope"></i> <?php echo htmlspecialchars($order['customer_email']); ?>
                                             <br>
-                                            📱 <?php echo htmlspecialchars($order['customer_phone']); ?>
+                                            <i class="fas fa-phone"></i> <?php echo htmlspecialchars($order['customer_phone']); ?>
                                         </div>
                                     </div>
                                 </td>
                                 <td style="max-width: 150px;">
-                                    <small style="color: #ff6b9d;">🔍 <?php echo htmlspecialchars(substr($order['search_keyword'], 0, 30)); ?></small>
+                                    <small style="color: #ff6b9d;"><i class="fas fa-search"></i> <?php echo htmlspecialchars(substr($order['search_keyword'], 0, 30)); ?></small>
                                 </td>
                                 <td>
                                     <?php
                                     $status_badge = match($order['status']) {
-                                        'waiting_images' => '<span class="badge bg-warning text-dark">⏳ Chờ chọn ảnh</span>',
-                                        'image_selected' => '<span class="badge bg-warning text-dark">🖼️ Đã chọn ảnh</span>',
-                                        'confirmed' => '<span class="badge bg-warning text-dark">🆕 Mới xác nhận</span>',
-                                        'new' => '<span class="badge bg-warning text-dark">🆕 Mới</span>',
-                                        'viewed' => '<span class="badge bg-info">👀 Đã xem</span>',
-                                        'responded' => '<span class="badge bg-success">💬 Đã phản hồi</span>',
-                                        'ordered' => '<span class="badge bg-primary">✅ Đã đặt hàng</span>',
-                                        'rejected' => '<span class="badge bg-danger">❌ Từ chối</span>',
+                                        'waiting_images' => '<span class="badge bg-warning text-dark"><i class="fas fa-clock"></i> Chờ chọn ảnh</span>',
+                                        'image_selected' => '<span class="badge bg-warning text-dark"><i class="fas fa-image"></i> Đã chọn ảnh</span>',
+                                        'confirmed' => '<span class="badge bg-warning text-dark"><i class="fas fa-bolt"></i> Mới xác nhận</span>',
+                                        'new' => '<span class="badge bg-warning text-dark"><i class="fas fa-bolt"></i> Mới</span>',
+                                        'viewed' => '<span class="badge bg-info"><i class="fas fa-eye"></i> Đã xem</span>',
+                                        'responded' => '<span class="badge bg-success"><i class="fas fa-comment"></i> Đã phản hồi</span>',
+                                        'ordered' => '<span class="badge bg-primary"><i class="fas fa-check-circle"></i> Đã đặt hàng</span>',
+                                        'rejected' => '<span class="badge bg-danger"><i class="fas fa-times"></i> Từ chối</span>',
                                         default => '<span class="badge bg-secondary">' . htmlspecialchars($order['status']) . '</span>'
                                     };
                                     echo $status_badge;
@@ -195,7 +195,7 @@ include '../includes/header.php';
                                 </td>
                                 <td>
                                     <a href="?id=<?php echo $order['id']; ?>" class="btn btn-sm btn-outline-primary">
-                                        <span style="font-size: 0.9em;">👁️</span> Xem
+                                        <span style="font-size: 0.9em;"><i class="fas fa-eye"></i></span> Xem
                                     </a>
                                 </td>
                             </tr>
@@ -263,11 +263,11 @@ include '../includes/header.php';
                     
                     <!-- Yêu cầu -->
                     <div class="mb-4">
-                        <h6 style="font-weight: bold; color: #ff6b9d; margin-bottom: 10px;">🎨 Yêu cầu chi tiết</h6>
+                        <h6 style="font-weight: bold; color: #ff6b9d; margin-bottom: 10px;"><i class="fas fa-palette"></i> Yêu cầu chi tiết</h6>
                         <p style="font-size: 0.95em; margin-bottom: 10px;">
                             <strong>Mẫu tìm kiếm:</strong><br>
                             <span style="background-color: #fff5f7; padding: 8px; border-radius: 4px; display: inline-block;">
-                                🔍 <?php echo htmlspecialchars($current_order['search_keyword']); ?>
+                                <i class="fas fa-search"></i> <?php echo htmlspecialchars($current_order['search_keyword']); ?>
                             </span>
                         </p>
                         <p style="font-size: 0.95em;">
@@ -281,7 +281,7 @@ include '../includes/header.php';
                     <!-- Ảnh tham khảo -->
                     <?php if (!empty($current_order['image_url'])): ?>
                     <div class="mb-4">
-                        <h6 style="font-weight: bold; color: #ff6b9d; margin-bottom: 10px;">🖼️ Hình ảnh khách tải lên</h6>
+                        <h6 style="font-weight: bold; color: #ff6b9d; margin-bottom: 10px;"><i class="fas fa-image"></i> Hình ảnh khách tải lên</h6>
                         <img src="<?php echo htmlspecialchars($current_order['image_url']); ?>" alt="Preview" 
                              style="max-width: 100%; max-height: 300px; border-radius: 8px; border: 1px solid #ddd;">
                     </div>
@@ -297,7 +297,7 @@ include '../includes/header.php';
                     
                     <!-- Thông tin khác -->
                     <div class="mb-4">
-                        <h6 style="font-weight: bold; color: #ff6b9d; margin-bottom: 10px;">📅 Thông tin</h6>
+                        <h6 style="font-weight: bold; color: #ff6b9d; margin-bottom: 10px;"><i class="fas fa-calendar-alt"></i> Thông tin</h6>
                         <table class="table table-sm table-borderless">
                             <tr>
                                 <td style="font-weight: bold; width: 30%;">Ngày gửi:</td>
@@ -308,14 +308,14 @@ include '../includes/header.php';
                                 <td>
                                     <?php
                                     $status_badge = match($current_order['status']) {
-                                        'waiting_images' => '<span class="badge bg-warning text-dark">⏳ Chờ chọn ảnh</span>',
-                                        'image_selected' => '<span class="badge bg-warning text-dark">🖼️ Đã chọn ảnh</span>',
-                                        'confirmed' => '<span class="badge bg-warning text-dark">🆕 Mới xác nhận</span>',
-                                        'new' => '<span class="badge bg-warning text-dark">🆕 Mới</span>',
-                                        'viewed' => '<span class="badge bg-info">👀 Đã xem</span>',
-                                        'responded' => '<span class="badge bg-success">💬 Đã phản hồi</span>',
-                                        'ordered' => '<span class="badge bg-primary">✅ Đã đặt hàng</span>',
-                                        'rejected' => '<span class="badge bg-danger">❌ Từ chối</span>',
+                                        'waiting_images' => '<span class="badge bg-warning text-dark"><i class="fas fa-clock"></i> Chờ chọn ảnh</span>',
+                                        'image_selected' => '<span class="badge bg-warning text-dark"><i class="fas fa-image"></i> Đã chọn ảnh</span>',
+                                        'confirmed' => '<span class="badge bg-warning text-dark"><i class="fas fa-bolt"></i> Mới xác nhận</span>',
+                                        'new' => '<span class="badge bg-warning text-dark"><i class="fas fa-bolt"></i> Mới</span>',
+                                        'viewed' => '<span class="badge bg-info"><i class="fas fa-eye"></i> Đã xem</span>',
+                                        'responded' => '<span class="badge bg-success"><i class="fas fa-comment"></i> Đã phản hồi</span>',
+                                        'ordered' => '<span class="badge bg-primary"><i class="fas fa-check-circle"></i> Đã đặt hàng</span>',
+                                        'rejected' => '<span class="badge bg-danger"><i class="fas fa-times"></i> Từ chối</span>',
                                         default => '<span class="badge bg-secondary">' . htmlspecialchars($current_order['status']) . '</span>'
                                     };
                                     echo $status_badge;
@@ -345,18 +345,18 @@ include '../includes/header.php';
                             </label>
                             <select name="status" id="status" class="form-select" 
                                     style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
-                                <option value="waiting_images" <?php echo $current_order['status'] === 'waiting_images' ? 'selected' : ''; ?>>⏳ Chờ chọn ảnh</option>
-                                <option value="confirmed" <?php echo $current_order['status'] === 'confirmed' ? 'selected' : ''; ?>>🆕 Mới xác nhận</option>
-                                <option value="viewed" <?php echo $current_order['status'] === 'viewed' ? 'selected' : ''; ?>>👀 Đã xem</option>
-                                <option value="responded" <?php echo $current_order['status'] === 'responded' ? 'selected' : ''; ?>>💬 Đã phản hồi</option>
-                                <option value="ordered" <?php echo $current_order['status'] === 'ordered' ? 'selected' : ''; ?>>✅ Đã đặt hàng</option>
-                                <option value="rejected" <?php echo $current_order['status'] === 'rejected' ? 'selected' : ''; ?>>❌ Từ chối</option>
+                                <option value="waiting_images" <?php echo $current_order['status'] === 'waiting_images' ? 'selected' : ''; ?>><i class="fas fa-clock"></i> Chờ chọn ảnh</option>
+                                <option value="confirmed" <?php echo $current_order['status'] === 'confirmed' ? 'selected' : ''; ?>><i class="fas fa-bolt"></i> Mới xác nhận</option>
+                                <option value="viewed" <?php echo $current_order['status'] === 'viewed' ? 'selected' : ''; ?>><i class="fas fa-eye"></i> Đã xem</option>
+                                <option value="responded" <?php echo $current_order['status'] === 'responded' ? 'selected' : ''; ?>><i class="fas fa-comment"></i> Đã phản hồi</option>
+                                <option value="ordered" <?php echo $current_order['status'] === 'ordered' ? 'selected' : ''; ?>><i class="fas fa-check-circle"></i> Đã đặt hàng</option>
+                                <option value="rejected" <?php echo $current_order['status'] === 'rejected' ? 'selected' : ''; ?>><i class="fas fa-times"></i> Từ chối</option>
                             </select>
                         </div>
                         
                         <div class="mb-3">
                             <label for="shopMessage" class="form-label" style="font-weight: bold; color: #ff6b9d;">
-                                💬 Phản hồi từ shop
+                                <i class="fas fa-comment"></i> Phản hồi từ shop
                             </label>
                             <textarea name="shop_message" id="shopMessage" class="form-control" rows="4"
                                       placeholder="Nhập phản hồi cho khách hàng (nếu có)..."
@@ -368,7 +368,7 @@ include '../includes/header.php';
                         
                         <button type="submit" class="btn btn-success w-100" 
                                 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; font-weight: bold;">
-                            <span style="font-size: 1.1em; margin-right: 5px;">💾</span> Lưu cập nhật
+                            <span style="font-size: 1.1em; margin-right: 5px;"><i class="fas fa-save"></i></span> Lưu cập nhật
                         </button>
                     </form>
                 </div>

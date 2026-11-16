@@ -116,10 +116,10 @@ include 'partials/menu.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản lý mã giảm giá - Admin</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <style>
-        body { font-family: 'Poppins', sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
+        body { font-family: 'Quicksand', 'Nunito', sans-serif; margin: 0; padding: 0; background: #f8f9fa; }
         .main-content { margin-left: 260px; padding: 30px; }
         .page-header { 
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); 
@@ -202,21 +202,21 @@ include 'partials/menu.php';
     <div class="main-content">
         <div class="page-header">
             <h1 class="page-title">
-                <span>🏷️</span>
+                <i class="fas fa-tag"></i>
                 Quản lý mã giảm giá
             </h1>
         </div>
 
         <?php if ($message): ?>
         <div class="alert alert-<?php echo $message_type; ?>">
-            <span><?php echo $message_type === 'success' ? '✅' : '⚠️'; ?></span>
+            <span><?php echo $message_type === 'success' ? '<i class="fas fa-check-circle"></i>' : '<i class="fas fa-exclamation-triangle"></i>'; ?></span>
             <?php echo htmlspecialchars($message); ?>
         </div>
         <?php endif; ?>
 
         <!-- Quick Create Demo -->
         <div class="demo-section">
-            <div class="demo-title">🎯 Tạo nhanh mã giảm giá mẫu (Click để thử):</div>
+            <div class="demo-title"><i class="fas fa-bolt"></i> Tạo nhanh mã giảm giá mẫu (Click để thử):</div>
             <div class="demo-buttons">
                 <div class="demo-btn" onclick="fillDemo('SAVE20', 'Giảm giá 20%', 'percentage', 20, 200000)">
                     SAVE20 - Giảm 20%
@@ -257,7 +257,7 @@ include 'partials/menu.php';
         <div class="content-card">
             <div class="card-header">
                 <h3 class="card-title">
-                    <span>➕</span> Tạo mã giảm giá mới
+                    <i class="fas fa-plus"></i> Tạo mã giảm giá mới
                 </h3>
             </div>
             
@@ -331,10 +331,10 @@ include 'partials/menu.php';
                 
                 <div style="padding: 20px; border-top: 1px solid #eee; display: flex; justify-content: flex-end; gap: 10px;">
                     <button type="button" onclick="clearForm()" class="btn btn-warning">
-                        <span>🧹</span> Xóa form
+                        <i class="fas fa-eraser"></i> Xóa form
                     </button>
                     <button type="submit" name="add_coupon" class="btn btn-primary">
-                        <span>💾</span> Tạo mã giảm giá
+                        <i class="fas fa-save"></i> Tạo mã giảm giá
                     </button>
                 </div>
             </form>
@@ -363,7 +363,7 @@ include 'partials/menu.php';
                         <?php if (empty($coupons)): ?>
                         <tr>
                             <td colspan="7" style="text-align: center; padding: 40px; color: #666;">
-                                <span style="font-size: 48px; display: block; margin-bottom: 15px;">🏷️</span>
+                                <span style="font-size: 48px; display: block; margin-bottom: 15px;"><i class="fas fa-tag"></i></span>
                                 Chưa có mã giảm giá nào. Hãy tạo mã đầu tiên!
                             </td>
                         </tr>
@@ -444,7 +444,7 @@ include 'partials/menu.php';
                                     <a href="?action=toggle_status&id=<?php echo $coupon['id']; ?>" 
                                        class="btn <?php echo $coupon['status'] === 'active' ? 'btn-warning' : 'btn-success'; ?>"
                                        onclick="return confirm('<?php echo $coupon['status'] === 'active' ? 'Vô hiệu hóa' : 'Kích hoạt'; ?> mã này?')">
-                                        <span><?php echo $coupon['status'] === 'active' ? '⏸️' : '▶️'; ?></span>
+                                        <span><?php echo $coupon['status'] === 'active' ? '<i class="fas fa-pause"></i>' : '<i class="fas fa-play"></i>'; ?></span>
                                         <?php echo $coupon['status'] === 'active' ? 'Tạm dừng' : 'Kích hoạt'; ?>
                                     </a>
                                     <?php endif; ?>

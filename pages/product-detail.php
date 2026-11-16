@@ -225,13 +225,13 @@ include '../includes/header.php';
                 <div class="mb-4">
                     <label class="form-label fw-semibold text-dark small mb-2">Số lượng đặt mua</label>
                     <div class="d-flex align-items-center gap-3">
-                        <div class="input-group" style="width: 140px;">
-                            <button class="btn btn-outline-secondary px-3" type="button" onclick="decreaseQuantity()">
+                        <div class="input-group flex-nowrap" style="width: 155px;">
+                            <button class="btn btn-outline-secondary" style="width: 40px; padding: 0.375rem 0;" type="button" onclick="decreaseQuantity()">
                                 <i class="fas fa-minus small"></i>
                             </button>
-                            <input type="number" id="quantity" class="form-control text-center fw-bold" 
+                            <input type="number" id="quantity" class="form-control text-center fw-bold px-1" 
                                    value="1" min="1" max="<?php echo $product['stock_quantity']; ?>">
-                            <button class="btn btn-outline-secondary px-3" type="button" onclick="increaseQuantity()">
+                            <button class="btn btn-outline-secondary" style="width: 40px; padding: 0.375rem 0;" type="button" onclick="increaseQuantity()">
                                 <i class="fas fa-plus small"></i>
                             </button>
                         </div>

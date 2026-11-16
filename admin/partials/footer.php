@@ -42,7 +42,7 @@ function confirmDelete(message = 'Bạn có chắc chắn muốn xóa?') {
 }
 
 function showLoading(element) {
-    element.innerHTML = '⏳ Đang xử lý...';
+    element.innerHTML = '<i class="fas fa-clock"></i> Đang xử lý...';
     element.disabled = true;
 }
 

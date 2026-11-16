@@ -147,193 +147,179 @@ $page_description = 'Tạo tài khoản mới tại Teddy Bear Paradise để tr
 include '../includes/header.php';
 ?>
 
-<!-- Link to external CSS -->
-<link rel="stylesheet" href="../css/auth-modern.css">
+<!-- Giao diện Đăng ký sạch sẽ, đồng bộ tone hồng pastel -->
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-7 col-lg-5">
+            <?php if (!empty($_SESSION['flash'])): ?>
+                <?php foreach ($_SESSION['flash'] as $type => $message): ?>
+                    <div class="alert alert-<?php echo $type === 'error' ? 'danger' : $type; ?> alert-dismissible fade show rounded-4 mb-3" role="alert">
+                        <?php echo htmlspecialchars($message); ?>
+                        <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                    </div>
+                <?php endforeach; ?>
+                <?php unset($_SESSION['flash']); ?>
+            <?php endif; ?>
 
-<div class="auth-wrapper">
-    
-    <div class="auth-container">
-        <!-- Flash Messages -->
-        <?php if (!empty($_SESSION['flash'])): ?>
-            <?php foreach ($_SESSION['flash'] as $type => $message): ?>
-                <div class="auth-alert auth-alert-<?php echo $type === 'error' ? 'danger' : $type; ?>" role="alert">
-                    <span style="font-size: 1.2rem; margin-right: 8px;"><?php echo $type === 'success' ? '✅' : ($type === 'error' ? '❌' : 'ℹ️'); ?></span>
-                    <span><?php echo htmlspecialchars($message); ?></span>
-                    <button type="button" class="auth-alert-close" onclick="this.parentElement.style.display='none';">&times;</button>
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+                <!-- Header Card -->
+                <div class="text-center p-4 bg-pink-light border-bottom">
+                    <div class="rounded-circle bg-white d-inline-flex align-items-center justify-content-center shadow-xs mb-2" style="width: 60px; height: 60px;">
+                        <i class="fas fa-user-plus text-pink fs-4"></i>
+                    </div>
+                    <h4 class="fw-bold text-dark mb-1">Tạo tài khoản mới</h4>
+                    <p class="text-muted small mb-0">Tham gia cùng Teddy Bear Paradise để nhận nhiều ưu đãi</p>
                 </div>
-            <?php endforeach; ?>
-            <?php unset($_SESSION['flash']); ?>
-        <?php endif; ?>
 
-        <div class="auth-card">
-            <!-- Header with gradient -->
-            <div class="auth-header">
-                <div class="auth-icon">🎉</div>
-                <h1 class="auth-title">Tham gia cùng tôi</h1>
-                <p class="auth-subtitle">Tạo tài khoản để khám phá kho gấu bông dễ thương</p>
-            </div>
-
-            <!-- Body with form -->
-            <div class="auth-body">
-                <form method="POST" class="auth-form" id="registerForm" novalidate>
-                    
-                    <!-- Full Name -->
-                    <div class="form-input-group">
-                        <label for="fullName" class="form-input-label">Họ và tên</label>
-                        <div class="form-input-wrapper">
-                            <span class="input-icon">👤</span>
-                            <input type="text" 
-                                   id="fullName" 
-                                   name="full_name"
-                                   class="form-input"
-                                   placeholder="Tên đầy đủ của bạn"
-                                   value="<?php echo isset($_POST['full_name']) ? htmlspecialchars($_POST['full_name']) : ''; ?>"
-                                   required 
-                                   minlength="2">
+                <!-- Body Form -->
+                <div class="card-body p-4">
+                    <form method="POST" id="registerForm" novalidate>
+                        <!-- Họ và tên -->
+                        <div class="mb-3">
+                            <label for="fullName" class="form-label fw-semibold text-secondary small">Họ và tên *</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0 text-pink">
+                                    <i class="fas fa-user"></i>
+                                </span>
+                                <input type="text" 
+                                       id="fullName" 
+                                       name="full_name"
+                                       class="form-control border-start-0 ps-0"
+                                       placeholder="Nguyễn Văn A"
+                                       value="<?php echo isset($_POST['full_name']) ? htmlspecialchars($_POST['full_name']) : ''; ?>"
+                                       required 
+                                       minlength="2">
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Email -->
-                    <div class="form-input-group">
-                        <label for="email" class="form-input-label">Email</label>
-                        <div class="form-input-wrapper">
-                            <span class="input-icon">✉️</span>
-                            <input type="email" 
-                                   id="email" 
-                                   name="email"
-                                   class="form-input"
-                                   placeholder="Email của bạn"
-                                   value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>"
-                                   required>
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold text-secondary small">Địa chỉ Email *</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0 text-pink">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <input type="email" 
+                                       id="email" 
+                                       name="email"
+                                       class="form-control border-start-0 ps-0"
+                                       placeholder="email@example.com"
+                                       value="<?php echo isset($_POST['email']) ? htmlspecialchars($_POST['email']) : ''; ?>"
+                                       required>
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Phone -->
-                    <div class="form-input-group">
-                        <label for="phone" class="form-input-label">Số điện thoại (tùy chọn)</label>
-                        <div class="form-input-wrapper">
-                            <span class="input-icon">📞</span>
-                            <input type="tel" 
-                                   id="phone" 
-                                   name="phone"
-                                   class="form-input"
-                                   placeholder="0xxxxxxxxx"
-                                   value="<?php echo isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : ''; ?>"
-                                   pattern="[0-9]{10,11}">
+                        <!-- Số điện thoại -->
+                        <div class="mb-3">
+                            <label for="phone" class="form-label fw-semibold text-secondary small">Số điện thoại (tùy chọn)</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0 text-pink">
+                                    <i class="fas fa-phone"></i>
+                                </span>
+                                <input type="tel" 
+                                       id="phone" 
+                                       name="phone"
+                                       class="form-control border-start-0 ps-0"
+                                       placeholder="0912345678"
+                                       value="<?php echo isset($_POST['phone']) ? htmlspecialchars($_POST['phone']) : ''; ?>"
+                                       pattern="[0-9]{10,11}">
+                            </div>
                         </div>
-                    </div>
 
-                    <!-- Password -->
-                    <div class="form-input-group">
-                        <label for="password" class="form-input-label">Mật khẩu</label>
-                        <div class="form-input-wrapper">
-                            <span class="input-icon">🔒</span>
-                            <input type="password" 
-                                   id="password" 
-                                   name="password"
-                                   class="form-input"
-                                   placeholder="Tối thiểu 6 ký tự"
-                                   required 
-                                   minlength="6">
-                            <button type="button" class="toggle-password" onclick="togglePassword('password')" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
-                                <span style="font-size: 1rem; color: #666;">👁️</span>
+                        <!-- Mật khẩu -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-semibold text-secondary small">Mật khẩu *</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0 text-pink">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                                <input type="password" 
+                                       id="password" 
+                                       name="password"
+                                       class="form-control border-start-0 border-end-0 ps-0"
+                                       placeholder="Tối thiểu 6 ký tự"
+                                       required 
+                                       minlength="6">
+                                <button type="button" class="btn btn-light border border-start-0 text-muted" onclick="togglePassword('password')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Xác nhận mật khẩu -->
+                        <div class="mb-3">
+                            <label for="confirmPassword" class="form-label fw-semibold text-secondary small">Xác nhận mật khẩu *</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0 text-pink">
+                                    <i class="fas fa-shield-alt"></i>
+                                </span>
+                                <input type="password" 
+                                       id="confirmPassword" 
+                                       name="confirm_password"
+                                       class="form-control border-start-0 border-end-0 ps-0"
+                                       placeholder="Nhập lại mật khẩu"
+                                       required 
+                                       minlength="6">
+                                <button type="button" class="btn btn-light border border-start-0 text-muted" onclick="togglePassword('confirmPassword')">
+                                    <i class="fas fa-eye"></i>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Điều khoản -->
+                        <div class="mb-2">
+                            <div class="form-check small">
+                                <input type="checkbox" id="agreeTerms" name="agree_terms" class="form-check-input" required checked>
+                                <label for="agreeTerms" class="form-check-label text-secondary">
+                                    Tôi đồng ý với <a href="javascript:void(0)" class="text-pink fw-semibold">Điều khoản sử dụng</a> và <a href="javascript:void(0)" class="text-pink fw-semibold">Chính sách bảo mật</a>
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Newsletter -->
+                        <div class="mb-4">
+                            <div class="form-check small">
+                                <input type="checkbox" id="newsletter" name="subscribe_newsletter" class="form-check-input" checked>
+                                <label for="newsletter" class="form-check-label text-secondary">
+                                    Nhận thông tin khuyến mãi và mẫu gấu bông mới
+                                </label>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-primary rounded-pill py-2 fw-semibold">
+                                <i class="fas fa-check-circle me-2"></i> Tạo tài khoản
                             </button>
                         </div>
-                    <!-- Confirm Password -->
-                    <div class="form-input-group">
-                        <label for="confirmPassword" class="form-input-label">Xác nhận mật khẩu</label>
-                        <div class="form-input-wrapper">
-                            <span class="input-icon">🔐</span>
-                            <input type="password" 
-                                   id="confirmPassword" 
-                                   name="confirm_password"
-                                   class="form-input"
-                                   placeholder="Nhập lại mật khẩu"
-                                   required 
-                                   minlength="6">
-                            <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
-                                <span style="font-size: 1rem; color: #666;">👁️</span>
+                    </form>
+
+                    <!-- Divider -->
+                    <div class="text-center my-3 position-relative">
+                        <hr class="text-muted opacity-25">
+                        <span class="bg-white px-2 text-muted small position-absolute top-50 start-50 translate-middle">hoặc</span>
+                    </div>
+
+                    <!-- Social Login -->
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <button type="button" class="btn btn-light border rounded-pill w-100 btn-sm py-2" onclick="alert('Tính năng đăng ký Google sắp ra mắt')">
+                                <i class="fab fa-google text-danger me-1"></i> Google
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="btn btn-light border rounded-pill w-100 btn-sm py-2" onclick="alert('Tính năng đăng ký Facebook sắp ra mắt')">
+                                <i class="fab fa-facebook-f text-primary me-1"></i> Facebook
                             </button>
                         </div>
                     </div>
 
-                    <!-- Terms & Privacy -->
-                    <div class="form-checkbox-group">
-                        <input type="checkbox" 
-                               id="agreeTerms" 
-                               name="agree_terms"
-                               class="form-checkbox"
-                               required>
-                        <label for="agreeTerms" class="form-checkbox-label">
-                            Tôi đồng ý với <a href="javascript:void(0)" class="auth-link">Điều khoản sử dụng</a> và <a href="javascript:void(0)" class="auth-link">Chính sách bảo mật</a>
-                        </label>
+                    <!-- Footer Link -->
+                    <div class="text-center pt-3 border-top small">
+                        <p class="mb-0 text-muted">
+                            Đã có tài khoản? <a href="login.php" class="text-pink fw-bold">Đăng nhập ngay</a>
+                        </p>
                     </div>
-
-                    <!-- Newsletter -->
-                    <div class="form-checkbox-group">
-                        <input type="checkbox" 
-                               id="newsletter" 
-                               name="subscribe_newsletter"
-                               class="form-checkbox"
-                               checked>
-                        <label for="newsletter" class="form-checkbox-label">
-                            📧 Nhận thông tin khuyến mãi và sản phẩm mới
-                        </label>
-                    </div>
-
-                    <!-- Submit Button -->
-                    <button type="submit" class="btn-primary-auth">
-                        <span>Tạo tài khoản</span>
-                        <span style="font-size: 1rem; margin-left: 8px;">➡️</span>
-                    </button>
-
-                </form>
-
-                <!-- Divider -->
-                <div class="auth-divider">
-                    <span>hoặc</span>
-                </div>
-
-                <!-- Social Login -->
-                <div class="auth-social">
-                    <button type="button" class="btn-social btn-google" onclick="alert('Google registration coming soon')">
-                        <span style="font-size: 1.2rem; margin-right: 8px;">🔴</span>
-                        <span>Google</span>
-                    </button>
-                    <button type="button" class="btn-social btn-facebook" onclick="alert('Facebook registration coming soon')">
-                        <span style="font-size: 1.2rem; margin-right: 8px;">📘</span>
-                        <span>Facebook</span>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Footer -->
-            <div class="auth-footer">
-                <p>Đã có tài khoản? <a href="login.php" class="auth-link auth-link-strong">Đăng nhập ngay</a></p>
-            </div>
-        </div>
-
-        <!-- Benefits Grid -->
-        <div class="benefits">
-            <div class="benefit-card">
-                <div class="benefit-icon">🎁</div>
-                <div class="benefit-text">
-                    <h4>Ưu đãi đặc biệt</h4>
-                    <p>Giảm 10% cho đơn đầu</p>
-                </div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">❤️</div>
-                <div class="benefit-text">
-                    <h4>Danh sách yêu thích</h4>
-                    <p>Lưu sản phẩm yêu thích</p>
-                </div>
-            </div>
-            <div class="benefit-card">
-                <div class="benefit-icon">📦</div>
-                <div class="benefit-text">
-                    <h4>Theo dõi đơn hàng</h4>
-                    <p>Quản lý dễ dàng</p>
                 </div>
             </div>
         </div>

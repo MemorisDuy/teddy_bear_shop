@@ -167,7 +167,7 @@ $page_title = "Chỉnh sửa sản phẩm - Admin";
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <h1 class="mb-0">
-                        <span>✏️</span> Chỉnh sửa sản phẩm
+                        <i class="fas fa-edit"></i> Chỉnh sửa sản phẩm
                     </h1>
                     <p class="mb-0 opacity-75">ID: #<?php echo $product['id']; ?> - <?php echo htmlspecialchars($product['name']); ?></p>
                 </div>
@@ -177,7 +177,7 @@ $page_title = "Chỉnh sửa sản phẩm - Admin";
                     </a>
                     <a href="../pages/product-detail.php?slug=<?php echo urlencode($product['slug']); ?>" 
                        class="btn btn-outline-light" target="_blank">
-                        <span>👁️</span> Xem sản phẩm
+                        <i class="fas fa-eye"></i> Xem sản phẩm
                     </a>
                 </div>
             </div>
@@ -188,7 +188,7 @@ $page_title = "Chỉnh sửa sản phẩm - Admin";
         <!-- Error Messages -->
         <?php if (!empty($errors)): ?>
             <div class="alert alert-danger">
-                <h5><span>⚠️</span> Có lỗi xảy ra:</h5>
+                <h5><i class="fas fa-exclamation-triangle"></i> Có lỗi xảy ra:</h5>
                 <ul class="mb-0">
                     <?php foreach ($errors as $error): ?>
                         <li><?php echo htmlspecialchars($error); ?></li>
@@ -280,7 +280,7 @@ $page_title = "Chỉnh sửa sản phẩm - Admin";
                     <!-- Product Details -->
                     <div class="form-section">
                         <h4 class="section-title">
-                            <span>⚙️</span> Chi tiết sản phẩm
+                            <i class="fas fa-cog"></i> Chi tiết sản phẩm
                         </h4>
                         
                         <div class="row">
@@ -321,7 +321,7 @@ $page_title = "Chỉnh sửa sản phẩm - Admin";
                     <!-- SEO -->
                     <div class="form-section">
                         <h4 class="section-title">
-                            <span>🔍</span> SEO
+                            <i class="fas fa-search"></i> SEO
                         </h4>
                         
                         <div class="row">
@@ -346,7 +346,7 @@ $page_title = "Chỉnh sửa sản phẩm - Admin";
                     <!-- Current Image -->
                     <div class="form-section">
                         <h4 class="section-title">
-                            <span>🖼️</span> Hình ảnh sản phẩm
+                            <i class="fas fa-image"></i> Hình ảnh sản phẩm
                         </h4>
                         
                         <div class="mb-3">
@@ -359,7 +359,7 @@ $page_title = "Chỉnh sửa sản phẩm - Admin";
                                      onerror="this.src='<?php echo IMG_PATH; ?>placeholder.jpg'">
                                 <div class="change-image-overlay">
                                     <div class="text-center">
-                                        <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">📷</span>
+                                        <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;"><i class="fas fa-camera"></i></span>
                                         <p class="mb-0">Click để thay đổi</p>
                                     </div>
                                 </div>
@@ -403,7 +403,7 @@ $page_title = "Chỉnh sửa sản phẩm - Admin";
                     <!-- Product Stats -->
                     <div class="form-section">
                         <h4 class="section-title">
-                            <span>📊</span> Thống kê
+                            <i class="fas fa-chart-bar"></i> Thống kê
                         </h4>
                         
                         <div class="row text-center">
@@ -431,10 +431,10 @@ $page_title = "Chỉnh sửa sản phẩm - Admin";
                     <div class="form-section">
                         <div class="d-grid gap-2">
                             <button type="submit" class="btn btn-primary btn-lg">
-                                <span>💾</span> Lưu thay đổi
+                                <i class="fas fa-save"></i> Lưu thay đổi
                             </button>
                             <a href="manage-products.php" class="btn btn-secondary">
-                                <span>❌</span> Hủy bỏ
+                                <i class="fas fa-times"></i> Hủy bỏ
                             </a>
                             <hr>
                             <a href="?id=<?php echo $product['id']; ?>&delete=<?php echo $product['id']; ?>" 

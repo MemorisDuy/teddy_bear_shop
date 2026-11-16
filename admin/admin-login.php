@@ -60,14 +60,14 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Admin Login - Teddy Bear Shop</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../css/admin-login.css">
 </head>
 <body>
     <div class="login-container">
         <div class="login-header">
-            <div class="login-icon">🧸</div>
+            <div class="login-icon"><i class="fas fa-heart"></i></div>
             <h1 class="login-title">Admin Panel</h1>
             <p class="login-subtitle">Hệ thống quản trị Teddy Bear Shop</p>
         </div>
@@ -75,14 +75,14 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
         <div class="login-body">
             <?php if ($error_message): ?>
                 <div class="alert alert-danger" style="font-size:16px; font-weight:bold; color:#b30000; background:#fff3f3; border:2px solid #ffb3b3; padding:16px; margin-bottom:20px; border-radius:8px;">
-                    <span>⚠️</span>
+                    <i class="fas fa-exclamation-triangle"></i>
                     <?php echo htmlspecialchars($error_message); ?>
                 </div>
             <?php endif; ?>
 
             <?php if ($success_message): ?>
                 <div class="alert alert-success" style="font-size:16px; font-weight:bold; color:#006600; background:#f0fff0; border:2px solid #90EE90; padding:16px; margin-bottom:20px; border-radius:8px;">
-                    <span>✅</span>
+                    <i class="fas fa-check-circle"></i>
                     <?php echo htmlspecialchars($success_message); ?>
                 </div>
             <?php endif; ?>
@@ -107,7 +107,7 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
                 </div>
 
                 <button type="submit" class="btn btn-primary w-100 mt-3">
-                    <span>🔐</span>
+                    <i class="fas fa-lock"></i>
                     <span>Đăng nhập</span>
                 </button>
             </form>
@@ -124,7 +124,7 @@ if (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_in'] === true
                 </p>
             </div>
             <small style="color: #666; font-size: 12px;">
-                💡 Hệ thống sẽ tự động tạo tài khoản admin nếu chưa tồn tại
+                <i class="fas fa-lightbulb"></i> Hệ thống sẽ tự động tạo tài khoản admin nếu chưa tồn tại
             </small>
         </div>
     </div>

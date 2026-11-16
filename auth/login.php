@@ -193,115 +193,121 @@ $page_description = 'Đăng nhập vào tài khoản Teddy Bear Paradise để t
 include '../includes/header.php';
 ?>
 
-<!-- Link to Modern CSS -->
-<link rel="stylesheet" href="../css/auth-modern.css">
-
-<div class="auth-wrapper">
-    <div class="auth-card">
-        <!-- Header -->
-        <div class="auth-header">
-            <span class="auth-icon">🐻</span>
-            <h2 class="auth-title">Chào mừng trở lại!</h2>
-            <p class="auth-subtitle">Đăng nhập để tiếp tục hành trình mua sắm</p>
-        </div>
-
-        <!-- Body -->
-        <div class="auth-body">
-            <!-- Success Message from Registration -->
-            <?php if (!empty($success_message)): ?>
-                <div class="alert alert-success">
-                    <span>✅</span>
-                    <div><?php echo htmlspecialchars($success_message); ?></div>
-                </div>
-            <?php endif; ?>
-
-            <!-- Flash Messages -->
-            <?php if (!empty($_SESSION['flash'])): ?>
-                <?php foreach ($_SESSION['flash'] as $type => $message): ?>
-                    <div class="alert alert-<?php echo $type === 'error' ? 'error' : $type; ?>">
-                        <span><?php echo $type === 'success' ? '✅' : ($type === 'error' ? '❌' : 'ℹ️'); ?></span>
-                        <div><?php echo htmlspecialchars($message); ?></div>
+<!-- Giao diện Đăng nhập sạch sẽ, đồng bộ tone hồng pastel -->
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden bg-white">
+                <!-- Header Card -->
+                <div class="text-center p-4 bg-pink-light border-bottom">
+                    <div class="rounded-circle bg-white d-inline-flex align-items-center justify-content-center shadow-xs mb-2" style="width: 60px; height: 60px;">
+                        <i class="fas fa-heart text-pink fs-3"></i>
                     </div>
-                <?php endforeach; ?>
-                <?php unset($_SESSION['flash']); ?>
-            <?php endif; ?>
-
-            <!-- Login Form -->
-            <form method="POST" class="auth-form" id="loginForm">
-                
-                <!-- Email -->
-                <div class="form-group">
-                    <label for="email" class="form-label">Email</label>
-                    <div class="form-input-wrapper">
-                        <span class="input-icon">✉️</span>
-                        <input type="email" 
-                               class="form-input" 
-                               id="email" 
-                               name="email"
-                               placeholder="Nhập email của bạn"
-                               value="<?php echo !empty($prefill_email) ? htmlspecialchars($prefill_email) : ''; ?>"
-                               required>
-                    </div>
-                    <div class="form-feedback error" id="emailError"></div>
+                    <h4 class="fw-bold text-dark mb-1">Chào mừng trở lại!</h4>
+                    <p class="text-muted small mb-0">Đăng nhập để tiếp tục mua sắm cùng Teddy Bear Paradise</p>
                 </div>
 
-                <!-- Password -->
-                <div class="form-group">
-                    <label for="password" class="form-label">Mật khẩu</label>
-                    <div class="form-input-wrapper">
-                        <span class="input-icon">🔒</span>
-                        <input type="password" 
-                               class="form-input" 
-                               id="password" 
-                               name="password"
-                               placeholder="Nhập mật khẩu"
-                               required>
+                <!-- Body Form -->
+                <div class="card-body p-4">
+                    <?php if (!empty($success_message)): ?>
+                        <div class="alert alert-success rounded-3 small mb-3">
+                            <i class="fas fa-check-circle me-1"></i> <?php echo htmlspecialchars($success_message); ?>
+                        </div>
+                    <?php endif; ?>
+
+                    <?php if (!empty($_SESSION['flash'])): ?>
+                        <?php foreach ($_SESSION['flash'] as $type => $message): ?>
+                            <div class="alert alert-<?php echo $type === 'error' ? 'danger' : $type; ?> rounded-3 small mb-3">
+                                <?php echo htmlspecialchars($message); ?>
+                            </div>
+                        <?php endforeach; ?>
+                        <?php unset($_SESSION['flash']); ?>
+                    <?php endif; ?>
+
+                    <form method="POST" id="loginForm">
+                        <!-- Email -->
+                        <div class="mb-3">
+                            <label for="email" class="form-label fw-semibold text-secondary small">Email</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0 text-pink">
+                                    <i class="fas fa-envelope"></i>
+                                </span>
+                                <input type="email" 
+                                       class="form-control border-start-0 ps-0" 
+                                       id="email" 
+                                       name="email"
+                                       placeholder="email@example.com"
+                                       value="<?php echo !empty($prefill_email) ? htmlspecialchars($prefill_email) : ''; ?>"
+                                       required>
+                            </div>
+                        </div>
+
+                        <!-- Password -->
+                        <div class="mb-3">
+                            <label for="password" class="form-label fw-semibold text-secondary small">Mật khẩu</label>
+                            <div class="input-group">
+                                <span class="input-group-text bg-light border-end-0 text-pink">
+                                    <i class="fas fa-lock"></i>
+                                </span>
+                                <input type="password" 
+                                       class="form-control border-start-0 ps-0" 
+                                       id="password" 
+                                       name="password"
+                                       placeholder="Nhập mật khẩu"
+                                       required>
+                            </div>
+                        </div>
+
+                        <!-- Remember & Forgot -->
+                        <div class="d-flex justify-content-between align-items-center mb-4 small">
+                            <div class="form-check">
+                                <input class="form-check-input" type="checkbox" id="remember" name="remember">
+                                <label class="form-check-label text-secondary" for="remember">Ghi nhớ đăng nhập</label>
+                            </div>
+                            <a href="#" onclick="showForgotPasswordModal(); return false;" class="text-pink fw-semibold">
+                                Quên mật khẩu?
+                            </a>
+                        </div>
+
+                        <!-- Login Button -->
+                        <div class="d-grid mb-3">
+                            <button type="submit" class="btn btn-primary rounded-pill py-2 fw-semibold">
+                                <i class="fas fa-sign-in-alt me-2"></i> Đăng nhập
+                            </button>
+                        </div>
+                    </form>
+
+                    <!-- Divider -->
+                    <div class="text-center my-3 position-relative">
+                        <hr class="text-muted opacity-25">
+                        <span class="bg-white px-2 text-muted small position-absolute top-50 start-50 translate-middle">hoặc</span>
                     </div>
-                    <div class="form-feedback error" id="passwordError"></div>
-                </div>
 
-                <!-- Remember & Forgot -->
-                <div class="form-options">
-                    <div class="form-checkbox">
-                        <input type="checkbox" id="remember" name="remember">
-                        <label for="remember">Ghi nhớ đăng nhập</label>
+                    <!-- Social Login -->
+                    <div class="row g-2 mb-3">
+                        <div class="col-6">
+                            <button type="button" class="btn btn-light border rounded-pill w-100 btn-sm py-2" onclick="loginWithGoogle()">
+                                <i class="fab fa-google text-danger me-1"></i> Google
+                            </button>
+                        </div>
+                        <div class="col-6">
+                            <button type="button" class="btn btn-light border rounded-pill w-100 btn-sm py-2" onclick="loginWithFacebook()">
+                                <i class="fab fa-facebook-f text-primary me-1"></i> Facebook
+                            </button>
+                        </div>
                     </div>
-                    <a href="#" onclick="showForgotPasswordModal(); return false;" class="forgot-link">
-                        Quên mật khẩu?
-                    </a>
+
+                    <!-- Footer Links -->
+                    <div class="text-center pt-3 border-top small">
+                        <p class="mb-2 text-muted">
+                            Chưa có tài khoản? <a href="register.php" class="text-pink fw-bold">Đăng ký ngay</a>
+                        </p>
+                        <a href="../admin/admin-login.php" class="text-secondary text-decoration-none">
+                            <i class="fas fa-user-shield me-1"></i> Đăng nhập Quản trị viên
+                        </a>
+                    </div>
                 </div>
-
-                <!-- Login Button -->
-                <button type="submit" class="btn-auth btn-primary-auth">
-                    <span>🔐</span> Đăng nhập
-                </button>
-
-            </form>
-
-            <!-- Divider -->
-            <div class="auth-divider">
-                <span>hoặc</span>
             </div>
-
-            <!-- Social Login -->
-            <div class="social-buttons">
-                <button type="button" class="social-button" onclick="loginWithGoogle()">
-                    <span>🔴</span>
-                    <span>Google</span>
-                </button>
-                <button type="button" class="social-button" onclick="loginWithFacebook()">
-                    <span>📘</span>
-                    <span>Facebook</span>
-                </button>
-            </div>
-        </div>
-
-        <!-- Footer -->
-        <div class="auth-footer">
-            <p>Chưa có tài khoản? <a href="register.php">Đăng ký ngay 🎉</a></p>
-            <p style="margin-top: 12px; font-size: 12px;">
-                <a href="../admin/admin-login.php" style="color: var(--secondary-color); font-weight: 600;">👑 Đăng nhập Admin</a>
-            </p>
         </div>
     </div>
 </div>

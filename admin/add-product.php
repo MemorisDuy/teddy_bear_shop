@@ -121,7 +121,7 @@ $page_title = "Thêm sản phẩm - Admin";
             <div class="row align-items-center">
                 <div class="col-md-6">
                     <h1 class="mb-0">
-                        <span>➕</span> Thêm sản phẩm mới
+                        <i class="fas fa-plus"></i> Thêm sản phẩm mới
                     </h1>
                 </div>
                 <div class="col-md-6 text-end">
@@ -139,7 +139,7 @@ $page_title = "Thêm sản phẩm - Admin";
                     <!-- Error Messages -->
                     <?php if (!empty($errors)): ?>
                         <div class="alert alert-danger">
-                            <h5><span>⚠️</span> Có lỗi xảy ra:</h5>
+                            <h5><i class="fas fa-exclamation-triangle"></i> Có lỗi xảy ra:</h5>
                             <ul class="mb-0">
                                 <?php foreach ($errors as $error): ?>
                                     <li><?php echo htmlspecialchars($error); ?></li>
@@ -209,7 +209,7 @@ $page_title = "Thêm sản phẩm - Admin";
                                 <!-- Product Details -->
                                 <div class="form-section">
                                     <h4 class="section-title">
-                                        <span>⚙️</span> Chi tiết sản phẩm
+                                        <i class="fas fa-cog"></i> Chi tiết sản phẩm
                                     </h4>
                                     
                                     <div class="row">
@@ -257,7 +257,7 @@ $page_title = "Thêm sản phẩm - Admin";
                                 <!-- SEO -->
                                 <div class="form-section">
                                     <h4 class="section-title">
-                                        <span>🔍</span> SEO
+                                        <i class="fas fa-search"></i> SEO
                                     </h4>
                                     
                                     <div class="row">
@@ -282,14 +282,14 @@ $page_title = "Thêm sản phẩm - Admin";
                                 <!-- Image Upload -->
                                 <div class="form-section">
                                     <h4 class="section-title">
-                                        <span>🖼️</span> Hình ảnh sản phẩm
+                                        <i class="fas fa-image"></i> Hình ảnh sản phẩm
                                     </h4>
                                     
                                     <div class="mb-3">
                                         <label class="form-label">Hình ảnh chính</label>
                                         <div class="image-preview" onclick="document.getElementById('main_image').click()">
                                             <div class="text-center text-muted">
-                                                <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;">📷</span>
+                                                <span style="font-size: 2rem; display: block; margin-bottom: 0.5rem;"><i class="fas fa-camera"></i></span>
                                                 <p>Click để chọn hình ảnh</p>
                                             </div>
                                         </div>
@@ -329,10 +329,10 @@ $page_title = "Thêm sản phẩm - Admin";
                                 <div class="form-section">
                                     <div class="d-grid gap-2">
                                         <button type="submit" class="btn btn-primary btn-lg">
-                                            <span>💾</span> Thêm sản phẩm
+                                            <i class="fas fa-save"></i> Thêm sản phẩm
                                         </button>
                                         <a href="manage-products.php" class="btn btn-secondary">
-                                            <span>❌</span> Hủy bỏ
+                                            <i class="fas fa-times"></i> Hủy bỏ
                                         </a>
                                     </div>
                                 </div>

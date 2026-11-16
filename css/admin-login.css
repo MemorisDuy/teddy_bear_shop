@@ -1,23 +1,10 @@
-/* Admin Login CSS - Pink Theme */
-
-/* ===== CUSTOM FONTS ===== */
-@font-face {
-    font-family: 'Quicksand';
-    src: url('../fonts/Quicksand-Regular.ttf') format('truetype');
-    font-weight: 400;
-}
-
-@font-face {
-    font-family: 'Quicksand';
-    src: url('../fonts/Quicksand-Bold.ttf') format('truetype');
-    font-weight: 700;
-}
+/* Admin Login CSS - Clean Soft Pastel Pink Theme */
 
 *:not(.fa):not(.fas):not(.far):not(.fab):not(i[class*="fa-"]) {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'Poppins', sans-serif !important;
+    font-family: 'Quicksand', 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif !important;
 }
 
 /* ===== RESTORE ICON FONTS ===== */
@@ -35,13 +22,13 @@
 }
 
 body {
-    font-family: 'Poppins', sans-serif;
-    background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
+    font-family: 'Quicksand', 'Nunito', sans-serif;
+    background: linear-gradient(135deg, #fff5f7 0%, #ffe4ec 100%);
     min-height: 100vh;
     display: flex;
     align-items: center;
     justify-content: center;
-    color: #333;
+    color: #1e293b;
 }
 
 .login-container {
