@@ -41,9 +41,6 @@ $page_description = $product['short_description'];
 include '../includes/header.php';
 ?>
 
-<link rel="stylesheet" href="../css/style.css">
-<link rel="stylesheet" href="../css/product-detail-colors.css">
-
 <!-- Breadcrumb điều hướng -->
 <div class="bg-light py-3 border-bottom mb-4">
     <div class="container">

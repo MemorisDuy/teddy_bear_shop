@@ -115,68 +115,15 @@ if (!function_exists('formatPrice')) {
     }
 }
 
-// Try to include header
-$header_included = false;
-if (file_exists('includes/header.php')) {
-    try {
-        include 'includes/header.php';
-        $header_included = true;
-    } catch (Exception $e) {
-        $header_included = false;
-    }
-}
-
-// If header not included, create inline header
-if (!$header_included) {
+include 'includes/header.php';
 ?>
-<!DOCTYPE html>
-<html lang="vi">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo htmlspecialchars($page_title); ?></title>
-    <meta name="description" content="<?php echo htmlspecialchars($page_description); ?>">
-    
-    <!-- CSS Libraries -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="/teddy_bear_shop/css/style.css">
-    <link rel="stylesheet" href="/teddy_bear_shop/css/cute-effects.css">
-    <!-- <link rel="stylesheet" href="/teddy_bear_shop/css/category-cards.css"> -->
-</head>
-<body>
-    <!-- Simple Header -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container">
-            <a class="navbar-brand" href="index.php">
-                        <span style="font-size: 1.2rem; color: #dc3545;">💖</span> Teddy Bear Paradise
-            </a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item"><a class="nav-link" href="index.php">Trang chủ</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pages/products.php">Sản phẩm</a></li>
-                    <li class="nav-item"><a class="nav-link" href="pages/contact.php">Liên hệ</a></li>
-                    <li class="nav-item">
-                        <a class="nav-link cart-link" href="cart/">
-                            <span style="font-size: 1.1rem;">🛒</span> Giỏ hàng 
-                            <span id="cartCount" class="badge bg-danger">0</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
-<?php } ?>
 
 <!-- Hero Section -->
 <section class="hero-section">
     <div class="container">
-        <div class="row align-items-center" style="min-height: 70vh;">
+        <div class="row align-items-center" style="min-height: 65vh;">
             <div class="col-lg-6">
-                <div class="hero-content text-white">
+                <div class="hero-content">
                     <h1 class="hero-title mb-4">
                         Thiên đường
                         <span class="highlight">Gấu Bông</span>

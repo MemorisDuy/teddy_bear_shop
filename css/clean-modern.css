@@ -197,10 +197,9 @@ a:hover {
     background: var(--primary-gradient) !important;
     color: #ffffff !important;
     font-weight: 700 !important;
-    padding: 12px 28px !important;
     border-radius: var(--radius-full) !important;
     border: none !important;
-    box-shadow: 0 4px 15px rgba(255, 107, 150, 0.35) !important;
+    box-shadow: 0 4px 14px rgba(255, 107, 150, 0.3) !important;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -209,18 +208,31 @@ a:hover {
     transition: var(--transition-smooth) !important;
 }
 
+.cute-btn, .btn-primary:not(.btn-sm):not(.btn-lg) {
+    padding: 10px 24px !important;
+}
+
+.btn-sm {
+    padding: 6px 14px !important;
+    font-size: 0.875rem !important;
+}
+
+.btn-lg {
+    padding: 12px 28px !important;
+    font-size: 1.05rem !important;
+}
+
 .cute-btn:hover, .btn-primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(255, 107, 150, 0.45) !important;
+    box-shadow: 0 8px 22px rgba(255, 107, 150, 0.42) !important;
     color: #ffffff !important;
 }
 
 .cute-btn-outline, .btn-outline-primary {
     background: #ffffff !important;
     color: var(--primary-color) !important;
-    border: 2px solid var(--primary-color) !important;
+    border: 1.5px solid var(--primary-color) !important;
     font-weight: 700 !important;
-    padding: 10px 26px !important;
     border-radius: var(--radius-full) !important;
     display: inline-flex;
     align-items: center;
@@ -228,6 +240,10 @@ a:hover {
     gap: 8px;
     cursor: pointer;
     transition: var(--transition-smooth) !important;
+}
+
+.cute-btn-outline, .btn-outline-primary:not(.btn-sm):not(.btn-lg) {
+    padding: 9px 22px !important;
 }
 
 .cute-btn-outline:hover, .btn-outline-primary:hover {
@@ -522,4 +538,73 @@ a:hover {
     border-color: var(--primary-color) !important;
     background-color: var(--primary-light) !important;
 }
+
+/* ==========================================================================
+   10. CHUẨN HÓA TYPOGRAPHY, PHÂN TRANG, HOVER OVERLAY & FORM
+   ========================================================================== */
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Quicksand', 'Nunito', sans-serif !important;
+    color: var(--text-primary);
+    font-weight: 700;
+}
+
+/* Sửa triệt để lỗi màu tương phản phân trang (Pagination) */
+.pagination .page-link {
+    color: var(--text-primary) !important;
+    background-color: #ffffff !important;
+    border: 1px solid #e2e8f0 !important;
+    text-decoration: none !important;
+    font-weight: 600;
+    transition: var(--transition-fast);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination .page-link:hover {
+    background-color: var(--primary-light) !important;
+    color: var(--primary-color) !important;
+    border-color: var(--primary-color) !important;
+}
+
+.pagination .page-item.active .page-link {
+    background: var(--primary-gradient) !important;
+    color: #ffffff !important;
+    border-color: transparent !important;
+    box-shadow: 0 4px 10px rgba(255, 107, 150, 0.35);
+}
+
+/* Hiệu ứng hover overlay trên ảnh sản phẩm */
+.product-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(30, 41, 59, 0.28);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: var(--transition-smooth);
+}
+
+.product-card:hover .product-overlay {
+    opacity: 1;
+}
+
+/* Form controls sạch sẽ */
+.form-control:focus,
+.form-select:focus {
+    border-color: var(--primary-color) !important;
+    box-shadow: 0 0 0 0.2rem rgba(255, 107, 150, 0.2) !important;
+}
+
+/* Nav pills (Hồ sơ cá nhân) */
+.nav-pills .nav-link {
+    color: var(--text-secondary);
+}
+
+.nav-pills .nav-link.active {
+    background: var(--primary-gradient) !important;
+    color: #ffffff !important;
+}
+
 

@@ -50,20 +50,12 @@ if (!defined('SITE_NAME')) {
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka+One&family=Comfortaa:wght@700&family=Nunito:wght@400;700&family=Poppins:wght@400;700&family=Quicksand:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     
-    <!-- Base Stylesheets -->
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/style.css">
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/search.css">
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/order-management.css">
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/mobile-responsive.css">
-    <!-- Main Modern Clean Design System (Chuẩn hóa toàn bộ giao diện, xóa bỏ lỗi font & icon) -->
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/clean-modern.css">
-    
-    <!-- Google Fonts: Quicksand, Nunito, Poppins, Comfortaa -->
-    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Nunito:wght@400;600;700&family=Poppins:wght@400;600;700&family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
+    <!-- Search Overlay Stylesheet -->
+    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/search.css?v=2026111602">
+    <!-- Main Modern Clean Design System (Hệ thống giao diện chuẩn hóa duy nhất) -->
+    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/clean-modern.css?v=2026111602">
     
     <?php if (isset($custom_css)): ?>
     <!-- Custom page CSS -->
@@ -177,19 +169,19 @@ if (!defined('SITE_NAME')) {
 <div class="scroll-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(45deg, #ff6b96, #f093fb); z-index: 10000; transition: width 0.1s ease;"></div>
 
 <!-- Back to Top Button -->
-<button id="scrollToTop" class="scroll-to-top" style="position: fixed; bottom: 105px; right: 22px; width: 46px; height: 46px; background: linear-gradient(135deg, #ff6b96, #f093fb); color: white; border: none; border-radius: 50%; cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index: 1000; box-shadow: 0 4px 15px rgba(255, 107, 150, 0.3); display: flex; align-items: center; justify-content: center; font-size: 1.1rem;" title="Lên đầu trang">
-    <span style="font-size: 1.1rem;">⬆️</span>
+<button id="scrollToTop" class="scroll-to-top" style="position: fixed; bottom: 100px; right: 24px; width: 44px; height: 44px; background: linear-gradient(135deg, #ff6b96, #ff8eb3); color: white; border: none; border-radius: 50%; cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s ease; z-index: 990; box-shadow: 0 4px 15px rgba(255, 107, 150, 0.3); display: flex; align-items: center; justify-content: center; font-size: 1rem;" title="Lên đầu trang">
+    <i class="fas fa-arrow-up"></i>
 </button>
 
 <!-- Notification Container -->
 <div id="notificationContainer" style="position: fixed; top: 20px; right: 20px; z-index: 10000; max-width: 400px;"></div>
 
-<!-- FIXED: Search Overlay với proper structure -->
+<!-- Search Overlay -->
 <div id="searchOverlay">
     <div class="search-modal">
-        <div style="text-align: center; margin-bottom: 30px;">
-            <h3 style="color: #333; font-weight: 700; margin-bottom: 10px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">🔍 Tìm kiếm sản phẩm</h3>
-            <p style="color: #666; margin: 0; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Nhập tên sản phẩm bạn muốn tìm</p>
+        <div style="text-align: center; margin-bottom: 24px;">
+            <h3 style="color: #1e293b; font-weight: 700; margin-bottom: 8px;"><i class="fas fa-search text-pink me-2"></i> Tìm kiếm sản phẩm</h3>
+            <p style="color: #64748b; margin: 0;">Nhập tên mẫu gấu bông bạn muốn tìm</p>
         </div>
         
         <form class="search-form-modal">
