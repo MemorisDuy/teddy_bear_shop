@@ -161,15 +161,6 @@ define('DB_PASS', '');
 
 ---
 
-## 🔐 7. Tài khoản trải nghiệm (Demo Credentials)
-
-| Phân quyền | Tài khoản / Email | Mật khẩu | Đường dẫn đăng nhập |
-| :--- | :--- | :--- | :--- |
-| **Quản trị viên (Admin)** | `admin` hoặc `admin@teddyshop.com` | `admin123` | `/admin/admin-login.php` |
-| **Khách hàng (User)** | `user@demo.com` *(hoặc đăng ký mới)* | `123456` | `/auth/login.php` |
-
----
-
 ## 👨‍💻 Tác giả (Author)
 - **Thực hiện:** Nguyễn Ngọc Duy (@MemorisDuy)
 - **GitHub:** [https://github.com/MemorisDuy/teddy_bear_shop](https://github.com/MemorisDuy/teddy_bear_shop)
