@@ -45,7 +45,7 @@ include '../includes/header.php';
     min-height: 80vh;
     padding: 50px 0;
     background: linear-gradient(135deg, #ffeef0 0%, #fff5f5 100%);
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
 }
 
 .ip-card {
@@ -75,7 +75,7 @@ include '../includes/header.php';
     border-radius: 10px;
     padding: 20px;
     margin: 20px 0;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
 }
 
 .instructions ol {
@@ -94,60 +94,60 @@ include '../includes/header.php';
 <div class="ip-check-container">
     <div class="container">
         <div class="ip-card">
-            <h1 style="text-align: center; margin-bottom: 30px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+            <h1 style="text-align: center; margin-bottom: 30px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                 <span style="font-size: 2rem; margin-right: 10px;">🔍</span> Kiểm tra IP Server
             </h1>
             
             <?php if ($server_ip): ?>
             <div style="text-align: center; margin-bottom: 30px;">
-                <p style="color: #666; margin-bottom: 10px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <p style="color: #666; margin-bottom: 10px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     IP của máy tính bạn:
                 </p>
                 <div class="ip-display">
                     <?php echo htmlspecialchars($server_ip); ?>
                 </div>
-                <p style="color: #28a745; margin-top: 15px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <p style="color: #28a745; margin-top: 15px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     ✅ Hệ thống đã tự động lấy IP. QR code sẽ hoạt động!
                 </p>
             </div>
             <?php else: ?>
             <div style="text-align: center; margin-bottom: 30px;">
-                <p style="color: #dc3545; margin-bottom: 10px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <p style="color: #dc3545; margin-bottom: 10px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     ⚠️ Không thể tự động lấy IP
                 </p>
-                <p style="color: #666; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <p style="color: #666; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     Vui lòng làm theo hướng dẫn bên dưới để lấy IP thủ công
                 </p>
             </div>
             <?php endif; ?>
             
             <div class="instructions">
-                <h3 style="margin-bottom: 15px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <h3 style="margin-bottom: 15px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     📋 Hướng dẫn lấy IP:
                 </h3>
                 
-                <h4 style="margin-top: 20px; margin-bottom: 10px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <h4 style="margin-top: 20px; margin-bottom: 10px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     Windows:
                 </h4>
-                <ol style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <ol style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     <li>Mở Command Prompt (nhấn Win + R, gõ <code>cmd</code>)</li>
                     <li>Gõ lệnh: <code>ipconfig</code></li>
                     <li>Tìm dòng "IPv4 Address" (ví dụ: 192.168.1.100)</li>
                 </ol>
                 
-                <h4 style="margin-top: 20px; margin-bottom: 10px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <h4 style="margin-top: 20px; margin-bottom: 10px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     Mac/Linux:
                 </h4>
-                <ol style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <ol style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     <li>Mở Terminal</li>
                     <li>Gõ lệnh: <code>ifconfig</code> hoặc <code>ip addr</code></li>
                     <li>Tìm dòng "inet" (ví dụ: 192.168.1.100)</li>
                 </ol>
                 
-                <h4 style="margin-top: 20px; margin-bottom: 10px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <h4 style="margin-top: 20px; margin-bottom: 10px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     🔧 Cấu hình IP trong code:
                 </h4>
-                <ol style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <ol style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     <li>Mở file <code>config/config.php</code></li>
                     <li>Tìm dòng: <code>define('SITE_URL', 'http://localhost/teddy_bear_shop');</code></li>
                     <li>Thay <code>localhost</code> bằng IP vừa tìm được</li>
@@ -156,7 +156,7 @@ include '../includes/header.php';
                 </ol>
             </div>
             
-            <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 10px; padding: 20px; margin-top: 30px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+            <div style="background: #fff3cd; border: 2px solid #ffc107; border-radius: 10px; padding: 20px; margin-top: 30px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                 <h5 style="color: #856404; margin-bottom: 10px;">
                     <span style="font-size: 1.2rem; margin-right: 8px;">💡</span> Lưu ý quan trọng:
                 </h5>
@@ -168,11 +168,11 @@ include '../includes/header.php';
             </div>
             
             <div style="text-align: center; margin-top: 30px;">
-                <p style="color: #666; margin-bottom: 15px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <p style="color: #666; margin-bottom: 15px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     <strong>URL hiện tại:</strong><br>
                     <code style="font-size: 0.9rem; word-break: break-all;"><?php echo htmlspecialchars($current_site_url); ?></code>
                 </p>
-                <a href="mock-payment.php" style="display: inline-block; padding: 12px 30px; background: #ff6b6b; color: white; text-decoration: none; border-radius: 10px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <a href="mock-payment.php" style="display: inline-block; padding: 12px 30px; background: #ff6b6b; color: white; text-decoration: none; border-radius: 10px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     Quay lại trang thanh toán
                 </a>
             </div>

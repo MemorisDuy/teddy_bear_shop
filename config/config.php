@@ -34,14 +34,20 @@ define('FREE_SHIPPING_MIN', 500000);
 
 // Basic constants
 define('SITE_NAME', 'Teddy Bear Paradise 🐻');
-define('SITE_URL', 'http://localhost/teddy_bear_shop');
+if (isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'infinityfree') !== false) {
+    define('SITE_URL', 'http://teddyshop.infinityfree.io');
+    define('DB_HOST', 'sql105.infinityfree.com');
+    define('DB_NAME', 'if0_43453427_teddyshop');
+    define('DB_USER', 'if0_43453427');
+    define('DB_PASS', 'DuyShop2026'); // Nếu bạn đặt pass khác thì chỉ cần sửa ở đây
+} else {
+    define('SITE_URL', 'http://localhost/teddy_bear_shop');
+    define('DB_HOST', 'localhost');
+    define('DB_NAME', 'teddy_bear_shop');
+    define('DB_USER', 'root');
+    define('DB_PASS', '');
+}
 define('ADMIN_EMAIL', 'admin@teddyshop.com');
-
-// Database configuration
-define('DB_HOST', 'localhost');
-define('DB_NAME', 'teddy_bear_shop');
-define('DB_USER', 'root');
-define('DB_PASS', '');
 
 // Third-party API Keys
 define('PIXABAY_API_KEY', '53623569-98092d3fb35e9181d25556024');

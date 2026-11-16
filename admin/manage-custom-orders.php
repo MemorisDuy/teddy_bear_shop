@@ -73,12 +73,12 @@ include '../includes/header.php';
 <div class="container-fluid py-4">
     <div class="row mb-4">
         <div class="col-md-8">
-            <h1 style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; color: #ff6b9d;">
+            <h1 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; color: #ff6b9d;">
                 <span style="font-size: 1.5rem; margin-right: 10px;">🎨</span> Quản lý đơn đặt mẫu riêng
             </h1>
         </div>
         <div class="col-md-4 text-end">
-            <a href="dashboard.php" class="btn btn-outline-secondary" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+            <a href="dashboard.php" class="btn btn-outline-secondary" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                 ← Quay lại Dashboard
             </a>
         </div>
@@ -119,7 +119,7 @@ include '../includes/header.php';
                 <div class="col-md-4">
                     <form method="GET" class="d-flex gap-2">
                         <select name="status" class="form-select" onchange="this.form.submit();"
-                                style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                                style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                             <option value="">Tất cả trạng thái</option>
                             <option value="waiting_images" <?php echo $status_filter === 'waiting_images' ? 'selected' : ''; ?>>Chờ chọn ảnh</option>
                             <option value="confirmed" <?php echo $status_filter === 'confirmed' ? 'selected' : ''; ?>>Mới xác nhận</option>
@@ -139,7 +139,7 @@ include '../includes/header.php';
         <div class="col-md-<?php echo $current_order ? '6' : '12'; ?>">
             <div class="card">
                 <div class="card-header" style="background: linear-gradient(135deg, #ff6b9d, #ff8e72); color: white;">
-                    <h5 class="mb-0" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                    <h5 class="mb-0" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                         📋 Danh sách yêu cầu (<?php echo count($custom_orders); ?>/<?php echo $total_count; ?>)
                     </h5>
                 </div>
@@ -228,7 +228,7 @@ include '../includes/header.php';
         <div class="col-md-6">
             <div class="card">
                 <div class="card-header" style="background: linear-gradient(135deg, #4CAF50, #45a049); color: white;">
-                    <h5 class="mb-0" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                    <h5 class="mb-0" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                         📝 Chi tiết yêu cầu #<?php echo $current_order['id']; ?>
                     </h5>
                 </div>
@@ -344,7 +344,7 @@ include '../includes/header.php';
                                 Cập nhật trạng thái
                             </label>
                             <select name="status" id="status" class="form-select" 
-                                    style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                                    style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                                 <option value="waiting_images" <?php echo $current_order['status'] === 'waiting_images' ? 'selected' : ''; ?>>⏳ Chờ chọn ảnh</option>
                                 <option value="confirmed" <?php echo $current_order['status'] === 'confirmed' ? 'selected' : ''; ?>>🆕 Mới xác nhận</option>
                                 <option value="viewed" <?php echo $current_order['status'] === 'viewed' ? 'selected' : ''; ?>>👀 Đã xem</option>
@@ -360,14 +360,14 @@ include '../includes/header.php';
                             </label>
                             <textarea name="shop_message" id="shopMessage" class="form-control" rows="4"
                                       placeholder="Nhập phản hồi cho khách hàng (nếu có)..."
-                                      style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; resize: vertical;">
+                                      style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; resize: vertical;">
                                 <?php echo htmlspecialchars($current_order['shop_message'] ?? ''); ?>
                             </textarea>
                             <small class="text-muted">Phản hồi này sẽ được gửi cho khách hàng qua email</small>
                         </div>
                         
                         <button type="submit" class="btn btn-success w-100" 
-                                style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; font-weight: bold;">
+                                style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; font-weight: bold;">
                             <span style="font-size: 1.1em; margin-right: 5px;">💾</span> Lưu cập nhật
                         </button>
                     </form>

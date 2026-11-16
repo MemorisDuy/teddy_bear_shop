@@ -54,43 +54,15 @@ include "../includes/header.php";
                     </div>
                     <div class="mb-4">
                         <h6><span style="font-size: 1.2rem; color: #ffc107; margin-right: 8px;">🕐</span> Giờ làm việc</h6>
-                        <p>Thứ 2 - Chủ nhật: 8:00 - 22:00</p>
+                        <p class="mb-0">Thứ 2 - Chủ nhật: 8:00 - 22:00</p>
                     </div>
-                    <div style="text-align:center;margin-top:32px;">
-                        <div style="font-size:1.3rem;color:#d63384;font-weight:600;margin-bottom:10px;">Vui lòng quét mã QR Zalo để liên hệ với shop!</div>
-                        <span style="font-size:7rem;display:block;">🧸</span>
-                    </div>
-                    <div style="text-align:center; margin-top:24px;">
-                        <button id="showQRBtn" class="btn btn-primary" style="font-size:1.1rem; padding:10px 28px; border-radius:24px; background:#008fe5; border:none;">
-                            <span style="display:inline-block;width:28px;height:28px;vertical-align:middle;margin-right:8px;background:url('../images/QR.jpg') center/cover no-repeat;border-radius:6px;"></span> Quét mã QR Zalo để liên hệ
-                        </button>
+                    <div class="alert alert-info text-center mt-4 mb-0" style="border-radius: 12px;">
+                        <span>💬</span> Bạn có thắc mắc hoặc cần đặt mẫu gấu bông theo yêu cầu? Hãy gọi điện hoặc nhắn tin cho shop qua số hotline <strong class="text-primary">0123-456-789</strong> để được tư vấn nhanh nhất nhé!
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Modal QR Zalo giữ nguyên -->
-    <div id="qrModal" style="display:none;position:fixed;z-index:9999;top:0;left:0;width:100vw;height:100vh;background:rgba(0,0,0,0.5);align-items:center;justify-content:center;">
-        <div style="background:white;padding:32px 24px 24px 24px;border-radius:18px;max-width:95vw;max-height:90vh;box-shadow:0 8px 32px rgba(0,0,0,0.18);text-align:center;position:relative;">
-            <img src="../images/QR.jpg" alt="Zalo QR" style="max-width:320px;width:90vw;height:auto;border-radius:16px;box-shadow:0 2px 12px rgba(0,0,0,0.08);">
-            <div style="margin-top:18px;font-size:1.1rem;color:#008fe5;font-weight:600;">Quét mã QR này bằng Zalo để liên hệ shop!</div>
-            <button onclick="document.getElementById('qrModal').style.display='none'" style="position:absolute;top:8px;right:12px;font-size:1.5rem;background:none;border:none;color:#d63384;cursor:pointer;">&times;</button>
-        </div>
-    </div>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var btn = document.getElementById('showQRBtn');
-        var modal = document.getElementById('qrModal');
-        if(btn && modal) {
-            btn.onclick = function() {
-                modal.style.display = 'flex';
-            };
-            modal.onclick = function(e) {
-                if(e.target === modal) modal.style.display = 'none';
-            };
-        }
-    });
-    </script>
 </div>
 
 <?php include "../includes/footer.php"; ?>

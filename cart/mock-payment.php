@@ -108,7 +108,7 @@ include '../includes/header.php';
     min-height: 80vh;
     padding: 50px 0;
     background: linear-gradient(135deg, #ffeef0 0%, #fff5f5 100%);
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
 }
 
 .payment-card {
@@ -135,13 +135,13 @@ include '../includes/header.php';
     font-weight: 600;
     color: #333;
     margin-bottom: 10px;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
 }
 
 .payment-description {
     color: #666;
     font-size: 1rem;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
 }
 
 .qr-section {
@@ -173,7 +173,7 @@ include '../includes/header.php';
     font-weight: bold;
     color: #ff6b6b;
     margin: 20px 0;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
 }
 
 .order-info {
@@ -181,7 +181,7 @@ include '../includes/header.php';
     border-radius: 10px;
     padding: 20px;
     margin: 20px 0;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
 }
 
 .order-info-item {
@@ -210,7 +210,7 @@ include '../includes/header.php';
     border-radius: 10px;
     padding: 20px;
     margin: 20px 0;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
 }
 
 .bank-info-item {
@@ -245,7 +245,7 @@ include '../includes/header.php';
     font-weight: 600;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
     box-shadow: 0 4px 15px rgba(40, 167, 69, 0.3);
 }
 
@@ -268,7 +268,7 @@ include '../includes/header.php';
     margin-top: 15px;
     cursor: pointer;
     transition: all 0.3s ease;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
 }
 
 .btn-cancel:hover {
@@ -293,7 +293,7 @@ include '../includes/header.php';
     border-radius: 15px;
     padding: 40px;
     text-align: center;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
 }
 
 .loading-spinner {
@@ -314,7 +314,7 @@ include '../includes/header.php';
     border-radius: 20px;
     margin-bottom: 20px;
     text-align: center;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
     box-shadow: 0 10px 40px rgba(102, 126, 234, 0.3);
     position: relative;
     overflow: hidden;
@@ -388,7 +388,7 @@ include '../includes/header.php';
     font-size: 1.5rem;
     font-weight: 600;
     text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
 }
 
 .countdown-number {
@@ -397,7 +397,7 @@ include '../includes/header.php';
     font-weight: 800;
     margin: 15px 0;
     text-shadow: 0 4px 20px rgba(0,0,0,0.3);
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
     animation: numberPulse 1s ease-in-out infinite;
     letter-spacing: 2px;
 }
@@ -413,7 +413,7 @@ include '../includes/header.php';
     font-weight: 500;
     margin-bottom: 25px;
     text-shadow: 0 2px 10px rgba(0,0,0,0.2);
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
 }
 
 .progress-bar-container {
@@ -447,7 +447,7 @@ include '../includes/header.php';
     margin: 20px 0 0 0;
     font-size: 0.95rem;
     text-shadow: 0 1px 5px rgba(0,0,0,0.2);
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
     line-height: 1.6;
 }
 </style>
@@ -467,7 +467,7 @@ include '../includes/header.php';
 
             <?php if ($payment_method !== 'cod'): ?>
             <div class="qr-section">
-                <h4 style="margin-bottom: 20px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">Quét mã QR để thanh toán tự động</h4>
+                <h4 style="margin-bottom: 20px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Quét mã QR để thanh toán tự động</h4>
                 
                 <!-- Countdown tự động giả lập quét QR (10 giây) - Giao diện đẹp -->
                 <div id="autoCountdown" class="payment-countdown-container">
@@ -491,7 +491,7 @@ include '../includes/header.php';
                 
                 <?php if ($ip_config_needed): ?>
                 <!-- Thông báo cần cấu hình IP -->
-                <div style="padding: 20px; background: #fff3cd; border: 2px solid #ffc107; border-radius: 10px; margin-bottom: 20px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <div style="padding: 20px; background: #fff3cd; border: 2px solid #ffc107; border-radius: 10px; margin-bottom: 20px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     <h5 style="color: #856404; margin-bottom: 15px;">
                         <span style="font-size: 1.5rem; margin-right: 8px;">⚠️</span> Cần cấu hình IP để quét QR
                     </h5>
@@ -521,7 +521,7 @@ include '../includes/header.php';
                          style="width: 300px; height: 300px; border: 2px solid #ddd; border-radius: 10px; background: white;"
                          onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'300\'%3E%3Crect width=\'300\' height=\'300\' fill=\'%23f0f0f0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' font-size=\'20\' fill=\'%23999\'%3EQR Code%3C/text%3E%3C/svg%3E';">
                 </div>
-                <div style="margin-top: 15px; padding: 15px; background: #e3f2fd; border-radius: 10px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <div style="margin-top: 15px; padding: 15px; background: #e3f2fd; border-radius: 10px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     <p style="color: #1976d2; margin-bottom: 10px; font-weight: 600;">
                         <span style="font-size: 1.2rem; margin-right: 8px;">📱</span> Hướng dẫn quét QR:
                     </p>
@@ -532,7 +532,7 @@ include '../includes/header.php';
                         <li>Hệ thống sẽ tự động xử lý thanh toán</li>
                     </ol>
                 </div>
-                <p style="color: #28a745; margin-top: 15px; font-size: 0.9rem; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+                <p style="color: #28a745; margin-top: 15px; font-size: 0.9rem; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
                     ✅ Hoặc nhấn nút "Đã thanh toán thành công" bên dưới để thanh toán thủ công
                 </p>
                 <!-- Debug info (chỉ hiện khi cần) -->
@@ -550,7 +550,7 @@ include '../includes/header.php';
 
             <?php if ($payment_method === 'bank_transfer'): ?>
             <div class="bank-info">
-                <h5 style="margin-bottom: 15px; color: #1976d2; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">📋 Thông tin chuyển khoản</h5>
+                <h5 style="margin-bottom: 15px; color: #1976d2; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">📋 Thông tin chuyển khoản</h5>
                 <div class="bank-info-item">
                     <span class="bank-info-label">Ngân hàng:</span>
                     <span class="bank-info-value"><?php echo $payment_info['bank_info']['name']; ?></span>
@@ -571,7 +571,7 @@ include '../includes/header.php';
             <?php endif; ?>
 
             <div class="order-info">
-                <h5 style="margin-bottom: 15px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">📦 Thông tin đơn hàng</h5>
+                <h5 style="margin-bottom: 15px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">📦 Thông tin đơn hàng</h5>
                 <div class="order-info-item">
                     <span class="order-info-label">Mã đơn hàng:</span>
                     <span class="order-info-value">#<?php echo $order_number; ?></span>
@@ -617,7 +617,7 @@ include '../includes/header.php';
 </div>
 
 <!-- Payment Status Alert -->
-<div id="paymentStatusAlert" style="display: none; position: fixed; top: 20px; right: 20px; background: #28a745; color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 10000; max-width: 400px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
+<div id="paymentStatusAlert" style="display: none; position: fixed; top: 20px; right: 20px; background: #28a745; color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 10000; max-width: 400px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
     <div style="display: flex; align-items: center; gap: 15px;">
         <div style="font-size: 2rem;">✅</div>
         <div>
@@ -634,8 +634,8 @@ include '../includes/header.php';
 <div class="loading-overlay" id="loadingOverlay">
     <div class="loading-content">
         <div class="loading-spinner">⏳</div>
-        <h4 style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">Đang xử lý thanh toán...</h4>
-        <p style="color: #666; margin-top: 10px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">Vui lòng đợi trong giây lát</p>
+        <h4 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Đang xử lý thanh toán...</h4>
+        <p style="color: #666; margin-top: 10px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Vui lòng đợi trong giây lát</p>
     </div>
 </div>
 

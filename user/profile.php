@@ -141,11 +141,11 @@ $custom_css = "
         padding: 50px 0;
         background: linear-gradient(135deg, #ffeef0 0%, #fff5f5 100%);
         min-height: 80vh;
-        font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+        font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
     }
     
     .profile-container * {
-        font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+        font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
     }
     
     .profile-sidebar {
@@ -174,7 +174,7 @@ $custom_css = "
     .profile-content select,
     .profile-content textarea,
     .profile-content button {
-        font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+        font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
     }
     
     .avatar-upload {
@@ -218,7 +218,7 @@ $custom_css = "
         margin-bottom: 10px;
         color: #666;
         font-weight: 500;
-        font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+        font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
         transition: all 0.3s ease;
     }
     
@@ -251,23 +251,23 @@ $custom_css = "
         font-size: 2rem;
         font-weight: bold;
         margin-bottom: 5px;
-        font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+        font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
     }
     
     .stat-label {
         font-size: 0.9rem;
         opacity: 0.9;
-        font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+        font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
     }
     
     .user-info h4 {
-        font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+        font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
         font-weight: 600;
         color: #333;
     }
     
     .user-info p {
-        font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+        font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
         color: #666;
     }
     
@@ -277,12 +277,12 @@ $custom_css = "
         padding: 15px;
         margin-bottom: 15px;
         border-left: 4px solid #ff6b6b;
-        font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+        font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
     }
     
     .form-control,
     .form-select {
-        font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+        font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
         border-radius: 10px;
         border: 1px solid #ddd;
         padding: 10px 15px;
@@ -300,7 +300,7 @@ $custom_css = "
         border-radius: 10px;
         padding: 10px 25px;
         font-weight: 500;
-        font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+        font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
         transition: all 0.3s ease;
     }
     

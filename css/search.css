@@ -88,7 +88,7 @@ i[class*="fa-"],
     outline: none;
     background: #f8f9fa;
     transition: all 0.3s ease;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
 }
 
 .search-input-modal:focus {
@@ -104,7 +104,7 @@ i[class*="fa-"],
     color: white;
     font-weight: 600;
     transition: all 0.3s ease;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
 }
 
 .search-form-modal .btn:hover {
@@ -123,7 +123,7 @@ i[class*="fa-"],
 }
 
 .search-suggestions h6 {
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
     color: #666;
     font-size: 0.9rem;
     text-transform: uppercase;
@@ -147,7 +147,7 @@ i[class*="fa-"],
     transition: all 0.3s ease;
     border: 1px solid #e9ecef;
     font-weight: 500;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
 }
 
 .suggestion-tag:hover {
@@ -242,11 +242,11 @@ i[class*="fa-"],
     border: 1px solid #e9ecef;
     padding: 8px 12px;
     transition: all 0.3s ease;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
 }
 
 .filters-sidebar .form-label {
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
     color: #e91e63;
     font-weight: 600;
 }

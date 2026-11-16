@@ -188,8 +188,8 @@ if (!defined('SITE_NAME')) {
 <div id="searchOverlay">
     <div class="search-modal">
         <div style="text-align: center; margin-bottom: 30px;">
-            <h3 style="color: #333; font-weight: 700; margin-bottom: 10px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">🔍 Tìm kiếm sản phẩm</h3>
-            <p style="color: #666; margin: 0; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">Nhập tên sản phẩm bạn muốn tìm</p>
+            <h3 style="color: #333; font-weight: 700; margin-bottom: 10px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">🔍 Tìm kiếm sản phẩm</h3>
+            <p style="color: #666; margin: 0; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Nhập tên sản phẩm bạn muốn tìm</p>
         </div>
         
         <form class="search-form-modal">
@@ -202,7 +202,7 @@ if (!defined('SITE_NAME')) {
         </form>
         
         <div class="search-suggestions">
-            <h6 style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">Gợi ý tìm kiếm:</h6>
+            <h6 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Gợi ý tìm kiếm:</h6>
             <div class="suggestion-tags">
                 <span class="suggestion-tag" onclick="TeddySearch.searchSuggestion('Gấu Teddy')">Gấu Teddy</span>
                 <span class="suggestion-tag" onclick="TeddySearch.searchSuggestion('Gấu Panda')">Gấu Panda</span>
@@ -211,7 +211,7 @@ if (!defined('SITE_NAME')) {
             </div>
         </div>
         
-        <button onclick="TeddySearch.closeSearchOverlay()" class="btn btn-outline-secondary btn-sm" style="width: 100%; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+        <button onclick="TeddySearch.closeSearchOverlay()" class="btn btn-outline-secondary btn-sm" style="width: 100%; font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
             <span style="font-size: 1rem; margin-right: 5px;">❌</span> Đóng
         </button>
     </div>

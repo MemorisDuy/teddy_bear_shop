@@ -6,11 +6,11 @@
 ?>
 
 <!-- MODAL: ĐẶT HÀNG THEO MẪU RIÊNG -->
-<div class="modal fade" id="customOrderModal" tabindex="-1" aria-hidden="true" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+<div class="modal fade" id="customOrderModal" tabindex="-1" aria-hidden="true" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header" style="background: linear-gradient(135deg, #ff6b9d, #ff8e72); color: white; border: none;">
-                <h5 class="modal-title" id="modalTitle" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; font-weight: bold;">
+                <h5 class="modal-title" id="modalTitle" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; font-weight: bold;">
                     🎨 Đặt hàng theo mẫu riêng của bạn
                 </h5>
                 <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
@@ -35,7 +35,7 @@
                             </label>
                             <input type="text" class="form-control" id="customerName" name="customer_name" 
                                    placeholder="VD: Nguyễn Văn A" required 
-                                   style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                                   style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                             <div class="invalid-feedback" style="display: block; margin-top: 5px; color: #dc3545;">
                                 Vui lòng nhập tên của bạn
                             </div>
@@ -48,7 +48,7 @@
                             </label>
                             <input type="email" class="form-control" id="customerEmail" name="customer_email" 
                                    placeholder="vd@example.com" required 
-                                   style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                                   style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                             <div class="invalid-feedback" style="display: block; margin-top: 5px; color: #dc3545;">
                                 Vui lòng nhập email hợp lệ
                             </div>
@@ -61,7 +61,7 @@
                             </label>
                             <input type="tel" class="form-control" id="customerPhone" name="customer_phone" 
                                    placeholder="0908123456" required 
-                                   style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                                   style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                             <div class="invalid-feedback" style="display: block; margin-top: 5px; color: #dc3545;">
                                 Vui lòng nhập số điện thoại
                             </div>
@@ -74,7 +74,7 @@
                             </label>
                             <input type="text" class="form-control" id="searchKeyword" name="search_keyword" 
                                    required placeholder="VD: Gấu nâu, Gấu panda, Gấu teddy..."
-                                   style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                                   style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                             <small class="text-muted">Bạn có thể chỉnh sửa hoặc nhập lại nếu cần</small>
                         </div>
                         
@@ -85,7 +85,7 @@
                             </label>
                             <textarea class="form-control" id="description" name="description" rows="5" 
                                       placeholder="VD: Gấu nâu, kích thước 30cm, nên mềm mại, có dây buộc cổ màu hồng, mặt nên ngây thơ, mắt tròn to..."
-                                      required style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; resize: vertical;"></textarea>
+                                      required style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; resize: vertical;"></textarea>
                             <small class="text-muted">Hãy mô tả: màu sắc, kích thước, đặc điểm riêng, phong cách,...</small>
                             <div class="invalid-feedback" style="display: block; margin-top: 5px; color: #dc3545;">
                                 Vui lòng mô tả chi tiết
@@ -100,7 +100,7 @@
                             <div class="input-group">
                                 <input type="file" class="form-control" id="customImage" name="image" 
                                        accept="image/*" 
-                                       style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                                       style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                                 <span class="input-group-text" style="background-color: #f5f5f5;">
                                     📁 Chọn ảnh
                                 </span>
@@ -124,7 +124,7 @@
                         <div class="d-flex gap-2" style="margin-top: 25px;">
                             <button type="submit" class="btn btn-primary flex-grow-1" 
                                     id="submitBtn" 
-                                    style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; font-weight: bold; padding: 10px;">
+                                    style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; font-weight: bold; padding: 10px;">
                                 <span id="submitBtnText">
                                     <span style="font-size: 1.1rem; margin-right: 5px;">📤</span> Gửi yêu cầu
                                 </span>
@@ -133,7 +133,7 @@
                             </button>
                             <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                                     id="closeBtn"
-                                    style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                                    style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                                 Đóng
                             </button>
                         </div>
@@ -193,7 +193,7 @@
                             <button type="submit" class="btn btn-success flex-grow-1" 
                                     id="confirmBtn" 
                                     disabled
-                                    style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; font-weight: bold; padding: 10px;">
+                                    style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; font-weight: bold; padding: 10px;">
                                 <span id="confirmBtnText">
                                     <span style="font-size: 1.1rem; margin-right: 5px;">✅</span> Xác nhận & Gửi
                                 </span>
@@ -202,7 +202,7 @@
                             </button>
                             <button type="button" class="btn btn-secondary" 
                                     id="backBtn"
-                                    style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                                    style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                                 Quay lại
                             </button>
                         </div>

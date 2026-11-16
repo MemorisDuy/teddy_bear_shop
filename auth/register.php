@@ -181,12 +181,12 @@ include '../includes/header.php';
                     <div class="form-input-group">
                         <label for="fullName" class="form-input-label">Họ và tên</label>
                         <div class="form-input-wrapper">
-                            <span style="font-size: 1.1rem; color: #666; position: absolute; left: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">👤</span>
+                            <span class="input-icon">👤</span>
                             <input type="text" 
                                    id="fullName" 
                                    name="full_name"
                                    class="form-input"
-                                   placeholder="Tên đầy đủ"
+                                   placeholder="Tên đầy đủ của bạn"
                                    value="<?php echo isset($_POST['full_name']) ? htmlspecialchars($_POST['full_name']) : ''; ?>"
                                    required 
                                    minlength="2">
@@ -197,7 +197,7 @@ include '../includes/header.php';
                     <div class="form-input-group">
                         <label for="email" class="form-input-label">Email</label>
                         <div class="form-input-wrapper">
-                            <span style="font-size: 1.1rem; color: #666; position: absolute; left: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">✉️</span>
+                            <span class="input-icon">✉️</span>
                             <input type="email" 
                                    id="email" 
                                    name="email"
@@ -212,7 +212,7 @@ include '../includes/header.php';
                     <div class="form-input-group">
                         <label for="phone" class="form-input-label">Số điện thoại (tùy chọn)</label>
                         <div class="form-input-wrapper">
-                            <span style="font-size: 1.1rem; color: #666; position: absolute; left: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">📞</span>
+                            <span class="input-icon">📞</span>
                             <input type="tel" 
                                    id="phone" 
                                    name="phone"
@@ -227,7 +227,7 @@ include '../includes/header.php';
                     <div class="form-input-group">
                         <label for="password" class="form-input-label">Mật khẩu</label>
                         <div class="form-input-wrapper">
-                            <span style="font-size: 1.1rem; color: #666; position: absolute; left: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">🔒</span>
+                            <span class="input-icon">🔒</span>
                             <input type="password" 
                                    id="password" 
                                    name="password"
@@ -235,17 +235,15 @@ include '../includes/header.php';
                                    placeholder="Tối thiểu 6 ký tự"
                                    required 
                                    minlength="6">
-                            <button type="button" class="toggle-password" onclick="togglePassword('password')">
+                            <button type="button" class="toggle-password" onclick="togglePassword('password')" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
                                 <span style="font-size: 1rem; color: #666;">👁️</span>
                             </button>
                         </div>
-                    </div>
-
                     <!-- Confirm Password -->
                     <div class="form-input-group">
                         <label for="confirmPassword" class="form-input-label">Xác nhận mật khẩu</label>
                         <div class="form-input-wrapper">
-                            <span style="font-size: 1.1rem; color: #666; position: absolute; left: 15px; top: 50%; transform: translateY(-50%); pointer-events: none;">🔒</span>
+                            <span class="input-icon">🔐</span>
                             <input type="password" 
                                    id="confirmPassword" 
                                    name="confirm_password"
@@ -253,7 +251,7 @@ include '../includes/header.php';
                                    placeholder="Nhập lại mật khẩu"
                                    required 
                                    minlength="6">
-                            <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')">
+                            <button type="button" class="toggle-password" onclick="togglePassword('confirmPassword')" style="position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer;">
                                 <span style="font-size: 1rem; color: #666;">👁️</span>
                             </button>
                         </div>

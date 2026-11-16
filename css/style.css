@@ -20,14 +20,14 @@ i[class*="fa-"],
 
 /* ===== CUSTOM FONTS ===== */
 @font-face {
-    font-family: 'UVN Van';
-    src: url('../fonts/UVNVan-Regular.ttf') format('truetype');
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand-Regular.ttf') format('truetype');
     font-weight: 400;
 }
 
 @font-face {
-    font-family: 'UVN Van';
-    src: url('../fonts/UVNVan-Bold.ttf') format('truetype');
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand-Bold.ttf') format('truetype');
     font-weight: 700;
 }
 
@@ -71,8 +71,8 @@ i[class*="fa-"],
     --info-color: #2196f3;
     
     /* Typography */
-    --font-primary: 'UVN Van', 'Quicksand', 'Nunito', Arial, sans-serif;
-    --font-secondary: 'UVN Van', 'Quicksand', Arial, sans-serif;
+    --font-primary: 'Quicksand', 'Nunito', 'Segoe UI', Roboto, Arial, sans-serif;
+    --font-secondary: 'Quicksand', 'Nunito', 'Segoe UI', Roboto, Arial, sans-serif;
     
     /* Spacing */
     --space-xs: 0.25rem;
@@ -150,7 +150,7 @@ html {
 body, .main-container {
     background: var(--gray-50) !important;
     color: var(--gray-700) !important;
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Quicksand', 'Nunito', 'Segoe UI', Roboto, Arial, sans-serif;
     min-height: 100vh;
 }
 
@@ -196,7 +196,7 @@ body, .main-container {
 }
 
 h1, h2, h3, h4, h5, h6, p, span, div, label, input, button, a, li, td, th {
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
 }
 
 /* Exclude icons from text font family - but don't override Font Awesome's font-family */
@@ -204,7 +204,7 @@ h1, h2, h3, h4, h5, h6, p, span, div, label, input, button, a, li, td, th {
 
 /* ===== FORCE FONT TO ALL ELEMENTS (except icons) ===== */
 *:not(.fa):not(.fas):not(.far):not(.fal):not(.fad):not(.fab):not(i[class*="fa-"]):not([class*="fa-"]) {
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif;
 }
 
 /* Ensure Font Awesome icons are excluded from global font rule - but let CDN handle font-family */
@@ -2231,7 +2231,7 @@ body {
 .page-breadcrumb,
 .breadcrumb-container,
 .nav-breadcrumb {
-    font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;
+    font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;
     background: rgba(255, 255, 255, 0.95) !important;
     -webkit-backdrop-filter: blur(10px) !important;
     backdrop-filter: blur(10px) !important;

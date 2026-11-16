@@ -2,14 +2,14 @@
 
 /* ===== CUSTOM FONTS ===== */
 @font-face {
-    font-family: 'UVN Van';
-    src: url('../fonts/UVNVan-Regular.ttf') format('truetype');
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand-Regular.ttf') format('truetype');
     font-weight: 400;
 }
 
 @font-face {
-    font-family: 'UVN Van';
-    src: url('../fonts/UVNVan-Bold.ttf') format('truetype');
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand-Bold.ttf') format('truetype');
     font-weight: 700;
 }
 
@@ -23,7 +23,7 @@
 }
 
 body {
-    font-family: 'UVN Van', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background: linear-gradient(135deg, #ffe0f0 0%, #ffb3d9 100%);
     min-height: 100vh;
     color: #333;

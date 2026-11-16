@@ -90,14 +90,14 @@ include '../includes/header.php';
     <div class="row">
         <div class="col-12">
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">
-                    <li class="breadcrumb-item"><a href="../index.php" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">Trang chủ</a></li>
-                    <li class="breadcrumb-item active" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">Giỏ hàng</li>
+                <ol class="breadcrumb" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
+                    <li class="breadcrumb-item"><a href="../index.php" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Trang chủ</a></li>
+                    <li class="breadcrumb-item active" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Giỏ hàng</li>
                 </ol>
             </nav>
             
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;"><span style="font-size: 1.3rem; margin-right: 8px;">🛒</span> Giỏ hàng của bạn</h2>
+                <h2 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;"><span style="font-size: 1.3rem; margin-right: 8px;">🛒</span> Giỏ hàng của bạn</h2>
                 <?php if (!empty($cart_items)): ?>
                     <button class="btn btn-outline-danger" onclick="clearCart()">
                         <span style="font-size: 1rem; margin-right: 5px;">🗑️</span> Xóa tất cả
@@ -113,8 +113,8 @@ include '../includes/header.php';
             <div class="col-12">
                 <div class="empty-cart text-center py-5">
                     <span style="font-size: 4rem; color: #6c757d; display: block; margin-bottom: 1rem;">🛒</span>
-                    <h4 style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">Giỏ hàng trống</h4>
-                    <p class="text-muted mb-4" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+                    <h4 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Giỏ hàng trống</h4>
+                    <p class="text-muted mb-4" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Bạn chưa có sản phẩm nào trong giỏ hàng</p>
                     <a href="../pages/products.php" class="btn btn-primary btn-lg">
                         <span style="font-size: 1.1rem; margin-right: 5px;">🛍️</span> Tiếp tục mua sắm
                     </a>

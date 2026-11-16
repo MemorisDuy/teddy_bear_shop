@@ -2,14 +2,14 @@
 
 /* ===== CUSTOM FONTS ===== */
 @font-face {
-    font-family: 'UVN Van';
-    src: url('../fonts/UVNVan-Regular.ttf') format('truetype');
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand-Regular.ttf') format('truetype');
     font-weight: 400;
 }
 
 @font-face {
-    font-family: 'UVN Van';
-    src: url('../fonts/UVNVan-Bold.ttf') format('truetype');
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand-Bold.ttf') format('truetype');
     font-weight: 700;
 }
 
@@ -17,7 +17,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: 'UVN Van', 'Poppins', sans-serif !important;
+    font-family: 'Poppins', sans-serif !important;
 }
 
 /* ===== RESTORE ICON FONTS ===== */
@@ -35,7 +35,7 @@
 }
 
 body {
-    font-family: 'UVN Van', 'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
     background: linear-gradient(135deg, #ff69b4 0%, #ff1493 100%);
     min-height: 100vh;
     display: flex;

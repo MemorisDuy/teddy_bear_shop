@@ -41,7 +41,7 @@ include '../includes/header.php';
 <div class="container my-5">
     <div class="row">
         <div class="col-12">
-            <h2 class="page-title text-center mb-4" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif; font-weight: 700;">
+            <h2 class="page-title text-center mb-4" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif; font-weight: 700;">
                 <span style="font-size: 1.5rem; margin-right: 8px;">🛒</span> Giỏ hàng của bạn
             </h2>
         </div>
@@ -129,7 +129,7 @@ include '../includes/header.php';
         <!-- Cart Summary -->
         <div class="col-lg-4">
             <div class="cart-summary p-4 border rounded bg-light">
-                <h5 class="fw-bold mb-3" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">📋 Tóm tắt đơn hàng</h5>
+                <h5 class="fw-bold mb-3" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">📋 Tóm tắt đơn hàng</h5>
                 
                 <!-- Free Shipping Progress -->
                 <div class="free-shipping-progress mb-4">
@@ -186,8 +186,8 @@ include '../includes/header.php';
         <div class="empty-cart-icon mb-4">
             <span style="font-size: 5rem; color: #ddd; display: block;">🛒</span>
         </div>
-        <h3 style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif; font-weight: 700;">Giỏ hàng trống 🛒</h3>
-        <p class="text-muted mb-4" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif;">Bạn chưa có sản phẩm nào trong giỏ hàng</p>
+        <h3 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif; font-weight: 700;">Giỏ hàng trống 🛒</h3>
+        <p class="text-muted mb-4" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Bạn chưa có sản phẩm nào trong giỏ hàng</p>
         <a href="../pages/products.php" class="btn btn-primary btn-lg">
             <span style="font-size: 1.1rem; margin-right: 5px;">🛍️</span> Bắt đầu mua sắm
         </a>

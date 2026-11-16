@@ -27,14 +27,14 @@ i[class*="fa-"],
 
 /* ===== CUSTOM FONTS ===== */
 @font-face {
-    font-family: 'UVN Van';
-    src: url('../fonts/UVNVan-Regular.ttf') format('truetype');
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand-Regular.ttf') format('truetype');
     font-weight: 400;
 }
 
 @font-face {
-    font-family: 'UVN Van';
-    src: url('../fonts/UVNVan-Bold.ttf') format('truetype');
+    font-family: 'Quicksand';
+    src: url('../fonts/Quicksand-Bold.ttf') format('truetype');
     font-weight: 700;
 }
 

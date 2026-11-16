@@ -231,28 +231,32 @@ include '../includes/header.php';
                 
                 <!-- Email -->
                 <div class="form-group">
-                    <label for="email" class="form-label">📧 Email</label>
-                    <input type="email" 
-                           class="form-input has-icon" 
-                           id="email" 
-                           name="email"
-                           placeholder="Nhập email của bạn"
-                           value="<?php echo !empty($prefill_email) ? htmlspecialchars($prefill_email) : ''; ?>"
-                           required>
-                    <span class="input-icon">✉️</span>
+                    <label for="email" class="form-label">Email</label>
+                    <div class="form-input-wrapper">
+                        <span class="input-icon">✉️</span>
+                        <input type="email" 
+                               class="form-input" 
+                               id="email" 
+                               name="email"
+                               placeholder="Nhập email của bạn"
+                               value="<?php echo !empty($prefill_email) ? htmlspecialchars($prefill_email) : ''; ?>"
+                               required>
+                    </div>
                     <div class="form-feedback error" id="emailError"></div>
                 </div>
 
                 <!-- Password -->
                 <div class="form-group">
-                    <label for="password" class="form-label">🔒 Mật khẩu</label>
-                    <input type="password" 
-                           class="form-input has-icon" 
-                           id="password" 
-                           name="password"
-                           placeholder="Nhập mật khẩu"
-                           required>
-                    <span class="input-icon">🔒</span>
+                    <label for="password" class="form-label">Mật khẩu</label>
+                    <div class="form-input-wrapper">
+                        <span class="input-icon">🔒</span>
+                        <input type="password" 
+                               class="form-input" 
+                               id="password" 
+                               name="password"
+                               placeholder="Nhập mật khẩu"
+                               required>
+                    </div>
                     <div class="form-feedback error" id="passwordError"></div>
                 </div>
 

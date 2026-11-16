@@ -104,7 +104,7 @@ include '../includes/header.php';
             <!-- SIDEBAR FILTERS -->
             <div class="card">
                 <div class="card-header">
-                    <h5 style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;"><span style="font-size: 1.1rem; margin-right: 8px;">🔍</span> Bộ lọc</h5>
+                    <h5 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;"><span style="font-size: 1.1rem; margin-right: 8px;">🔍</span> Bộ lọc</h5>
                 </div>
                 <div class="card-body">
                     <form method="GET" action="search.php" id="filterForm">
@@ -112,8 +112,8 @@ include '../includes/header.php';
                         
                         <!-- Category Filter -->
                         <div class="mb-3">
-                            <label class="form-label" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; color: #e91e63; font-weight: 600;">Danh mục</label>
-                            <select name="category" class="form-select" onchange="this.form.submit();" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                            <label class="form-label" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; color: #e91e63; font-weight: 600;">Danh mục</label>
+                            <select name="category" class="form-select" onchange="this.form.submit();" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                                 <option value="">Tất cả danh mục</option>
                                 <?php foreach ($categories as $cat): ?>
                                 <option value="<?php echo htmlspecialchars($cat['slug']); ?>" 
@@ -126,8 +126,8 @@ include '../includes/header.php';
                         
                         <!-- Sort -->
                         <div class="mb-3">
-                            <label class="form-label" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; color: #e91e63; font-weight: 600;">Sắp xếp</label>
-                            <select name="sort" class="form-select" onchange="TeddySearch.updateSort(this.value)" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                            <label class="form-label" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; color: #e91e63; font-weight: 600;">Sắp xếp</label>
+                            <select name="sort" class="form-select" onchange="TeddySearch.updateSort(this.value)" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                                 <option value="newest" <?php echo $sort === 'newest' ? 'selected' : ''; ?>>Mới nhất</option>
                                 <option value="price_asc" <?php echo $sort === 'price_asc' ? 'selected' : ''; ?>>Giá thấp đến cao</option>
                                 <option value="price_desc" <?php echo $sort === 'price_desc' ? 'selected' : ''; ?>>Giá cao đến thấp</option>
@@ -135,7 +135,7 @@ include '../includes/header.php';
                             </select>
                         </div>
                         
-                        <button type="submit" class="btn btn-primary w-100" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                        <button type="submit" class="btn btn-primary w-100" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                             <span style="font-size: 1rem; margin-right: 5px;">🔍</span> Áp dụng
                         </button>
                     </form>
@@ -153,8 +153,8 @@ include '../includes/header.php';
                                    placeholder="Tìm kiếm sản phẩm..." 
                                    value="<?php echo htmlspecialchars($keyword); ?>"
                                    autocomplete="off"
-                                   style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
-                            <button class="btn btn-primary btn-lg" type="submit" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                                   style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                            <button class="btn btn-primary btn-lg" type="submit" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                                 <span style="font-size: 1rem; margin-right: 5px;">🔍</span> Tìm kiếm
                             </button>
                         </div>
@@ -165,50 +165,50 @@ include '../includes/header.php';
             <!-- SEARCH RESULTS -->
             <?php if ($keyword !== ''): ?>
             <div class="d-flex justify-content-between align-items-center mb-3">
-                <h4 style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">Kết quả cho: "<strong><?php echo htmlspecialchars($keyword); ?></strong>"</h4>
+                <h4 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">Kết quả cho: "<strong><?php echo htmlspecialchars($keyword); ?></strong>"</h4>
                 <?php if (!$no_results && !empty($products)): ?>
-                <span class="text-muted" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">Tìm thấy <?php echo $total_count; ?> sản phẩm</span>
+                <span class="text-muted" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">Tìm thấy <?php echo $total_count; ?> sản phẩm</span>
                 <?php endif; ?>
             </div>
             
             <?php if ($error_message): ?>
-            <div class="alert alert-danger" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+            <div class="alert alert-danger" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                 <span style="font-size: 1.2rem; margin-right: 8px;">⚠️</span> <?php echo $error_message; ?>
             </div>
             <?php elseif (empty($products) || $no_results): ?>
-            <div class="alert alert-warning text-center" id="noResultsMessage" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+            <div class="alert alert-warning text-center" id="noResultsMessage" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                 <span style="font-size: 3rem; color: #ff6b96;">🔍</span>
-                <h5 style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; color: #e91e63; margin-top: 15px;">
+                <h5 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; color: #e91e63; margin-top: 15px;">
                     Sản phẩm chưa có trong shop
                 </h5>
-                <p style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; font-size: 1.1rem; margin: 15px 0;">
+                <p style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; font-size: 1.1rem; margin: 15px 0;">
                     Mời bạn tìm mẫu tương tự hoặc liên hệ shop để đặt hàng theo ý!
                 </p>
                 
                 <!-- AI Suggestions sẽ được load bằng JavaScript -->
                 <div id="aiSuggestionsContainer" style="margin-top: 20px;">
-                    <h6 style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; color: #666; font-weight: 600; margin-bottom: 15px;">
+                    <h6 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; color: #666; font-weight: 600; margin-bottom: 15px;">
                         🤖 Gợi ý từ khóa tìm kiếm:
                     </h6>
                     <div id="aiSuggestionsTags" class="suggestion-tags" style="justify-content: center;">
                         <span class="spinner-border spinner-border-sm text-primary" role="status">
                             <span class="visually-hidden">Loading...</span>
                         </span>
-                        <span style="margin-left: 10px; font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                        <span style="margin-left: 10px; font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                             Đang tải gợi ý từ AI...
                         </span>
                     </div>
                 </div>
                 
                 <div style="margin-top: 25px;">
-                    <a href="<?php echo SITE_URL; ?>/pages/products.php" class="btn btn-primary" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; margin-right: 10px;">
+                    <a href="<?php echo SITE_URL; ?>/pages/products.php" class="btn btn-primary" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; margin-right: 10px;">
                         <span style="font-size: 1rem; margin-right: 5px;">📦</span> Xem tất cả sản phẩm
                     </a>
                     <button type="button" class="btn btn-success" data-bs-toggle="modal" data-bs-target="#customOrderModal" 
-                            style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important; margin-right: 10px;">
+                            style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important; margin-right: 10px;">
                         <span style="font-size: 1rem; margin-right: 5px;">🎨</span> Đặt mẫu riêng
                     </button>
-                    <a href="<?php echo SITE_URL; ?>/pages/contact.php" class="btn btn-outline-primary" style="font-family: 'UVN Van', 'Nunito', 'Poppins', Arial, sans-serif !important;">
+                    <a href="<?php echo SITE_URL; ?>/pages/contact.php" class="btn btn-outline-primary" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif !important;">
                         <span style="font-size: 1rem; margin-right: 5px;">📞</span> Liên hệ đặt hàng
                     </a>
                 </div>
@@ -240,12 +240,12 @@ include '../includes/header.php';
                                 container.appendChild(tag);
                             });
                         } else {
-                            container.innerHTML = '<span style="font-family: \'UVN Van\', \'Nunito\', \'Poppins\', Arial, sans-serif !important; color: #999;">Không có gợi ý từ AI</span>';
+                            container.innerHTML = '<span style="font-family: \'Quicksand\', \'Nunito\', \'Poppins\', Arial, sans-serif !important; color: #999;">Không có gợi ý từ AI</span>';
                         }
                     })
                     .catch(err => {
                         const container = document.getElementById('aiSuggestionsTags');
-                        container.innerHTML = '<span style="font-family: \'UVN Van\', \'Nunito\', \'Poppins\', Arial, sans-serif !important; color: #999;">Không thể tải gợi ý</span>';
+                        container.innerHTML = '<span style="font-family: \'Quicksand\', \'Nunito\', \'Poppins\', Arial, sans-serif !important; color: #999;">Không thể tải gợi ý</span>';
                     });
                 }
             })();
