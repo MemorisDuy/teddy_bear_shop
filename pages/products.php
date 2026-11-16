@@ -103,24 +103,18 @@ include "../includes/header.php";
         <!-- Sidebar Categories -->
         <div class="col-lg-3 mb-4">
             <div class="category-sidebar">
-                <h5 class="mb-3">🧸 Danh mục sản phẩm</h5>
+                <h5 class="mb-3 fw-bold">Danh mục sản phẩm</h5>
                 <div class="category-list">
                     <a href="products.php" 
                        class="category-item <?php echo empty($category_slug) ? 'active' : ''; ?>">
-                        <span style="font-size: 1rem; margin-right: 8px;">📦</span> Tất cả sản phẩm
+                        Tất cả sản phẩm
                     </a>
-                    <?php $sidebar_colors = [
-                        ["#ffb86b", "#fff8e1"],
-                        ["#43e6c2", "#e6fff9"],
-                        ["#b388ff", "#f3e8ff"],
-                        ["#ff8fab", "#fff0f3"],
-                        ["#f7b801", "#fffbe7"]
-                    ]; $i=0; foreach ($categories as $cat): $c=$sidebar_colors[$i%count($sidebar_colors)]; ?>
+                    <?php foreach ($categories as $cat): ?>
                     <a href="products.php?category=<?php echo urlencode(trim($cat['slug'])); ?>" 
                        class="category-item <?php echo (trim($category_slug) === trim($cat['slug'])) ? 'active' : ''; ?>">
-                        <span style="font-size: 1rem; margin-right: 8px;">🏷️</span> <?php echo htmlspecialchars($cat['name']); ?>
+                        <?php echo htmlspecialchars($cat['name']); ?>
                     </a>
-                    <?php $i++; endforeach; ?>
+                    <?php endforeach; ?>
                 </div>
             </div>
         </div>
@@ -165,7 +159,7 @@ include "../includes/header.php";
                                 <?php if (!empty($product['category_name'])): ?>
                                 <div class="product-category mb-2">
                                     <small class="text-muted">
-                                        <span style="font-size: 0.9rem; margin-right: 5px;">🏷️</span> <?php echo htmlspecialchars($product['category_name']); ?>
+                                        <?php echo htmlspecialchars($product['category_name']); ?>
                                     </small>
                                 </div>
                                 <?php endif; ?>
@@ -209,12 +203,12 @@ include "../includes/header.php";
                                 <!-- Stock Status -->
                                 <div class="stock-status mb-3">
                                     <?php if ($product['stock_quantity'] > 0): ?>
-                                        <small class="text-success">
-                                            <span style="font-size: 0.9rem; color: #28a745; margin-right: 5px;">✅</span> Còn hàng (<?php echo $product['stock_quantity']; ?>)
+                                        <small class="text-success fw-bold">
+                                            Còn hàng (<?php echo $product['stock_quantity']; ?>)
                                         </small>
                                     <?php else: ?>
-                                        <small class="text-danger">
-                                            <span style="font-size: 0.9rem; color: #ff6b6b; margin-right: 5px;">❌</span> Hết hàng
+                                        <small class="text-danger fw-bold">
+                                            Hết hàng
                                         </small>
                                     <?php endif; ?>
                                 </div>

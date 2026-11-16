@@ -1,19 +1,12 @@
-<!-- Cute Footer -->
+<!-- Footer -->
 <footer class="footer text-center py-4">
     <div class="footer-brand mb-2">
-        <span style="font-size:2rem;">🧸</span>
-        <span class="footer-title" style="font-family: 'Fredoka One',cursive; font-size:2rem; color:#e84393; font-weight:bold;">Teddy Bear Paradise</span>
-        <span style="font-size:2rem;">🧸</span>
+        <span class="footer-title">Teddy Bear Paradise</span>
     </div>
-    <div class="footer-desc mb-2">Gấu bông xinh xắn - Quà tặng yêu thương!</div>
-    <div class="footer-icons mb-3">
-        <span style="font-size:1.5rem;">📱</span>
-        <span style="font-size:1.5rem;">📷</span>
-        <span style="font-size:1.5rem;">🎵</span>
-    </div>
+    <div class="footer-desc mb-2">Cửa hàng gấu bông cao cấp - Quà tặng yêu thương chất lượng hàng đầu</div>
     <div class="footer-copyright">
-        <span style="color:#e84393; font-weight:bold;">
-            © 2026 Teddy Bear Paradise - Đồ án cá nhân. 🧸
+        <span>
+            © 2026 Teddy Bear Paradise - Đồ án cá nhân.
         </span>
         <span class="text-muted" style="font-size:13px;"> All rights reserved.</span>
     </div>

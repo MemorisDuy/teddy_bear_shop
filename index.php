@@ -178,35 +178,33 @@ if (!$header_included) {
             <div class="col-lg-6">
                 <div class="hero-content text-white">
                     <h1 class="hero-title mb-4">
-                        <span style="color: #fff;">Thiên đường</span>
+                        Thiên đường
                         <span class="highlight">Gấu Bông</span>
-                        <span class="bear-emoji">🧸</span>
                     </h1>
                     
                     <p class="hero-subtitle mb-4">
-                        Khám phá bộ sưu tập gấu bông đáng yêu nhất Việt Nam! 
-                        Từ gấu Teddy cổ điển đến những thiết kế độc đáo, 
-                        chúng tôi có tất cả để làm bạn yêu! 💕
+                        Khám phá bộ sưu tập gấu bông cao cấp, mềm mại và an toàn nhất. 
+                        Món quà hoàn hảo để trao gửi yêu thương đến người thân yêu!
                     </p>
                     
                     <div class="hero-features mb-4">
                         <div class="feature-item">
-                            <span style="font-size: 1.2rem; color: #dc3545;">💖</span> Chất lượng cao
+                            Chất lượng cao
                         </div>
                         <div class="feature-item">
-                            <span style="font-size: 1.2rem; color: #28a745;">🛡️</span> An toàn 100%
+                            An toàn 100%
                         </div>
                         <div class="feature-item">
-                            <span style="font-size: 1.2rem; color: #ff69b4;">🚚</span> Giao hàng nhanh
+                            Giao hàng nhanh
                         </div>
                     </div>
                     
                     <div class="hero-buttons">
                         <a href="pages/products.php" class="cute-btn">
-                            <span style="font-size: 1.1rem;">🛍️</span> Mua sắm ngay
+                            Mua sắm ngay
                         </a>
                         <a href="pages/about.php" class="cute-btn-outline">
-                            <span style="font-size: 1.1rem;">💖</span> Tìm hiểu thêm
+                            Tìm hiểu thêm
                         </a>
                     </div>
                 </div>
@@ -223,24 +221,17 @@ if (!$header_included) {
             </div>
         </div>
     </div>
-    
-    <!-- Floating Elements -->
-    <div class="floating-element">🧸</div>
-    <div class="floating-element">🎁</div>
-    <div class="floating-element">💝</div>
-    <div class="floating-element">🌟</div>
-    <div class="floating-element">❤️</div>
 </section>
 
-<!-- Categories Section -->
-<section class="py-5 bg-light">
+<!-- Simple Footer -->
+<?php include 'includes/footer.php'; ?>
+<section class="py-5">
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="section-title">
-                <span class="title-icon">🎯</span>
                 Danh mục sản phẩm
             </h2>
-            <p class="section-subtitle">Tìm những chú gấu bông yêu thích của bạn!</p>
+            <p class="section-subtitle">Tìm kiếm những chú gấu bông phù hợp với sở thích của bạn</p>
         </div>
         
         <div class="row">
@@ -265,14 +256,13 @@ if (!$header_included) {
 </section>
 
 <!-- Featured Products -->
-<section class="py-5">
+<section class="py-5" style="background-color: var(--bg-subtle);">
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="section-title">
-                <span class="title-icon">⭐</span>
                 Sản phẩm nổi bật
             </h2>
-            <p class="section-subtitle">Những chú gấu bông được yêu thích nhất!</p>
+            <p class="section-subtitle">Những mẫu gấu bông được yêu thích và bán chạy nhất</p>
         </div>
         
         <div class="row">
@@ -352,11 +342,11 @@ if (!$header_included) {
                                 <button class="btn btn-primary btn-sm add-to-cart-btn" 
                                         data-product-id="<?php echo $product['id']; ?>"
                                         type="button">
-                                    <span style="font-size: 1rem;">🛒</span> Thêm vào giỏ
+                                    Thêm vào giỏ
                                 </button>
                                 <a href="pages/product-detail.php?slug=<?php echo urlencode($product['slug']); ?>" 
                                    class="btn btn-outline-primary btn-sm">
-                                    <span style="font-size: 1rem;">ℹ️</span> Xem chi tiết
+                                    Xem chi tiết
                                 </a>
                             </div>
                         </div>
@@ -368,67 +358,59 @@ if (!$header_included) {
         
         <div class="text-center mt-4">
             <a href="pages/products.php" class="cute-btn">
-                Xem tất cả sản phẩm <span style="font-size: 0.9rem; margin-left: 5px;">➡️</span>
+                Xem tất cả sản phẩm
             </a>
         </div>
     </div>
 </section>
 
 <!-- Features Section -->
-<section class="py-5 bg-light">
+<section class="py-5">
     <div class="container">
         <div class="text-center mb-5">
             <h2 class="section-title">
-                <span class="title-icon">🏆</span>
-                Tại sao chọn chúng tôi?
+                Cam kết từ Teddy Bear Paradise
             </h2>
+            <p class="section-subtitle">Chất lượng sản phẩm và dịch vụ là ưu tiên hàng đầu của chúng tôi</p>
         </div>
         
         <div class="row">
             <div class="col-lg-3 col-md-6 mb-4">
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <span style="font-size: 2.5rem;">🏆</span>
-                    </div>
-                    <h5 class="feature-title">Chất lượng cao</h5>
-                    <p class="feature-desc">
-                        Sản phẩm được chọn lọc kỹ càng, đảm bảo chất lượng tốt nhất
+                <div class="card p-4 text-center h-100 border-0 shadow-sm" style="border-radius: 16px;">
+                    <div style="font-size: 2.2rem; margin-bottom: 12px;">🏆</div>
+                    <h5 class="fw-bold mb-2">Chất lượng cao</h5>
+                    <p class="text-muted small mb-0">
+                        Sản phẩm được chọn lọc kỹ càng, đảm bảo chất lượng và độ bền tốt nhất
                     </p>
                 </div>
             </div>
             
             <div class="col-lg-3 col-md-6 mb-4">
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <span style="font-size: 2.5rem;">🛡️</span>
-                    </div>
-                    <h5 class="feature-title">An toàn 100%</h5>
-                    <p class="feature-desc">
-                        Tất cả sản phẩm đều an toàn, không độc hại cho trẻ em
+                <div class="card p-4 text-center h-100 border-0 shadow-sm" style="border-radius: 16px;">
+                    <div style="font-size: 2.2rem; margin-bottom: 12px;">🛡️</div>
+                    <h5 class="fw-bold mb-2">An toàn 100%</h5>
+                    <p class="text-muted small mb-0">
+                        Chất liệu bông xoắn 3 chiều an toàn, không kích ứng da cho trẻ nhỏ
                     </p>
                 </div>
             </div>
             
             <div class="col-lg-3 col-md-6 mb-4">
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <span style="font-size: 2.5rem;">🚚</span>
-                    </div>
-                    <h5 class="feature-title">Giao hàng nhanh</h5>
-                    <p class="feature-desc">
-                        Giao hàng toàn quốc, nhanh chóng trong 24-48h
+                <div class="card p-4 text-center h-100 border-0 shadow-sm" style="border-radius: 16px;">
+                    <div style="font-size: 2.2rem; margin-bottom: 12px;">🚚</div>
+                    <h5 class="fw-bold mb-2">Giao hàng nhanh</h5>
+                    <p class="text-muted small mb-0">
+                        Đóng gói cẩn thận, giao hàng toàn quốc nhanh chóng trong 24-48h
                     </p>
                 </div>
             </div>
             
             <div class="col-lg-3 col-md-6 mb-4">
-                <div class="feature-box">
-                    <div class="feature-icon">
-                        <span style="font-size: 2.5rem;">📞</span>
-                    </div>
-                    <h5 class="feature-title">Hỗ trợ 24/7</h5>
-                    <p class="feature-desc">
-                        Đội ngũ tư vấn nhiệt tình, hỗ trợ khách hàng mọi lúc
+                <div class="card p-4 text-center h-100 border-0 shadow-sm" style="border-radius: 16px;">
+                    <div style="font-size: 2.2rem; margin-bottom: 12px;">📞</div>
+                    <h5 class="fw-bold mb-2">Hỗ trợ tận tình</h5>
+                    <p class="text-muted small mb-0">
+                        Đội ngũ tư vấn nhiệt tình, sẵn sàng giải đáp và hỗ trợ mọi lúc
                     </p>
                 </div>
             </div>

@@ -54,10 +54,9 @@ if (!defined('SITE_NAME')) {
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka+One&family=Comfortaa:wght@700&family=Nunito:wght@400;700&family=Poppins:wght@400;700&family=Quicksand:wght@700&display=swap" rel="stylesheet">
     
-    <!-- FIXED: Custom CSS Files với proper paths -->
+    <!-- Main Modern Clean Design System (Ưu tiên nạp chuẩn giao diện sạch) -->
+    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/clean-modern.css">
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/style.css">
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/cute-effects.css">
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/modern-enhancements.css">
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/search.css">
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/order-management.css">
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/mobile-responsive.css">
@@ -87,22 +86,22 @@ if (!defined('SITE_NAME')) {
             <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo SITE_URL; ?>">
-                        <span style="font-size: 1.1rem; margin-right: 5px;">🏠</span> Trang chủ
+                        Trang chủ
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo SITE_URL; ?>/pages/products.php">
-                        <span style="font-size: 1.1rem; margin-right: 5px;">💖</span> Sản phẩm
+                        Sản phẩm
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo SITE_URL; ?>/pages/about.php">
-                        <span style="font-size: 1.1rem; margin-right: 5px;">ℹ️</span> Giới thiệu
+                        Giới thiệu
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo SITE_URL; ?>/pages/contact.php">
-                        <span style="font-size: 1.1rem; margin-right: 5px;">✉️</span> Liên hệ
+                        Liên hệ
                     </a>
                 </li>
             </ul>
@@ -159,12 +158,12 @@ if (!defined('SITE_NAME')) {
                 <?php else: ?>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo SITE_URL; ?>/auth/login.php">
-                        <span style="font-size: 1.1rem; margin-right: 5px;">🔐</span> Đăng nhập
+                        Đăng nhập
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="<?php echo SITE_URL; ?>/auth/register.php">
-                        <span style="font-size: 1.1rem; margin-right: 5px;">➕</span> Đăng ký
+                        Đăng ký
                     </a>
                 </li>
                 <?php endif; ?>
