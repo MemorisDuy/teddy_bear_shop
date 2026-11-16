@@ -53,9 +53,9 @@ if (!defined('SITE_NAME')) {
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@500;600;700&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
     
     <!-- Search Overlay Stylesheet -->
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/search.css?v=2026111602">
+    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/search.css?v=2026111603">
     <!-- Main Modern Clean Design System (Hệ thống giao diện chuẩn hóa duy nhất) -->
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/clean-modern.css?v=2026111602">
+    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/clean-modern.css?v=2026111603">
     
     <?php if (isset($custom_css)): ?>
     <!-- Custom page CSS -->
@@ -68,7 +68,7 @@ if (!defined('SITE_NAME')) {
 <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="<?php echo SITE_URL; ?>">
-            🐻 <?php echo htmlspecialchars(SITE_NAME); ?>
+            <i class="fas fa-heart text-pink"></i> Teddy Bear Paradise
         </a>
         
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">

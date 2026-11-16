@@ -5,16 +5,17 @@
  */
 
 // Define environment constants FIRST
-define('APP_ENV', 'development');
-define('APP_DEBUG', true);
+$is_prod = isset($_SERVER['HTTP_HOST']) && strpos($_SERVER['HTTP_HOST'], 'infinityfree') !== false;
+define('APP_ENV', $is_prod ? 'production' : 'development');
+define('APP_DEBUG', !$is_prod);
 
 // Error reporting
 if (APP_DEBUG) {
-    error_reporting(E_ALL);
+    error_reporting(E_ALL & ~E_DEPRECATED);
     ini_set('display_errors', 1);
     ini_set('display_startup_errors', 1);
 } else {
-    error_reporting(0);
+    error_reporting(E_ALL & ~E_DEPRECATED & ~E_NOTICE & ~E_WARNING);
     ini_set('display_errors', 0);
 }
 

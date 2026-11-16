@@ -1,29 +1,7 @@
 /**
- * Search CSS - FIXED VERSION
+ * Search CSS - Clean Version
  * Responsive design với proper animations
  */
-
-/* ===== ALLOW FONT AWESOME CDN TO WORK ===== */
-/* Simply allow Font Awesome CDN's content property to work */
-i[class*="fa-"],
-.fa, .fas, .far, .fal, .fad, .fab {
-    /* Don't override font-family - let CDN handle it */
-    font-style: normal;
-    font-variant: normal;
-    text-rendering: auto;
-    text-decoration: inherit;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-}
-
-
-
-/* FontAwesome solid icons */
-.fa::before, .fas::before, .far::before, .fal::before {
-    font-weight: 400 !important;
-}
-
-/* FontAwesome brand icons */
 
 /* ===== SEARCH OVERLAY ===== */
 #searchOverlay {

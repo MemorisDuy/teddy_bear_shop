@@ -66,6 +66,20 @@
     padding: 0;
 }
 
+/* Đảm bảo FontAwesome 6 luôn hiển thị đúng icon (không bị biến thành ô vuông) */
+.fa, .fas, .fa-solid, .fa::before, .fas::before, .fa-solid::before {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 900 !important;
+}
+.far, .fa-regular, .far::before, .fa-regular::before {
+    font-family: "Font Awesome 6 Free" !important;
+    font-weight: 400 !important;
+}
+.fab, .fa-brands, .fab::before, .fa-brands::before {
+    font-family: "Font Awesome 6 Brands" !important;
+    font-weight: 400 !important;
+}
+
 html {
     scroll-behavior: smooth;
     font-size: 16px;
