@@ -1,9 +1,9 @@
 <!-- CLEAN AI CHATBOT -->
-<div id="uniqueAiBtn" style="position:fixed;bottom:40px;right:20px;z-index:99999;background:#4ade80;border-radius:50%;width:60px;height:60px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 15px rgba(74,222,128,0.4);">
+<div id="uniqueAiBtn" style="position:fixed;bottom:25px;right:20px;z-index:99999;background:#4ade80;border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 4px 15px rgba(74,222,128,0.4);">
     <span style="font-size:24px;">🤖</span>
 </div>
 
-<div id="uniqueAiChat" style="position:fixed;bottom:40px;right:20px;width:350px;max-width:90vw;background:white;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.2);z-index:99999;display:none;">
+<div id="uniqueAiChat" style="position:fixed;bottom:20px;right:20px;width:350px;max-width:calc(100vw - 24px);background:white;border-radius:15px;box-shadow:0 10px 30px rgba(0,0,0,0.2);z-index:99999;display:none;">
     <div style="background:#e75480;color:#fff !important;padding:15px;border-radius:15px 15px 0 0;display:flex;justify-content:space-between;align-items:center;">
         <span style='color:#fff !important;'><strong>🤖 Teddy AI</strong></span>
         <button id="uniqueAiClose" style="background:none;border:none;color:#fff !important;font-size:18px;cursor:pointer;">&times;</button>

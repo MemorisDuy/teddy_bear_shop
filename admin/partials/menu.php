@@ -18,11 +18,16 @@ $admin_name = $_SESSION['admin_name'] ?? 'Admin';
 $current_page = basename($_SERVER['PHP_SELF']);
 ?>
 
-<nav class="admin-sidebar">
+<nav class="admin-sidebar" id="adminSidebar">
     <div class="sidebar-header">
-        <div class="logo">
-            <span class="logo-icon">🧸</span>
-            <span class="logo-text">Teddy Admin</span>
+        <div class="sidebar-header-top">
+            <div class="logo">
+                <span class="logo-icon">🧸</span>
+                <span class="logo-text">Teddy Admin</span>
+            </div>
+            <button type="button" class="mobile-menu-toggle" onclick="document.getElementById('adminSidebar').classList.toggle('menu-open')" aria-label="Toggle Menu">
+                ☰ Menu
+            </button>
         </div>
         <div class="admin-info">
             <div class="admin-avatar">
@@ -186,11 +191,92 @@ $current_page = basename($_SERVER['PHP_SELF']);
     text-align: center;
 }
 
+.sidebar-header-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.mobile-menu-toggle {
+    display: none;
+    background: rgba(255,255,255,0.2);
+    border: 1px solid rgba(255,255,255,0.4);
+    color: white;
+    padding: 8px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 14px;
+    cursor: pointer;
+}
+
 @media (max-width: 768px) {
     .admin-sidebar {
         width: 100%;
         height: auto;
-        position: relative;
+        position: sticky;
+        top: 0;
+    }
+
+    .sidebar-header {
+        padding: 14px 16px;
+    }
+
+    .logo {
+        margin-bottom: 0;
+    }
+
+    .mobile-menu-toggle {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+    }
+
+    .admin-info {
+        display: none;
+    }
+
+    .sidebar-menu {
+        display: none;
+        max-height: 70vh;
+        overflow-y: auto;
+    }
+
+    .admin-sidebar.menu-open .sidebar-menu {
+        display: block;
+    }
+
+    .admin-sidebar.menu-open .admin-info {
+        display: flex;
+        margin-top: 12px;
+        padding-top: 12px;
+        border-top: 1px solid rgba(255,255,255,0.15);
+    }
+
+    .page-header {
+        padding: 18px 16px !important;
+    }
+
+    .page-title {
+        font-size: 20px !important;
+    }
+
+    .card-header {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    .stat-card {
+        padding: 16px 12px !important;
+    }
+
+    .stat-number {
+        font-size: 24px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .stats-grid {
+        grid-template-columns: 1fr !important;
     }
 }
 </style>

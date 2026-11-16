@@ -1,0 +1,619 @@
+/**
+ * Mobile Responsive Stylesheet - Teddy Bear Paradise 🐻
+ * Tối ưu hóa toàn diện giao diện trên điện thoại và máy tính bảng (< 992px, < 768px, < 576px)
+ */
+
+/* =========================================================
+   1. GLOBAL & OVERFLOW PREVENTION
+   ========================================================= */
+html, body {
+    overflow-x: hidden !important;
+    max-width: 100vw;
+}
+
+img, video, iframe, canvas, svg {
+    max-width: 100%;
+}
+
+/* Luôn hiển thị tiêu đề danh mục trên thiết bị cảm ứng */
+@media (hover: none), (max-width: 991.98px) {
+    .category-card .category-title,
+    .category-card .category-desc {
+        opacity: 1 !important;
+    }
+    .product-card .product-overlay {
+        display: none !important;
+    }
+}
+
+/* =========================================================
+   2. TABLET & MOBILE NAVBAR (< 991.98px)
+   ========================================================= */
+@media (max-width: 991.98px) {
+    .navbar {
+        padding: 10px 0 !important;
+    }
+
+    .navbar-brand {
+        font-size: 1.25rem !important;
+    }
+
+    .navbar-toggler {
+        border: 2px solid #ffb3ba !important;
+        padding: 6px 10px !important;
+        border-radius: 10px !important;
+    }
+
+    .navbar-toggler:focus {
+        box-shadow: 0 0 0 3px rgba(255, 107, 150, 0.25) !important;
+    }
+
+    .navbar-collapse {
+        background: #ffffff;
+        margin-top: 12px;
+        padding: 14px 16px;
+        border-radius: 16px;
+        box-shadow: 0 10px 30px rgba(255, 107, 150, 0.14);
+        border: 1px solid #ffe3ec;
+    }
+
+    .navbar-nav {
+        gap: 4px;
+    }
+
+    .navbar-nav .nav-item .nav-link {
+        padding: 10px 14px !important;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+    }
+
+    .navbar-nav .nav-item .nav-link.cart-link {
+        display: inline-flex !important;
+        width: auto;
+    }
+
+    .navbar-nav .dropdown-menu {
+        border: none;
+        background: #fff5f8;
+        border-radius: 12px;
+        padding: 8px;
+        margin-top: 4px;
+    }
+
+    /* Hero Section trên Tablet/Mobile */
+    .hero-section {
+        padding: 35px 0 45px !important;
+        min-height: auto !important;
+        text-align: center;
+    }
+
+    .hero-section .row {
+        min-height: auto !important;
+        gap: 20px 0 !important;
+    }
+
+    .hero-content {
+        padding: 0 8px;
+    }
+
+    .hero-title {
+        font-size: 2.2rem !important;
+        line-height: 1.25 !important;
+    }
+
+    .hero-subtitle {
+        font-size: 1rem !important;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 540px;
+    }
+
+    .hero-features {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 8px !important;
+    }
+
+    .hero-features .feature-item {
+        margin: 0 !important;
+        padding: 6px 14px !important;
+        font-size: 0.9rem !important;
+    }
+
+    .hero-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 10px;
+    }
+
+    .hero-buttons .cute-btn,
+    .hero-buttons .cute-btn-outline {
+        margin: 0 !important;
+    }
+
+    /* Sidebar danh mục trang Sản phẩm chuyển sang dạng cuộn ngang gọn gàng trên mobile/tablet */
+    .sidebar .category-list {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        gap: 8px;
+        padding-bottom: 6px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .sidebar .category-item {
+        flex: 0 0 auto;
+        margin-bottom: 0 !important;
+        padding: 8px 14px !important;
+        white-space: nowrap;
+        border-radius: 20px !important;
+    }
+
+    .sidebar .category-item .badge {
+        margin-left: 6px;
+    }
+
+    /* Bỏ sticky ở trang Checkout & Cart khi màn hình nhỏ */
+    .sticky-top {
+        position: static !important;
+    }
+}
+
+/* =========================================================
+   3. MOBILE PHONES (< 767.98px)
+   ========================================================= */
+@media (max-width: 767.98px) {
+    .container {
+        padding-left: 14px;
+        padding-right: 14px;
+    }
+
+    .py-5 {
+        padding-top: 2rem !important;
+        padding-bottom: 2rem !important;
+    }
+
+    .my-5 {
+        margin-top: 1.5rem !important;
+        margin-bottom: 1.5rem !important;
+    }
+
+    .mb-5 {
+        margin-bottom: 1.75rem !important;
+    }
+
+    /* Tiêu đề section */
+    .section-title {
+        font-size: 1.6rem !important;
+    }
+
+    .section-subtitle {
+        font-size: 0.95rem !important;
+    }
+
+    /* Ẩn bớt hiệu ứng bay lơ lửng trên màn hình hẹp để mượt và không tràn viền */
+    .floating-element,
+    .bear-paw {
+        display: none !important;
+    }
+
+    /* Hero image gọn đẹp trên điện thoại */
+    .hero-section img {
+        max-height: 260px !important;
+        width: 100%;
+        object-fit: cover;
+        border-radius: 16px !important;
+    }
+
+    /* Category Cards */
+    .category-card {
+        height: 170px !important;
+        border-radius: 14px !important;
+    }
+
+    .category-image {
+        height: 100% !important;
+    }
+
+    .category-image img {
+        height: 100% !important;
+        object-fit: cover !important;
+    }
+
+    .category-view-btn {
+        font-size: 0.8rem !important;
+        padding: 5px 12px !important;
+        bottom: 10px !important;
+    }
+
+    /* Product Cards */
+    .products-container,
+    .row {
+        gap: 12px 0 !important;
+    }
+
+    .product-card {
+        min-height: auto !important;
+        border-radius: 14px !important;
+        padding-bottom: 12px !important;
+    }
+
+    .product-image {
+        min-height: 170px !important;
+        height: 170px !important;
+    }
+
+    .product-image img,
+    .product-card img {
+        height: 160px !important;
+        padding: 6px !important;
+    }
+
+    .product-info {
+        padding: 12px !important;
+    }
+
+    .product-title,
+    .product-name {
+        font-size: 1rem !important;
+        line-height: 1.35 !important;
+    }
+
+    .current-price,
+    .product-price {
+        font-size: 1.05rem !important;
+    }
+
+    /* Trang Chi Tiết Sản Phẩm (pages/product-detail.php) */
+    .main-image img {
+        height: 260px !important;
+    }
+
+    .product-detail-info .product-title {
+        font-size: 1.4rem !important;
+    }
+
+    .price-section .current-price {
+        font-size: 1.5rem !important;
+    }
+
+    .action-buttons .row {
+        gap: 10px 0 !important;
+    }
+
+    .nav-tabs {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .nav-tabs .nav-link {
+        font-size: 0.9rem;
+        padding: 8px 12px;
+    }
+
+    /* Trang Tìm Kiếm (pages/search.php) */
+    .search-results-header,
+    .d-flex.justify-content-between.align-items-center {
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    /* Search Modal Overlay */
+    #searchOverlay .search-modal {
+        width: 94% !important;
+        max-width: 94vw !important;
+        padding: 20px 15px !important;
+        margin: 0 auto;
+    }
+
+    #searchOverlay .search-form-modal .input-group {
+        flex-direction: column;
+        gap: 8px;
+    }
+
+    #searchOverlay .search-form-modal .input-group .form-control,
+    #searchOverlay .search-form-modal .input-group .btn {
+        width: 100% !important;
+        border-radius: 12px !important;
+    }
+
+    /* =========================================================
+       TRANG GIỎ HÀNG (cart/index.php & cart/cart.php) - MOBILE CARD VIEW
+       ========================================================= */
+    .cart-items tr.cart-item {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        position: relative;
+        padding: 14px 12px;
+        margin: 10px;
+        border: 1px solid #f5d6e2;
+        border-radius: 14px;
+        background: #ffffff;
+        box-shadow: 0 3px 10px rgba(255, 107, 150, 0.08);
+    }
+
+    .table-responsive table thead {
+        display: none;
+    }
+
+    .cart-items tr.cart-item td {
+        border: none !important;
+        padding: 4px 0 !important;
+    }
+
+    /* Cột 1: Ảnh + Tên sản phẩm */
+    .cart-items tr.cart-item td:nth-child(1) {
+        width: 100%;
+        padding-right: 38px !important;
+        padding-bottom: 10px !important;
+        margin-bottom: 6px;
+        border-bottom: 1px dashed #f0dce4 !important;
+    }
+
+    .cart-items tr.cart-item td:nth-child(1) .product-image {
+        min-height: 68px !important;
+        height: 68px !important;
+        width: 68px !important;
+        flex-shrink: 0;
+    }
+
+    /* Cột 2: Đơn giá */
+    .cart-items tr.cart-item td:nth-child(2) {
+        width: auto;
+        text-align: left !important;
+    }
+
+    /* Cột 3: Số lượng */
+    .cart-items tr.cart-item td:nth-child(3) {
+        width: auto;
+    }
+
+    .cart-items tr.cart-item td:nth-child(3) .input-group {
+        width: 120px !important;
+    }
+
+    /* Cột 4: Thành tiền */
+    .cart-items tr.cart-item td:nth-child(4) {
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-top: 6px;
+        padding-top: 8px !important;
+        border-top: 1px solid #faf0f4 !important;
+        text-align: right !important;
+    }
+
+    .cart-items tr.cart-item td:nth-child(4)::before {
+        content: "Thành tiền:";
+        font-size: 0.88rem;
+        color: #666;
+        font-weight: 600;
+    }
+
+    /* Cột 5: Nút xóa ở góc trên bên phải card */
+    .cart-items tr.cart-item td:nth-child(5) {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        width: auto;
+        padding: 0 !important;
+    }
+
+    /* =========================================================
+       TRANG THANH TOÁN & GIẢ LẬP QR (cart/checkout.php & mock-payment.php)
+       ========================================================= */
+    .checkout-card .card-body {
+        padding: 18px 14px !important;
+    }
+
+    .checkout-title, .text-checkout-title {
+        font-size: 1.5rem !important;
+    }
+
+    .payment-container {
+        padding: 20px 0 !important;
+    }
+
+    .payment-card {
+        padding: 22px 16px !important;
+        border-radius: 16px !important;
+    }
+
+    .payment-icon {
+        font-size: 3rem !important;
+    }
+
+    .payment-title {
+        font-size: 1.35rem !important;
+    }
+
+    .amount-display {
+        font-size: 1.6rem !important;
+        margin: 14px 0 !important;
+    }
+
+    .qr-section {
+        padding: 16px 12px !important;
+        margin: 18px 0 !important;
+    }
+
+    .payment-countdown-container {
+        padding: 24px 14px !important;
+    }
+
+    .countdown-number {
+        font-size: 3rem !important;
+    }
+
+    .countdown-title {
+        font-size: 1.2rem !important;
+    }
+
+    .qr-code-container {
+        padding: 12px !important;
+        max-width: 100%;
+    }
+
+    .qr-code-image {
+        width: 210px !important;
+        height: 210px !important;
+        max-width: 100% !important;
+    }
+
+    .order-info, .bank-info {
+        padding: 14px !important;
+    }
+
+    .order-info-item, .bank-info-item {
+        flex-wrap: wrap;
+        gap: 4px;
+        font-size: 0.92rem;
+    }
+
+    .btn-payment, .btn-cancel {
+        width: 100% !important;
+        padding: 12px 20px !important;
+    }
+
+    /* =========================================================
+       TRANG HỒ SƠ & ĐƠN HÀNG (user/profile.php & user/orders.php)
+       ========================================================= */
+    .profile-container, .orders-container {
+        padding: 20px 0 !important;
+    }
+
+    .profile-sidebar, .profile-content {
+        padding: 20px 15px !important;
+        margin-bottom: 16px !important;
+    }
+
+    .profile-avatar {
+        width: 76px !important;
+        height: 76px !important;
+        font-size: 1.6rem !important;
+    }
+
+    .orders-header {
+        padding: 18px 15px !important;
+    }
+
+    .filter-tabs {
+        padding: 12px !important;
+        overflow-x: auto;
+        white-space: nowrap;
+        display: flex;
+        flex-wrap: nowrap;
+        gap: 6px;
+        -webkit-overflow-scrolling: touch;
+    }
+
+    .filter-tab {
+        margin: 0 !important;
+        padding: 8px 14px !important;
+        flex: 0 0 auto;
+    }
+
+    .order-header, .order-body {
+        padding: 14px 15px !important;
+    }
+
+    .order-item .row > div {
+        margin-bottom: 8px;
+    }
+
+    .order-item .text-end {
+        text-align: left !important;
+    }
+
+    /* =========================================================
+       MODAL ĐẶT MẪU RIÊNG (pages/custom-order-modal.php)
+       ========================================================= */
+    #customOrderModal > div {
+        width: 94% !important;
+        padding: 20px 15px !important;
+        margin: 15px auto !important;
+    }
+
+    #imagesContainer {
+        grid-template-columns: 1fr !important;
+    }
+
+    /* =========================================================
+       FLOATING WIDGETS (AI CHATBOT & SCROLL TO TOP)
+       ========================================================= */
+    #uniqueAiBtn {
+        bottom: 18px !important;
+        right: 16px !important;
+        width: 52px !important;
+        height: 52px !important;
+    }
+
+    #uniqueAiChat {
+        bottom: 12px !important;
+        right: 10px !important;
+        left: 10px !important;
+        width: auto !important;
+        max-width: calc(100vw - 20px) !important;
+    }
+
+    #scrollToTop, .scroll-to-top {
+        bottom: 82px !important;
+        right: 18px !important;
+        left: auto !important;
+        width: 42px !important;
+        height: 42px !important;
+    }
+
+    #notificationContainer, #notifications {
+        right: 10px !important;
+        left: 10px !important;
+        max-width: calc(100vw - 20px) !important;
+    }
+}
+
+/* =========================================================
+   4. SMALL PHONES (< 575.98px)
+   ========================================================= */
+@media (max-width: 575.98px) {
+    .hero-title {
+        font-size: 1.75rem !important;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .hero-buttons .cute-btn,
+    .hero-buttons .cute-btn-outline {
+        width: 100%;
+        text-align: center;
+        justify-content: center;
+    }
+
+    /* Spec table trên trang chi tiết sản phẩm hiển thị 1 cột để không bị ép chữ */
+    .spec-table .col-6 {
+        width: 100% !important;
+    }
+
+    .footer .col-lg-4,
+    .footer .col-lg-2,
+    .footer .col-md-6 {
+        text-align: center;
+    }
+
+    .footer .social-links {
+        justify-content: center;
+        display: flex;
+        gap: 10px;
+    }
+}

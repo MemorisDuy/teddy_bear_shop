@@ -116,8 +116,21 @@ try {
         .action-icon { font-size: 28px; margin-bottom: 10px; display: block; }
         
         @media (max-width: 768px) { 
+            body { padding: 12px; }
+            .header { padding: 20px 15px; display: flex; flex-direction: column; align-items: center; gap: 10px; }
+            .logout-btn { position: static; align-self: flex-end; padding: 8px 16px; font-size: 13px; margin-bottom: 4px; }
+            .welcome { font-size: 20px; }
+            .subtitle { font-size: 14px; }
             .content-grid { grid-template-columns: 1fr; }
-            .stats { grid-template-columns: 1fr 1fr; }
+            .stats { grid-template-columns: 1fr 1fr; gap: 12px; }
+            .stat-card { padding: 16px 12px; }
+            .stat-number { font-size: 22px; word-break: break-word; }
+        }
+        @media (max-width: 480px) {
+            .stats { grid-template-columns: 1fr; }
+            .performance-grid { grid-template-columns: 1fr !important; }
+            .recent-item-enhanced { flex-wrap: wrap; gap: 8px; }
+            .item-value-enhanced { width: 100%; text-align: right; }
         }
     </style>
 </head>

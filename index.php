@@ -245,7 +245,7 @@ if (!$header_included) {
         
         <div class="row">
             <?php foreach ($categories as $category): ?>
-            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="col-lg-3 col-md-6 col-6 mb-4">
                 <div class="category-card" style="position:relative;">
                     <div class="category-image">
                         <img src="<?php echo IMG_PATH . $category['image']; ?>" 
@@ -253,7 +253,7 @@ if (!$header_included) {
                              onerror="this.style.background='linear-gradient(45deg, #ff6b96, #f093fb)'; this.style.color='white'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='🐻 <?php echo htmlspecialchars($category['name']); ?>'; this.style.fontSize='2rem'; this.style.fontWeight='bold'; this.style.minHeight='200px'; this.style.textAlign='center';">
                         <a href="pages/products.php?category=<?php echo urlencode($category['slug']); ?>"
                            class="btn btn-light btn-sm category-view-btn"
-                           style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:2;box-shadow:0 2px 8px rgba(0,0,0,0.08);border-radius:20px;">
+                           style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:2;box-shadow:0 2px 8px rgba(0,0,0,0.08);border-radius:20px;white-space:nowrap;">
                             Xem ngay <span style="font-size: 0.9rem; margin-left: 5px;">➡️</span>
                         </a>
                     </div>
@@ -277,7 +277,7 @@ if (!$header_included) {
         
         <div class="row">
             <?php foreach ($featured_products as $product): ?>
-            <div class="col-lg-3 col-md-6 mb-4">
+            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
                 <div class="product-card">
                     <div class="product-image">
                         <img src="<?php echo IMG_PATH . $product['main_image']; ?>" 
@@ -335,7 +335,7 @@ if (!$header_included) {
                         
                         <p class="card-text text-muted small"><?php echo htmlspecialchars($product['short_description']); ?></p>
                         
-                        <div class="product-price">
+                        <div class="product-price mb-3">
                             <?php if (!empty($product['sale_price'])): ?>
                                 <span class="product-price"><?php echo formatPrice($product['sale_price']); ?></span>
                                 <span class="original-price"><?php echo formatPrice($product['price']); ?></span>
@@ -345,6 +345,20 @@ if (!$header_included) {
                             <?php else: ?>
                                 <span class="product-price"><?php echo formatPrice($product['price']); ?></span>
                             <?php endif; ?>
+                        </div>
+                        
+                        <div class="product-actions-bottom mt-auto">
+                            <div class="d-grid gap-2">
+                                <button class="btn btn-primary btn-sm add-to-cart-btn" 
+                                        data-product-id="<?php echo $product['id']; ?>"
+                                        type="button">
+                                    <span style="font-size: 1rem;">🛒</span> Thêm vào giỏ
+                                </button>
+                                <a href="pages/product-detail.php?slug=<?php echo urlencode($product['slug']); ?>" 
+                                   class="btn btn-outline-primary btn-sm">
+                                    <span style="font-size: 1rem;">ℹ️</span> Xem chi tiết
+                                </a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -427,17 +441,6 @@ if (!$header_included) {
 
 <!-- Simple Footer -->
 <?php include 'includes/footer.php'; ?>
-
-<!-- CSS Libraries -->
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-<link rel="stylesheet" href="/teddy_bear_shop/css/style.css">
-<link rel="stylesheet" href="/teddy_bear_shop/css/cute-effects.css">
-<!-- <link rel="stylesheet" href="/teddy_bear_shop/css/category-cards.css"> -->
-
-<!-- JavaScript Libraries -->
-<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-<!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script> -->
 
 <!-- FINAL OPTIMIZED JAVASCRIPT -->
 <script>

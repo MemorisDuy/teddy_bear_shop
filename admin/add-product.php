@@ -133,10 +133,9 @@ $page_title = "Thêm sản phẩm - Admin";
         </div>
     </div>
 
-    <div class="d-flex justify-content-center align-items-center" style="min-height:100vh;">
-        <div class="w-100" style="max-width:900px;">
-            <div class="row justify-content-center">
-                <div class="col-lg-7 col-md-12 mb-4">
+    <div class="container py-4">
+        <div class="row justify-content-center">
+            <div class="col-12 mb-4">
                     <!-- Error Messages -->
                     <?php if (!empty($errors)): ?>
                         <div class="alert alert-danger">
@@ -341,15 +340,8 @@ $page_title = "Thêm sản phẩm - Admin";
                         </div>
                     </form>
                 </div>
-                <div class="col-lg-5 col-md-12 mb-4">
-                    <!-- Image Preview -->
-                    <div class="image-preview" style="max-width: 100%; height: auto;">
-                        <img id="preview-image" src="../images/placeholder.jpg" alt="Preview Image" onerror="this.style.display='none'">
-                    </div>
-                </div>
             </div>
         </div>
-    </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
     <script>

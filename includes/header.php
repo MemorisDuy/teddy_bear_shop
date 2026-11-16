@@ -60,7 +60,7 @@ if (!defined('SITE_NAME')) {
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/modern-enhancements.css">
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/search.css">
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/order-management.css">
-    <!-- <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/category-cards.css"> -->
+    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/mobile-responsive.css">
     
     <!-- Google Fonts: Quicksand, Nunito, Poppins, Comfortaa -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Nunito:wght@400;600;700&family=Poppins:wght@400;600;700&family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
@@ -177,8 +177,8 @@ if (!defined('SITE_NAME')) {
 <div class="scroll-progress" style="position: fixed; top: 0; left: 0; width: 0%; height: 3px; background: linear-gradient(45deg, #ff6b96, #f093fb); z-index: 10000; transition: width 0.1s ease;"></div>
 
 <!-- Back to Top Button -->
-<button id="scrollToTop" class="scroll-to-top" style="position: fixed; bottom: 30px; right: 30px; width: 50px; height: 50px; background: linear-gradient(135deg, #ff6b96, #f093fb); color: white; border: none; border-radius: 50%; cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index: 1000; box-shadow: 0 4px 15px rgba(255, 107, 150, 0.3); display: flex; align-items: center; justify-content: center; font-size: 1.2rem;" title="Lên đầu trang">
-    <span style="font-size: 1.2rem;">⬆️</span>
+<button id="scrollToTop" class="scroll-to-top" style="position: fixed; bottom: 105px; right: 22px; width: 46px; height: 46px; background: linear-gradient(135deg, #ff6b96, #f093fb); color: white; border: none; border-radius: 50%; cursor: pointer; opacity: 0; visibility: hidden; transform: translateY(20px); transition: all 0.3s cubic-bezier(0.68, -0.55, 0.265, 1.55); z-index: 1000; box-shadow: 0 4px 15px rgba(255, 107, 150, 0.3); display: flex; align-items: center; justify-content: center; font-size: 1.1rem;" title="Lên đầu trang">
+    <span style="font-size: 1.1rem;">⬆️</span>
 </button>
 
 <!-- Notification Container -->
