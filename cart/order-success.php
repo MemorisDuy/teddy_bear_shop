@@ -1,8 +1,12 @@
 <?php
+/**
+ * Order Success Page - Đặt hàng thành công
+ * Giao diện hiện đại, sạch sẽ, icon chuẩn FontAwesome
+ */
 session_start();
 require_once "../config/config.php";
 
-$page_title = "Đặt hàng thành công - Teddy Bear Shop";
+$page_title = "Đặt hàng thành công - " . SITE_NAME;
 
 // Lấy mã đơn hàng
 $order_number = $_GET['order_number'] ?? '';
@@ -41,152 +45,86 @@ $paid = isset($_GET['paid']) && $_GET['paid'] == '1';
 include "../includes/header.php";
 ?>
 
-<div class="container my-5">
+<div class="container py-5">
     <div class="row justify-content-center">
-        <div class="col-md-10">
-            <!-- Success Header -->
+        <div class="col-lg-9">
+            <!-- Header Thông báo thành công -->
             <div class="text-center mb-5">
-                <div class="success-animation mb-4">
-                    <span style="font-size: 5rem;">✅</span>
+                <div class="rounded-circle bg-success-subtle text-success d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 80px; height: 80px;">
+                    <i class="fas fa-check fs-1"></i>
                 </div>
-                <h1 class="text-success mb-3">🎉 <?php echo $paid ? 'Thanh toán thành công!' : 'Đặt hàng thành công!'; ?></h1>
-                <p class="lead text-muted">
-                    Cảm ơn bạn đã tin tưởng và mua sắm tại <strong>Teddy Bear Paradise</strong>
+                <h2 class="fw-bold text-dark mb-2">
+                    <?php echo $paid ? 'Thanh Toán Thành Công!' : 'Đặt Hàng Thành Công!'; ?>
+                </h2>
+                <p class="text-muted mb-3">
+                    Cảm ơn bạn đã tin tưởng và mua sắm tại <strong><?php echo SITE_NAME; ?></strong>
                 </p>
-                <?php if ($paid): ?>
-                <div class="alert alert-success d-inline-block px-4 py-2 mb-3">
-                    <span style="font-size: 1.2rem; margin-right: 8px;">💳</span>
-                    <strong>Thanh toán đã được xác nhận!</strong>
-                </div>
-                <?php endif; ?>
-                <div class="badge bg-success fs-6 px-4 py-2">
-                    Đơn hàng #<?php echo $order['order_number']; ?> đã được <?php echo $paid ? 'thanh toán và ' : ''; ?>tiếp nhận
+                <div class="badge bg-success-subtle text-success border border-success-subtle px-3 py-2 rounded-pill fs-6">
+                    Mã đơn hàng: #<?php echo htmlspecialchars($order['order_number']); ?>
                 </div>
             </div>
             
-            <!-- Order Information Card -->
-            <div class="order-card card mb-4">
-                <div class="card-body">
-                    <div class="row text-white">
-                        <div class="col-md-6">
-                            <h5><span style="font-size: 1.2rem; margin-right: 8px;">👤</span> Thông tin khách hàng</h5>
-                            <p class="mb-1"><strong>Họ tên:</strong> <?php echo htmlspecialchars($order['customer_name']); ?></p>
-                            <p class="mb-1"><strong>Email:</strong> <?php echo htmlspecialchars($order['customer_email']); ?></p>
-                            <p class="mb-1"><strong>Điện thoại:</strong> <?php echo htmlspecialchars($order['customer_phone']); ?></p>
-                            <p class="mb-0"><strong>Địa chỉ:</strong> <?php echo htmlspecialchars($order['shipping_address']); ?></p>
+            <!-- Thẻ tóm tắt thông tin đơn hàng -->
+            <div class="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden">
+                <div class="card-header bg-pink text-white py-3 px-4">
+                    <h5 class="fw-bold mb-0 text-white">
+                        <i class="fas fa-receipt me-2"></i> Chi tiết đơn hàng
+                    </h5>
+                </div>
+                <div class="card-body p-4">
+                    <div class="row g-4">
+                        <div class="col-md-6 border-end-md">
+                            <h6 class="fw-bold text-dark mb-3"><i class="fas fa-user text-pink me-2"></i> Thông tin người nhận</h6>
+                            <p class="mb-1 text-secondary small"><strong>Họ tên:</strong> <?php echo htmlspecialchars($order['customer_name']); ?></p>
+                            <p class="mb-1 text-secondary small"><strong>Email:</strong> <?php echo htmlspecialchars($order['customer_email']); ?></p>
+                            <p class="mb-1 text-secondary small"><strong>Điện thoại:</strong> <?php echo htmlspecialchars($order['customer_phone']); ?></p>
+                            <p class="mb-0 text-secondary small"><strong>Địa chỉ giao:</strong> <?php echo htmlspecialchars($order['shipping_address']); ?></p>
                         </div>
-                        <div class="col-md-6">
-                            <h5><span style="font-size: 1.2rem; margin-right: 8px;">🛍️</span> Thông tin đơn hàng</h5>
-                            <p class="mb-1"><strong>Mã đơn hàng:</strong> #<?php echo $order['order_number']; ?></p>
-                            <p class="mb-1"><strong>Ngày đặt:</strong> <?php echo formatDateVN($order['created_at']); ?></p>
-                            <p class="mb-1"><strong>Trạng thái:</strong> 
-                                <span class="badge bg-warning text-dark">
-                                    <span style="font-size: 1rem; margin-right: 5px;">⏰</span> Chờ xác nhận
-                                </span>
+                        <div class="col-md-6 ps-md-4">
+                            <h6 class="fw-bold text-dark mb-3"><i class="fas fa-shopping-bag text-pink me-2"></i> Trạng thái & Thanh toán</h6>
+                            <p class="mb-1 text-secondary small"><strong>Ngày tạo:</strong> <?php echo formatDateVN($order['created_at']); ?></p>
+                            <p class="mb-1 text-secondary small"><strong>Trạng thái:</strong> 
+                                <span class="badge bg-warning text-dark">Đang xử lý</span>
                             </p>
-                            <p class="mb-1"><strong>Thanh toán:</strong> 
+                            <p class="mb-1 text-secondary small"><strong>Phương thức:</strong> 
                                 <?php 
-                                $payment_methods = [
-                                    'cod' => '💵 COD',
-                                    'bank_transfer' => '🏦 Chuyển khoản',
-                                    'momo' => '📱 MoMo',
-                                    'zalopay' => '💳 ZaloPay'
+                                $methods = [
+                                    'cod' => 'Tiền mặt khi nhận (COD)',
+                                    'bank_transfer' => 'Chuyển khoản VietQR',
+                                    'momo' => 'Ví MoMo',
+                                    'zalopay' => 'Ví ZaloPay'
                                 ];
-                                $payment_text = $payment_methods[$order['payment_method']] ?? $order['payment_method'];
-                                if ($order['payment_status'] === 'paid') {
-                                    $payment_text .= ' <span class="badge bg-success">Đã thanh toán</span>';
-                                } else {
-                                    $payment_text .= ' <span class="badge bg-warning text-dark">Chưa thanh toán</span>';
-                                }
-                                echo $payment_text;
+                                echo $methods[$order['payment_method']] ?? $order['payment_method'];
                                 ?>
                             </p>
-                            <p class="mb-0"><strong>Tổng tiền:</strong> 
-                                <span class="h5 text-warning"><?php echo formatPrice($order['total_amount']); ?></span>
+                            <p class="mb-0 text-secondary small"><strong>Tổng thanh toán:</strong> 
+                                <span class="fw-bold text-danger fs-5 ms-1"><?php echo formatPrice($order['total_amount']); ?></span>
                             </p>
                         </div>
                     </div>
                     
                     <?php if (!empty($order['notes'])): ?>
-                        <hr class="border-light">
-                        <div class="text-white">
-                            <h6><span style="font-size: 1rem; margin-right: 5px;">📝</span> Ghi chú:</h6>
-                            <p class="mb-0 fst-italic"><?php echo nl2br(htmlspecialchars($order['notes'])); ?></p>
+                        <hr class="my-3">
+                        <div class="p-3 bg-light rounded-3">
+                            <small class="text-muted d-block fw-semibold mb-1"><i class="fas fa-sticky-note me-1"></i> Ghi chú đơn hàng:</small>
+                            <p class="mb-0 small text-secondary fst-italic"><?php echo nl2br(htmlspecialchars($order['notes'])); ?></p>
                         </div>
                     <?php endif; ?>
                 </div>
             </div>
             
-            <!-- Order Timeline -->
-            <div class="card mb-4">
-                <div class="card-header">
-                    <h5><span style="font-size: 1.2rem; margin-right: 8px;">🛣️</span> Trạng thái đơn hàng</h5>
+            <!-- Danh sách sản phẩm đặt mua -->
+            <div class="card border-0 shadow-sm rounded-4 mb-4 overflow-hidden">
+                <div class="card-header bg-white border-0 pt-4 px-4 pb-0">
+                    <h5 class="fw-bold mb-0 text-dark">
+                        <i class="fas fa-box-open text-pink me-2"></i> Sản phẩm đã mua (<?php echo $total_items; ?> sản phẩm)
+                    </h5>
                 </div>
-                <div class="card-body">
-                    <div class="timeline">
-                        <div class="timeline-item">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="mb-1 text-success">✅ Đặt hàng thành công</h6>
-                                    <small class="text-muted"><?php echo formatDateVN($order['created_at']); ?></small>
-                                </div>
-                                <span class="badge bg-success">Hoàn thành</span>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item pending">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="mb-1 text-warning">⏳ Xác nhận đơn hàng</h6>
-                                    <small class="text-muted">Đang chờ shop xác nhận</small>
-                                </div>
-                                <span class="badge bg-warning text-dark">Đang xử lý</span>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item future">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="mb-1 text-muted">📦 Chuẩn bị hàng</h6>
-                                    <small class="text-muted">Đóng gói và chuẩn bị giao hàng</small>
-                                </div>
-                                <span class="badge bg-secondary">Chưa bắt đầu</span>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item future">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="mb-1 text-muted">🚚 Đang giao hàng</h6>
-                                    <small class="text-muted">Shipper đang giao đến bạn</small>
-                                </div>
-                                <span class="badge bg-secondary">Chưa bắt đầu</span>
-                            </div>
-                        </div>
-                        
-                        <div class="timeline-item future">
-                            <div class="d-flex justify-content-between align-items-center">
-                                <div>
-                                    <h6 class="mb-1 text-muted">🎯 Giao hàng thành công</h6>
-                                    <small class="text-muted">Dự kiến: <?php echo $estimated_delivery; ?></small>
-                                </div>
-                                <span class="badge bg-secondary">Chưa bắt đầu</span>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <!-- Order Items -->
-            <div class="card mb-4">
-                <div class="card-header">
-                    <h5><span style="font-size: 1.2rem; margin-right: 8px;">📋</span> Chi tiết sản phẩm (<?php echo $total_items; ?> sản phẩm)</h5>
-                </div>
-                <div class="card-body">
+                <div class="card-body p-4">
                     <div class="table-responsive">
-                        <table class="table table-hover">
+                        <table class="table align-middle mb-0">
                             <thead class="table-light">
-                                <tr>
+                                <tr class="small text-muted">
                                     <th>Sản phẩm</th>
                                     <th class="text-center">Đơn giá</th>
                                     <th class="text-center">Số lượng</th>
@@ -195,51 +133,38 @@ include "../includes/header.php";
                             </thead>
                             <tbody>
                                 <?php foreach ($order_items as $item): ?>
-                                    <tr class="product-item">
+                                    <tr>
                                         <td>
                                             <div class="d-flex align-items-center">
-                                                <div class="product-image me-3">
-                                                    <img src="../images/<?php echo $item['product_image']; ?>" 
-                                                         alt="<?php echo htmlspecialchars($item['product_name']); ?>" 
-                                                         style="width: 60px; height: 60px; object-fit: cover;" 
-                                                         class="rounded border">
-                                                </div>
+                                                <img src="../images/<?php echo $item['product_image'] ?: 'placeholder.jpg'; ?>" 
+                                                     alt="<?php echo htmlspecialchars($item['product_name']); ?>" 
+                                                     style="width: 50px; height: 50px; object-fit: cover;" 
+                                                     class="rounded-3 border me-3 flex-shrink-0"
+                                                     onerror="this.src='../images/placeholder.jpg'">
                                                 <div>
-                                                    <h6 class="mb-0"><?php echo htmlspecialchars($item['product_name']); ?></h6>
+                                                    <h6 class="mb-0 small fw-bold text-dark"><?php echo htmlspecialchars($item['product_name']); ?></h6>
                                                     <small class="text-muted">Mã SP: #<?php echo $item['product_id']; ?></small>
                                                 </div>
                                             </div>
                                         </td>
-                                        <td class="text-center align-middle">
-                                            <strong><?php echo formatPrice($item['price']); ?></strong>
-                                        </td>
-                                        <td class="text-center align-middle">
-                                            <span class="badge bg-primary"><?php echo $item['quantity']; ?></span>
-                                        </td>
-                                        <td class="text-end align-middle">
-                                            <strong class="text-primary"><?php echo formatPrice($item['total']); ?></strong>
-                                        </td>
+                                        <td class="text-center small text-secondary"><?php echo formatPrice($item['price']); ?></td>
+                                        <td class="text-center small fw-semibold"><?php echo $item['quantity']; ?></td>
+                                        <td class="text-end small fw-bold text-dark"><?php echo formatPrice($item['total']); ?></td>
                                     </tr>
                                 <?php endforeach; ?>
                             </tbody>
-                            <tfoot class="table-light">
+                            <tfoot class="table-light small">
                                 <tr>
-                                    <td colspan="3"><strong>Tạm tính:</strong></td>
-                                    <td class="text-end"><strong><?php echo formatPrice($order['subtotal']); ?></strong></td>
+                                    <td colspan="3" class="text-muted">Tạm tính:</td>
+                                    <td class="text-end fw-semibold"><?php echo formatPrice($order['subtotal']); ?></td>
                                 </tr>
                                 <tr>
-                                    <td colspan="3"><strong>Phí vận chuyển:</strong></td>
-                                    <td class="text-end">
-                                        <strong>
-                                            <?php echo $order['shipping_fee'] > 0 ? formatPrice($order['shipping_fee']) : '<span class="text-success">Miễn phí</span>'; ?>
-                                        </strong>
-                                    </td>
+                                    <td colspan="3" class="text-muted">Phí vận chuyển:</td>
+                                    <td class="text-end fw-semibold"><?php echo $order['shipping_fee'] > 0 ? formatPrice($order['shipping_fee']) : '<span class="text-success">Miễn phí</span>'; ?></td>
                                 </tr>
-                                <tr class="table-success">
-                                    <td colspan="3"><strong class="text-success">TỔNG CỘNG:</strong></td>
-                                    <td class="text-end">
-                                        <strong class="text-success h5"><?php echo formatPrice($order['total_amount']); ?></strong>
-                                    </td>
+                                <tr>
+                                    <td colspan="3" class="fw-bold text-dark fs-6">TỔNG CỘNG:</td>
+                                    <td class="text-end fw-bold text-danger fs-6"><?php echo formatPrice($order['total_amount']); ?></td>
                                 </tr>
                             </tfoot>
                         </table>
@@ -247,119 +172,23 @@ include "../includes/header.php";
                 </div>
             </div>
             
-            <!-- Payment Instructions -->
-            <?php if ($order['payment_method'] === 'bank_transfer'): ?>
-                <div class="card mb-4 border-info">
-                    <div class="card-header bg-info text-white">
-                        <h5><span style="font-size: 1.2rem; margin-right: 8px;">🏦</span> Hướng dẫn chuyển khoản</h5>
-                    </div>
-                    <div class="card-body">
-                        <div class="alert alert-info">
-                            <h6 class="alert-heading">💳 Thông tin tài khoản nhận:</h6>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <p class="mb-2"><strong>Ngân hàng:</strong> Vietcombank Chi nhánh TP.HCM</p>
-                                    <p class="mb-2"><strong>Số tài khoản:</strong> 
-                                        <code class="bg-light text-dark p-1 rounded">1234567890</code>
-                                        <button class="btn btn-sm btn-outline-primary ms-2" onclick="copyToClipboard('1234567890')">
-                                            <span style="font-size: 1rem; margin-right: 5px;">📋</span>
-                                        </button>
-                                    </p>
-                                    <p class="mb-2"><strong>Chủ tài khoản:</strong> TEDDY BEAR PARADISE</p>
-                                </div>
-                                <div class="col-md-6">
-                                    <p class="mb-2"><strong>Số tiền:</strong> 
-                                        <code class="bg-light text-dark p-1 rounded"><?php echo number_format($order['total_amount'], 0, ',', '.'); ?></code>
-                                        <button class="btn btn-sm btn-outline-primary ms-2" onclick="copyToClipboard('<?php echo $order['total_amount']; ?>')">
-                                            <span style="font-size: 1rem; margin-right: 5px;">📋</span>
-                                        </button>
-                                    </p>
-                                    <p class="mb-2"><strong>Nội dung:</strong> 
-                                        <code class="bg-light text-dark p-1 rounded"><?php echo $order['order_number']; ?></code>
-                                        <button class="btn btn-sm btn-outline-primary ms-2" onclick="copyToClipboard('<?php echo $order['order_number']; ?>')">
-                                            <span style="font-size: 1rem; margin-right: 5px;">📋</span>
-                                        </button>
-                                    </p>
-                                </div>
-                            </div>
-                            <hr>
-                            <p class="mb-0">
-                                <span style="font-size: 1rem; margin-right: 5px;">ℹ️</span>
-                                <strong>Lưu ý:</strong> Đơn hàng sẽ được xử lý ngay sau khi chúng tôi nhận được thanh toán.
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            <?php endif; ?>
-            
-            <!-- Delivery Information -->
-            <div class="card mb-4">
-                <div class="card-header bg-warning text-dark">
-                    <h5><span style="font-size: 1.2rem; margin-right: 8px;">🚚</span> Thông tin giao hàng</h5>
-                </div>
-                <div class="card-body">
-                    <div class="row">
-                        <div class="col-md-6">
-                            <h6>📍 Địa chỉ giao hàng:</h6>
-                            <p class="mb-3"><?php echo nl2br(htmlspecialchars($order['shipping_address'])); ?></p>
-                            
-                            <h6>⏰ Thời gian giao hàng dự kiến:</h6>
-                            <ul class="list-unstyled">
-                                <li><span style="font-size: 1rem; margin-right: 5px;">⏰</span> Nội thành TP.HCM: <strong>1-2 ngày</strong></li>
-                                <li><span style="font-size: 1rem; margin-right: 5px;">⏰</span> Các tỉnh thành khác: <strong>2-5 ngày</strong></li>
-                                <li><span style="font-size: 1rem; margin-right: 5px;">📅</span> Dự kiến giao: <strong><?php echo $estimated_delivery; ?></strong></li>
-                            </ul>
-                        </div>
-                        <div class="col-md-6">
-                            <h6>📞 Hotline hỗ trợ:</h6>
-                            <p class="mb-2">
-                                <span style="font-size: 1rem; margin-right: 5px;">📞</span>
-                                <strong>0123-456-789</strong> (8:00 - 22:00)
-                            </p>
-                            <p class="mb-2">
-                                <span style="font-size: 1rem; margin-right: 5px;">✉️</span>
-                                <strong>support@teddyparadise.com</strong>
-                            </p>
-                            <p class="mb-3">
-                                <span style="font-size: 1rem; margin-right: 5px;">📍</span>
-                                <strong>123 Đường Cute, Quận 1, TP.HCM</strong>
-                            </p>
-                        </div>
-                    </div>
-                </div>
+            <!-- Điều hướng thao tác -->
+            <div class="d-flex flex-wrap gap-3 justify-content-center mb-4">
+                <a href="../pages/products.php" class="btn btn-primary rounded-pill px-4 py-2">
+                    <i class="fas fa-shopping-bag me-2"></i> Tiếp tục mua sắm
+                </a>
+                <a href="../user/orders.php" class="btn btn-outline-primary rounded-pill px-4 py-2">
+                    <i class="fas fa-list-alt me-2"></i> Lịch sử đơn hàng
+                </a>
+                <button class="btn btn-light border rounded-pill px-4 py-2" onclick="window.print()">
+                    <i class="fas fa-print me-2"></i> In hóa đơn
+                </button>
             </div>
             
-            <!-- Action Buttons -->
-            <div class="row mb-4">
-                <div class="col-md-4 mb-3">
-                    <a href="../pages/products.php" class="btn btn-primary btn-lg w-100">
-                        <span style="font-size: 1rem; margin-right: 5px;">🛒</span> Tiếp tục mua sắm
-                    </a>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <a href="../user/orders.php" class="btn btn-outline-primary btn-lg w-100">
-                        <span style="font-size: 1rem; margin-right: 5px;">📋</span> Đơn hàng của tôi
-                    </a>
-                </div>
-                <div class="col-md-4 mb-3">
-                    <button class="btn btn-outline-success btn-lg w-100" onclick="printOrder()">
-                        <span style="font-size: 1rem; margin-right: 5px;">🖨️</span> In đơn hàng
-                    </button>
-                </div>
-            </div>
-            
-            <!-- Email Confirmation Notice -->
-            <div class="alert alert-success">
-                <div class="d-flex align-items-center">
-                    <span style="font-size: 2rem; margin-right: 12px;">📧</span>
-                    <div>
-                        <h6 class="alert-heading mb-1">📧 Email xác nhận đã được gửi!</h6>
-                        <p class="mb-0">
-                            Chúng tôi đã gửi email xác nhận đến <strong><?php echo htmlspecialchars($order['customer_email']); ?></strong>. 
-                            Vui lòng kiểm tra hộp thư (kể cả thư mục spam).
-                        </p>
-                    </div>
-                </div>
+            <!-- Thông báo email -->
+            <div class="alert alert-info rounded-4 p-3 text-center small mb-0">
+                <i class="fas fa-envelope-open-text me-2"></i>
+                Hóa đơn xác nhận chi tiết đã được tự động gửi đến <strong><?php echo htmlspecialchars($order['customer_email']); ?></strong>.
             </div>
         </div>
     </div>

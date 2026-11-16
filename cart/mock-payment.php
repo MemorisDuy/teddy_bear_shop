@@ -456,9 +456,8 @@ include '../includes/header.php';
     <div class="container">
         <div class="payment-card">
             <div class="payment-header">
-                <div class="payment-icon"><?php echo $payment_info['icon']; ?></div>
-                <h1 class="payment-title"><?php echo $payment_info['title']; ?></h1>
-                <p class="payment-description"><?php echo $payment_info['description']; ?></p>
+                <h2 class="fw-bold text-dark mb-2"><?php echo $payment_info['title']; ?></h2>
+                <p class="text-muted"><?php echo $payment_info['description']; ?></p>
             </div>
 
             <div class="amount-display">
@@ -467,16 +466,16 @@ include '../includes/header.php';
 
             <?php if ($payment_method !== 'cod'): ?>
             <div class="qr-section">
-                <h4 style="margin-bottom: 20px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Quét mã QR để thanh toán tự động</h4>
+                <h5 class="fw-bold text-dark mb-3">Quét mã QR để thanh toán tự động</h5>
                 
-                <!-- Countdown tự động giả lập quét QR (10 giây) - Giao diện đẹp -->
+                <!-- Countdown tự động giả lập quét QR (10 giây) -->
                 <div id="autoCountdown" class="payment-countdown-container">
                     <div class="countdown-icon-wrapper">
-                        <div class="countdown-icon">📱</div>
+                        <i class="fas fa-qrcode text-white fs-1"></i>
                         <div class="pulse-ring"></div>
                         <div class="pulse-ring delay-1"></div>
                     </div>
-                    <h3 class="countdown-title">Đang xử lý thanh toán...</h3>
+                    <h4 class="countdown-title">Đang kết nối cổng thanh toán...</h4>
                     <div id="countdownText" class="countdown-number">
                         10
                     </div>
@@ -485,72 +484,32 @@ include '../includes/header.php';
                         <div id="progressBar" class="progress-bar"></div>
                     </div>
                     <p class="countdown-description">
-                        Đang giả lập quét QR code và xử lý thanh toán...
+                        Mô phỏng quét mã QR và tự động hoàn tất thanh toán...
                     </p>
                 </div>
-                
-                <?php if ($ip_config_needed): ?>
-                <!-- Thông báo cần cấu hình IP -->
-                <div style="padding: 20px; background: #fff3cd; border: 2px solid #ffc107; border-radius: 10px; margin-bottom: 20px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
-                    <h5 style="color: #856404; margin-bottom: 15px;">
-                        <span style="font-size: 1.5rem; margin-right: 8px;">⚠️</span> Cần cấu hình IP để quét QR
-                    </h5>
-                    <p style="color: #856404; margin-bottom: 15px;">
-                        Để quét QR code trên điện thoại, bạn cần thay <code>localhost</code> bằng IP thật của máy tính.
-                    </p>
-                    <div style="background: white; padding: 15px; border-radius: 8px; margin-bottom: 15px;">
-                        <strong style="color: #333;">Cách lấy IP:</strong>
-                        <ol style="margin: 10px 0; padding-left: 20px; color: #333;">
-                            <li>Mở Command Prompt (Windows) hoặc Terminal (Mac/Linux)</li>
-                            <li>Gõ lệnh: <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">ipconfig</code> (Windows) hoặc <code style="background: #f0f0f0; padding: 2px 6px; border-radius: 4px;">ifconfig</code> (Mac/Linux)</li>
-                            <li>Tìm dòng "IPv4 Address" (ví dụ: 192.168.1.100)</li>
-                            <li>Sửa file <code>config/config.php</code>, thay <code>localhost</code> bằng IP vừa tìm được</li>
-                        </ol>
-                    </div>
-                    <p style="color: #856404; font-size: 0.9rem; margin: 0;">
-                        Ví dụ: <code>http://192.168.1.100/teddy_bear_shop</code>
-                    </p>
-                </div>
-                <?php endif; ?>
                 
                 <div class="qr-code-container">
-                    <!-- QR Code thật - có thể quét được -->
                     <img src="qr-generator.php?data=<?php echo urlencode($payment_info['qr_url']); ?>&size=300" 
                          alt="QR Code" 
                          class="qr-code-image"
-                         style="width: 300px; height: 300px; border: 2px solid #ddd; border-radius: 10px; background: white;"
+                         style="width: 250px; height: 250px; border: 2px solid #ddd; border-radius: 10px; background: white;"
                          onerror="this.onerror=null; this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' width=\'300\' height=\'300\'%3E%3Crect width=\'300\' height=\'300\' fill=\'%23f0f0f0\'/%3E%3Ctext x=\'50%25\' y=\'50%25\' text-anchor=\'middle\' dy=\'.3em\' font-size=\'20\' fill=\'%23999\'%3EQR Code%3C/text%3E%3C/svg%3E';">
                 </div>
-                <div style="margin-top: 15px; padding: 15px; background: #e3f2fd; border-radius: 10px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
-                    <p style="color: #1976d2; margin-bottom: 10px; font-weight: 600;">
-                        <span style="font-size: 1.2rem; margin-right: 8px;">📱</span> Hướng dẫn quét QR:
+                <div class="p-3 bg-light rounded-3 text-start mt-3">
+                    <p class="text-primary mb-2 fw-semibold">
+                        <i class="fas fa-mobile-alt me-2"></i> Hướng dẫn quét QR:
                     </p>
-                    <ol style="color: #333; margin: 0; padding-left: 20px; text-align: left;">
-                        <li>Mở ứng dụng Camera trên điện thoại</li>
-                        <li>Hướng camera vào mã QR ở trên</li>
-                        <li>Nhấn vào thông báo/liên kết hiện ra</li>
-                        <li>Hệ thống sẽ tự động xử lý thanh toán</li>
+                    <ol class="text-secondary small mb-0 ps-3">
+                        <li>Mở ứng dụng Camera hoặc ngân hàng trên điện thoại</li>
+                        <li>Hướng camera vào mã QR ở trên để thanh toán</li>
                     </ol>
                 </div>
-                <p style="color: #28a745; margin-top: 15px; font-size: 0.9rem; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
-                    ✅ Hoặc nhấn nút "Đã thanh toán thành công" bên dưới để thanh toán thủ công
-                </p>
-                <!-- Debug info (chỉ hiện khi cần) -->
-                <?php if (defined('APP_DEBUG') && APP_DEBUG): ?>
-                <details style="margin-top: 15px; font-size: 0.8rem; color: #666;">
-                    <summary style="cursor: pointer;">🔍 Debug Info</summary>
-                    <div style="margin-top: 10px; padding: 10px; background: #f8f9fa; border-radius: 5px; text-align: left;">
-                        <strong>QR URL:</strong><br>
-                        <code style="word-break: break-all; font-size: 0.75rem;"><?php echo htmlspecialchars($payment_info['qr_url']); ?></code>
-                    </div>
-                </details>
-                <?php endif; ?>
             </div>
             <?php endif; ?>
 
             <?php if ($payment_method === 'bank_transfer'): ?>
-            <div class="bank-info">
-                <h5 style="margin-bottom: 15px; color: #1976d2; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">📋 Thông tin chuyển khoản</h5>
+            <div class="bank-info text-start">
+                <h6 class="fw-bold mb-3 text-primary"><i class="fas fa-university me-2"></i> Thông tin chuyển khoản</h6>
                 <div class="bank-info-item">
                     <span class="bank-info-label">Ngân hàng:</span>
                     <span class="bank-info-value"><?php echo $payment_info['bank_info']['name']; ?></span>
@@ -564,14 +523,14 @@ include '../includes/header.php';
                     <span class="bank-info-value"><?php echo $payment_info['bank_info']['holder']; ?></span>
                 </div>
                 <div class="bank-info-item">
-                    <span class="bank-info-label">Nội dung:</span>
+                    <span class="bank-info-label">Nội dung chuyển:</span>
                     <span class="bank-info-value"><?php echo $order_number; ?></span>
                 </div>
             </div>
             <?php endif; ?>
 
-            <div class="order-info">
-                <h5 style="margin-bottom: 15px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">📦 Thông tin đơn hàng</h5>
+            <div class="order-info text-start">
+                <h6 class="fw-bold mb-3 text-dark"><i class="fas fa-receipt me-2"></i> Thông tin đơn hàng</h6>
                 <div class="order-info-item">
                     <span class="order-info-label">Mã đơn hàng:</span>
                     <span class="order-info-value">#<?php echo $order_number; ?></span>
@@ -580,62 +539,35 @@ include '../includes/header.php';
                     <span class="order-info-label">Tạm tính:</span>
                     <span class="order-info-value"><?php echo formatPrice($order['subtotal']); ?></span>
                 </div>
-                <?php if ($order['shipping_fee'] > 0): ?>
                 <div class="order-info-item">
                     <span class="order-info-label">Phí vận chuyển:</span>
-                    <span class="order-info-value"><?php echo formatPrice($order['shipping_fee']); ?></span>
+                    <span class="order-info-value"><?php echo $order['shipping_fee'] > 0 ? formatPrice($order['shipping_fee']) : '<span class="text-success">Miễn phí</span>'; ?></span>
                 </div>
-                <?php else: ?>
                 <div class="order-info-item">
-                    <span class="order-info-label">Phí vận chuyển:</span>
-                    <span class="order-info-value" style="color: #28a745;">Miễn phí</span>
-                </div>
-                <?php endif; ?>
-                <div class="order-info-item">
-                    <span class="order-info-label">Tổng cộng:</span>
-                    <span class="order-info-value" style="color: #ff6b6b; font-size: 1.2rem;"><?php echo formatPrice($order['total_amount']); ?></span>
+                    <span class="order-info-label">Tổng thanh toán:</span>
+                    <span class="order-info-value text-danger fs-5"><?php echo formatPrice($order['total_amount']); ?></span>
                 </div>
             </div>
 
             <div class="payment-actions">
-                <?php if ($payment_method === 'cod'): ?>
-                    <button class="btn-payment" onclick="confirmPayment()">
-                        <span style="font-size: 1.2rem; margin-right: 8px;">✅</span> Xác nhận đặt hàng
-                    </button>
-                <?php else: ?>
-                    <button class="btn-payment" onclick="confirmPayment()">
-                        <span style="font-size: 1.2rem; margin-right: 8px;">✅</span> Đã thanh toán thành công
-                    </button>
-                <?php endif; ?>
+                <button class="btn btn-primary btn-lg rounded-pill px-5 py-2 mb-2" onclick="confirmPayment()">
+                    <i class="fas fa-check-circle me-2"></i> Xác nhận đã thanh toán
+                </button>
                 <br>
-                <button class="btn-cancel" onclick="cancelPayment()">
-                    <span style="font-size: 1rem; margin-right: 5px;">❌</span> Hủy thanh toán
+                <button class="btn btn-link text-danger text-decoration-none small" onclick="cancelPayment()">
+                    <i class="fas fa-times me-1"></i> Hủy thanh toán và quay lại
                 </button>
             </div>
         </div>
     </div>
 </div>
 
-<!-- Payment Status Alert -->
-<div id="paymentStatusAlert" style="display: none; position: fixed; top: 20px; right: 20px; background: #28a745; color: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 20px rgba(0,0,0,0.2); z-index: 10000; max-width: 400px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
-    <div style="display: flex; align-items: center; gap: 15px;">
-        <div style="font-size: 2rem;">✅</div>
-        <div>
-            <h4 style="margin: 0 0 5px 0; font-size: 1.2rem;">Thanh toán thành công!</h4>
-            <p style="margin: 0; font-size: 0.9rem; opacity: 0.9;">Đơn hàng <strong id="alertOrderNumber"><?php echo $order_number; ?></strong> đã được thanh toán.</p>
-        </div>
-    </div>
-    <button onclick="window.location.reload()" style="margin-top: 15px; padding: 8px 20px; background: white; color: #28a745; border: none; border-radius: 5px; cursor: pointer; font-weight: bold; width: 100%;">
-        Xem chi tiết
-    </button>
-</div>
-
 <!-- Loading Overlay -->
 <div class="loading-overlay" id="loadingOverlay">
-    <div class="loading-content">
-        <div class="loading-spinner">⏳</div>
-        <h4 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Đang xử lý thanh toán...</h4>
-        <p style="color: #666; margin-top: 10px; font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Vui lòng đợi trong giây lát</p>
+    <div class="loading-content p-4 rounded-4 bg-white text-center shadow-lg">
+        <div class="spinner-border text-primary mb-3" style="width: 3rem; height: 3rem;" role="status"></div>
+        <h5 class="fw-bold text-dark">Đang xử lý giao dịch...</h5>
+        <p class="text-muted small mb-0">Vui lòng chờ trong giây lát</p>
     </div>
 </div>
 

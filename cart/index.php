@@ -90,17 +90,19 @@ include '../includes/header.php';
     <div class="row">
         <div class="col-12">
             <nav aria-label="breadcrumb">
-                <ol class="breadcrumb" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">
-                    <li class="breadcrumb-item"><a href="../index.php" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Trang chủ</a></li>
-                    <li class="breadcrumb-item active" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Giỏ hàng</li>
+                <ol class="breadcrumb">
+                    <li class="breadcrumb-item"><a href="../index.php" class="text-decoration-none text-muted"><i class="fas fa-home me-1"></i> Trang chủ</a></li>
+                    <li class="breadcrumb-item active text-pink fw-semibold">Giỏ hàng</li>
                 </ol>
             </nav>
             
             <div class="d-flex justify-content-between align-items-center mb-4">
-                <h2 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;"><span style="font-size: 1.3rem; margin-right: 8px;">🛒</span> Giỏ hàng của bạn</h2>
+                <h2 class="fw-bold text-dark mb-0">
+                    <i class="fas fa-shopping-bag text-pink me-2"></i> Giỏ hàng của bạn
+                </h2>
                 <?php if (!empty($cart_items)): ?>
-                    <button class="btn btn-outline-danger" onclick="clearCart()">
-                        <span style="font-size: 1rem; margin-right: 5px;">🗑️</span> Xóa tất cả
+                    <button class="btn btn-outline-danger btn-sm rounded-pill px-3" onclick="clearCart()">
+                        <i class="fas fa-trash-alt me-1"></i> Xóa tất cả
                     </button>
                 <?php endif; ?>
             </div>
@@ -108,47 +110,50 @@ include '../includes/header.php';
     </div>
 
     <?php if (empty($cart_items)): ?>
-        <!-- Empty Cart -->
+        <!-- Giỏ hàng trống -->
         <div class="row">
             <div class="col-12">
-                <div class="empty-cart text-center py-5">
-                    <span style="font-size: 4rem; color: #6c757d; display: block; margin-bottom: 1rem;">🛒</span>
-                    <h4 style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Giỏ hàng trống</h4>
-                    <p class="text-muted mb-4" style="font-family: 'Nunito', 'Poppins', Arial, sans-serif;">Bạn chưa có sản phẩm nào trong giỏ hàng</p>
-                    <a href="../pages/products.php" class="btn btn-primary btn-lg">
-                        <span style="font-size: 1.1rem; margin-right: 5px;">🛍️</span> Tiếp tục mua sắm
-                    </a>
+                <div class="card border-0 shadow-sm rounded-4 p-5 text-center my-4">
+                    <div class="rounded-circle bg-pink-light d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 90px; height: 90px;">
+                        <i class="fas fa-shopping-cart text-pink fs-1"></i>
+                    </div>
+                    <h4 class="fw-bold text-dark mb-2">Giỏ hàng của bạn đang trống</h4>
+                    <p class="text-muted mb-4">Hãy khám phá các sản phẩm gấu bông đáng yêu và thêm vào giỏ nhé!</p>
+                    <div>
+                        <a href="../pages/products.php" class="btn btn-primary rounded-pill px-4 py-2">
+                            <i class="fas fa-arrow-left me-2"></i> Tiếp tục mua sắm
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
     <?php else: ?>
-        <!-- Cart with Items -->
-        <div class="row">
-            <!-- Cart Items -->
+        <!-- Danh sách sản phẩm trong giỏ -->
+        <div class="row g-4">
+            <!-- Cột sản phẩm -->
             <div class="col-lg-8">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">
-                            Sản phẩm trong giỏ hàng 
-                            <span class="badge bg-primary"><?php echo $cart_summary['total_quantity']; ?></span>
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
+                    <div class="card-header bg-white border-0 pt-4 px-4 pb-0 d-flex justify-content-between align-items-center">
+                        <h5 class="fw-bold mb-0 text-dark">
+                            Sản phẩm đã chọn 
+                            <span class="badge bg-pink text-white rounded-pill ms-2"><?php echo $cart_summary['total_quantity']; ?></span>
                         </h5>
                     </div>
-                    <div class="card-body p-0">
+                    <div class="card-body p-4">
                         <div class="table-responsive">
-                            <table class="table table-hover mb-0">
+                            <table class="table align-middle mb-0">
                                 <thead class="table-light">
-                                    <tr>
-                                        <th width="50%">Sản phẩm</th>
-                                        <th width="15%" class="text-center">Đơn giá</th>
-                                        <th width="15%" class="text-center">Số lượng</th>
-                                        <th width="15%" class="text-end">Thành tiền</th>
-                                        <th width="5%"></th>
+                                    <tr class="small text-muted">
+                                        <th style="width: 45%;">Sản phẩm</th>
+                                        <th style="width: 18%;" class="text-center">Đơn giá</th>
+                                        <th style="width: 18%;" class="text-center">Số lượng</th>
+                                        <th style="width: 14%;" class="text-end">Thành tiền</th>
+                                        <th style="width: 5%;" class="text-center"></th>
                                     </tr>
                                 </thead>
                                 <tbody class="cart-items">
                                     <?php foreach ($cart_items as $item): ?>
                                         <?php 
-                                        // FIX: Ensure all required fields exist
                                         $product_id = $item['product_id'] ?? $item['id'] ?? 0;
                                         $price = !empty($item['sale_price']) ? $item['sale_price'] : $item['price'];
                                         $total_item = $price * $item['quantity'];
@@ -157,87 +162,64 @@ include '../includes/header.php';
                                         <tr class="cart-item" data-product-id="<?php echo $product_id; ?>">
                                             <td>
                                                 <div class="d-flex align-items-center">
-                                                    <div class="product-image me-3">
-                                                        <img src="<?php echo IMG_PATH . $image_path; ?>" 
-                                                             alt="<?php echo htmlspecialchars($item['name']); ?>" 
-                                                             style="width: 80px; height: 80px; object-fit: cover;" 
-                                                             class="rounded border cart-item-image"
-                                                             onerror="this.src='<?php echo IMG_PATH; ?>placeholder.jpg'">
-                                                    </div>
-                                                    <div class="product-info">
-                                                        <h6 class="mb-1">
-                                                            <?php if (!empty($item['slug'])): ?>
-                                                            <a href="../pages/product-detail.php?slug=<?php echo $item['slug']; ?>" 
-                                                               class="text-decoration-none">
+                                                    <img src="<?php echo IMG_PATH . $image_path; ?>" 
+                                                         alt="<?php echo htmlspecialchars($item['name']); ?>" 
+                                                         style="width: 65px; height: 65px; object-fit: cover;" 
+                                                         class="rounded-3 border me-3 flex-shrink-0"
+                                                         onerror="this.src='<?php echo IMG_PATH; ?>placeholder.jpg'">
+                                                    <div>
+                                                        <h6 class="mb-1 fw-bold text-dark">
+                                                            <a href="../pages/product-detail.php?slug=<?php echo $item['slug'] ?? ''; ?>" 
+                                                               class="text-decoration-none text-dark hover-pink">
                                                                 <?php echo htmlspecialchars($item['name']); ?>
                                                             </a>
-                                                            <?php else: ?>
-                                                                <?php echo htmlspecialchars($item['name']); ?>
-                                                            <?php endif; ?>
                                                         </h6>
-                                                        
-                                                        <?php if (!empty($item['size']) || !empty($item['color'])): ?>
-                                                        <div class="product-details">
-                                                            <?php if (!empty($item['size'])): ?>
-                                                                <small class="text-muted">Size: <?php echo $item['size']; ?></small><br>
-                                                            <?php endif; ?>
-                                                            <?php if (!empty($item['color'])): ?>
-                                                                <small class="text-muted">Màu: <?php echo $item['color']; ?></small>
-                                                            <?php endif; ?>
-                                                        </div>
+                                                        <?php if (!empty($item['size'])): ?>
+                                                            <span class="badge bg-light text-secondary border small me-1">Size: <?php echo htmlspecialchars($item['size']); ?></span>
                                                         <?php endif; ?>
-                                                        
-                                                        <div class="stock-info">
-                                                            <small class="text-success">
-                                                                <span style="font-size: 0.9rem; color: #28a745; margin-right: 5px;">✅</span> Còn hàng
-                                                            </small>
-                                                        </div>
+                                                        <span class="small text-success d-block mt-1">
+                                                            <i class="fas fa-check-circle me-1"></i> Có sẵn
+                                                        </span>
                                                     </div>
                                                 </div>
                                             </td>
-                                            <td class="text-center align-middle">
-                                                <div class="price-info">
-                                                    <?php if (!empty($item['sale_price'])): ?>
-                                                        <span class="text-danger fw-bold"><?php echo formatPrice($item['sale_price']); ?></span><br>
-                                                        <small class="text-muted text-decoration-line-through"><?php echo formatPrice($item['price']); ?></small>
-                                                    <?php else: ?>
-                                                        <span class="fw-bold"><?php echo formatPrice($item['price']); ?></span>
-                                                    <?php endif; ?>
+                                            <td class="text-center">
+                                                <?php if (!empty($item['sale_price'])): ?>
+                                                    <div class="fw-bold text-danger"><?php echo formatPrice($item['sale_price']); ?></div>
+                                                    <small class="text-muted text-decoration-line-through"><?php echo formatPrice($item['price']); ?></small>
+                                                <?php else: ?>
+                                                    <div class="fw-bold text-dark"><?php echo formatPrice($item['price']); ?></div>
+                                                <?php endif; ?>
+                                            </td>
+                                            <td class="text-center">
+                                                <div class="input-group input-group-sm mx-auto" style="width: 110px;">
+                                                    <button class="btn btn-outline-secondary px-2" type="button" 
+                                                            onclick="changeQuantity(<?php echo $product_id; ?>, -1)">
+                                                        <i class="fas fa-minus small"></i>
+                                                    </button>
+                                                    <input type="number" 
+                                                           class="form-control text-center fw-bold" 
+                                                           value="<?php echo $item['quantity']; ?>" 
+                                                           min="1" 
+                                                           max="99"
+                                                           id="qty_<?php echo $product_id; ?>"
+                                                           onchange="updateQuantityDirect(<?php echo $product_id; ?>, this.value)">
+                                                    <button class="btn btn-outline-secondary px-2" type="button"
+                                                            onclick="changeQuantity(<?php echo $product_id; ?>, 1)">
+                                                        <i class="fas fa-plus small"></i>
+                                                    </button>
                                                 </div>
                                             </td>
-                                            <td class="text-center align-middle">
-                                                <div class="quantity-controls">
-                                                    <div class="input-group input-group-sm" style="width: 140px; margin: 0 auto;">
-                                                        <button class="btn btn-outline-secondary" type="button" 
-                                                                onclick="changeQuantity(<?php echo $product_id; ?>, -1)">
-                                                            <span style="font-size: 1rem;">➖</span>
-                                                        </button>
-                                                        <input type="number" 
-                                                               class="form-control text-center" 
-                                                               value="<?php echo $item['quantity']; ?>" 
-                                                               min="1" 
-                                                               max="99"
-                                                               id="qty_<?php echo $product_id; ?>"
-                                                               onchange="updateQuantityDirect(<?php echo $product_id; ?>, this.value)"
-                                                               style="max-width: 60px;">
-                                                        <button class="btn btn-outline-secondary" type="button"
-                                                                onclick="changeQuantity(<?php echo $product_id; ?>, 1)">
-                                                            <span style="font-size: 1rem;">➕</span>
-                                                        </button>
-                                                    </div>
-                                                </div>
-                                            </td>
-                                            <td class="text-end align-middle">
+                                            <td class="text-end">
                                                 <span class="fw-bold text-primary item-total" data-item-total="<?php echo $product_id; ?>">
                                                     <?php echo formatPrice($total_item); ?>
                                                 </span>
                                             </td>
-                                            <td class="text-center align-middle">
-                                                <button class="btn btn-outline-danger btn-sm" 
+                                            <td class="text-center">
+                                                <button class="btn btn-link text-danger p-0" 
                                                         onclick="removeCartItem(<?php echo $product_id; ?>)"
-                                                        title="Xóa sản phẩm"
-                                                        style="min-width: 40px;">
-                                                    <span style="font-size: 1rem;">🗑️</span>
+                                                        title="Xóa sản phẩm">
+                                                    <i class="fas fa-times"></i>
                                                 </button>
                                             </td>
                                         </tr>
@@ -247,86 +229,78 @@ include '../includes/header.php';
                         </div>
                     </div>
                 </div>
-                
-                <!-- Continue Shopping -->
-                <div class="mt-3">
-                    <a href="../pages/products.php" class="btn btn-outline-primary">
-                        <span style="font-size: 1rem; margin-right: 5px;">⬅️</span> Tiếp tục mua sắm
+
+                <!-- Nút quay lại mua sắm -->
+                <div class="mb-4">
+                    <a href="../pages/products.php" class="btn btn-outline-primary rounded-pill px-4">
+                        <i class="fas fa-arrow-left me-2"></i> Xem thêm sản phẩm khác
                     </a>
                 </div>
             </div>
             
-            <!-- Cart Summary -->
+            <!-- Cột Tóm tắt thanh toán -->
             <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-header">
-                        <h5 class="mb-0">Tóm tắt đơn hàng</h5>
+                <div class="card border-0 shadow-sm rounded-4 mb-4">
+                    <div class="card-header bg-white border-0 pt-4 px-4 pb-0">
+                        <h5 class="fw-bold mb-0 text-dark">Tóm tắt đơn hàng</h5>
                     </div>
-                    <div class="card-body">
-                        <div class="order-summary">
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Tạm tính:</span>
-                                <span class="cart-subtotal"><?php echo formatPrice($cart_summary['subtotal']); ?></span>
+                    <div class="card-body p-4">
+                        <div class="d-flex justify-content-between mb-2">
+                            <span class="text-muted">Tạm tính:</span>
+                            <span class="fw-semibold text-dark cart-subtotal"><?php echo formatPrice($cart_summary['subtotal']); ?></span>
+                        </div>
+                        
+                        <div class="d-flex justify-content-between mb-3">
+                            <span class="text-muted">Phí vận chuyển:</span>
+                            <span class="shipping-fee fw-semibold">
+                                <?php echo $cart_summary['shipping_fee'] > 0 ? formatPrice($cart_summary['shipping_fee']) : '<span class="text-success">Miễn phí</span>'; ?>
+                            </span>
+                        </div>
+                        
+                        <?php if (!$cart_summary['is_free_shipping'] && $cart_summary['free_shipping_remaining'] > 0): ?>
+                        <div class="p-3 rounded-3 bg-light mb-3">
+                            <div class="small text-secondary mb-1">
+                                <i class="fas fa-truck text-pink me-1"></i> Mua thêm <strong><?php echo formatPrice($cart_summary['free_shipping_remaining']); ?></strong> để được <strong>FREESHIP!</strong>
                             </div>
-                            
-                            <div class="d-flex justify-content-between mb-2">
-                                <span>Phí vận chuyển:</span>
-                                <span class="shipping-fee">
-                                    <?php echo $cart_summary['shipping_fee'] > 0 ? formatPrice($cart_summary['shipping_fee']) : '<span class="text-success">Miễn phí</span>'; ?>
-                                </span>
+                            <div class="progress" style="height: 6px;">
+                                <div class="progress-bar bg-pink" 
+                                     style="width: <?php echo min(100, ($cart_summary['subtotal'] / FREE_SHIPPING_MIN) * 100); ?>%"></div>
                             </div>
-                            
-                            <?php if (!$cart_summary['is_free_shipping'] && $cart_summary['free_shipping_remaining'] > 0): ?>
-                            <div class="free-shipping-progress mb-3">
-                                <small class="text-info">
-                                    <span style="font-size: 1rem; margin-right: 5px;">🚚</span> 
-                                    Mua thêm <?php echo formatPrice($cart_summary['free_shipping_remaining']); ?> để được <strong>MIỄN PHÍ SHIP!</strong>
-                                </small>
-                                <div class="progress mt-1" style="height: 4px;">
-                                    <div class="progress-bar bg-info" 
-                                         style="width: <?php echo ($cart_summary['subtotal'] / FREE_SHIPPING_MIN) * 100; ?>%"></div>
-                                </div>
-                            </div>
-                            <?php endif; ?>
-                            
-                            <hr>
-                            <div class="d-flex justify-content-between mb-3">
-                                <strong class="h5">Tổng cộng:</strong>
-                                <strong class="h5 text-danger cart-total"><?php echo formatPrice($cart_summary['total']); ?></strong>
-                            </div>
-                            
-                            <div class="d-grid">
-                                <a href="checkout.php" class="btn btn-danger btn-lg">
-                                    <span style="font-size: 1.1rem; margin-right: 5px;">💳</span> Thanh toán
-                                </a>
-                            </div>
-                            
-                            <div class="payment-methods mt-3">
-                                <small class="text-muted">Chúng tôi chấp nhận:</small>
-                                <div class="payment-icons mt-1">
-                                    <span style="font-size: 1.3rem; margin-right: 8px;">💳</span>
-                                    <span style="font-size: 1.3rem; margin-right: 8px;">💳</span>
-                                    <span style="font-size: 1.3rem; margin-right: 8px;">💰</span>
-                                    <span style="font-size: 1.3rem;">📱</span>
-                                </div>
+                        </div>
+                        <?php endif; ?>
+                        
+                        <hr class="my-3">
+                        
+                        <div class="d-flex justify-content-between align-items-center mb-4">
+                            <span class="fw-bold text-dark fs-5">Tổng cộng:</span>
+                            <span class="fw-bold text-danger fs-4 cart-total"><?php echo formatPrice($cart_summary['total']); ?></span>
+                        </div>
+                        
+                        <div class="d-grid mb-3">
+                            <a href="checkout.php" class="btn btn-primary btn-lg rounded-pill fw-semibold py-2">
+                                <i class="fas fa-lock me-2"></i> Tiến hành thanh toán
+                            </a>
+                        </div>
+                        
+                        <div class="text-center pt-2">
+                            <small class="text-muted d-block mb-2">Phương thức thanh toán hỗ trợ:</small>
+                            <div class="d-flex justify-content-center gap-3 text-secondary fs-4">
+                                <i class="fab fa-cc-visa text-primary" title="Visa"></i>
+                                <i class="fab fa-cc-mastercard text-danger" title="Mastercard"></i>
+                                <i class="fas fa-money-bill-wave text-success" title="Tiền mặt (COD)"></i>
+                                <i class="fas fa-qrcode text-dark" title="Chuyển khoản QR"></i>
                             </div>
                         </div>
                     </div>
                 </div>
                 
-                <!-- Security Info -->
-                <div class="card mt-3">
-                    <div class="card-body text-center">
-                        <div class="security-badges">
-                            <div class="mb-2">
-                                <span style="font-size: 2rem; color: #28a745; display: block;">🛡️</span>
-                            </div>
-                            <h6>Mua sắm an toàn</h6>
-                            <small class="text-muted">
-                                • Bảo mật thông tin 100%<br>
-                                • Đổi trả trong 7 ngày<br>
-                                • Hỗ trợ 24/7
-                            </small>
+                <!-- Cam kết bảo mật -->
+                <div class="card border-0 shadow-sm rounded-4 p-4 text-center bg-white">
+                    <div class="d-flex align-items-center justify-content-center gap-3 text-start">
+                        <i class="fas fa-shield-alt text-success fs-1"></i>
+                        <div>
+                            <h6 class="fw-bold mb-1 text-dark">Thanh toán an toàn 100%</h6>
+                            <small class="text-muted">Bảo mật thông tin đơn hàng & Hỗ trợ đổi trả trong 7 ngày</small>
                         </div>
                     </div>
                 </div>

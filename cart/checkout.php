@@ -298,20 +298,20 @@ include "../includes/header.php";
 ?>
 
 <div class="container my-5">
-    <div class="row">
+    <div class="row g-4">
         <!-- Form thanh toán -->
-        <div class="col-md-7">
-            <div class="checkout-card card shadow-lg border-0">
-                <div class="checkout-header card-header text-white bg-checkout-gradient">
-                    <h4 class="checkout-title mb-0 text-checkout-title">
-                        <span class="checkout-icon">🧸</span> Thông tin thanh toán
+        <div class="col-lg-7">
+            <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                <div class="card-header bg-white border-0 pt-4 px-4 pb-0">
+                    <h4 class="fw-bold text-dark mb-0">
+                        <i class="fas fa-file-invoice text-pink me-2"></i> Thông tin thanh toán
                     </h4>
                 </div>
-                <div class="checkout-body card-body p-4">
+                <div class="card-body p-4">
                     <?php if (!empty($errors)): ?>
-                        <div class="checkout-alert alert alert-danger bg-checkout-alert text-checkout-alert">
-                            <h6><span class="checkout-alert-icon">❗</span> Vui lòng sửa các lỗi sau:</h6>
-                            <ul class="mb-0">
+                        <div class="alert alert-danger rounded-3 mb-4">
+                            <h6 class="fw-bold"><i class="fas fa-exclamation-circle me-1"></i> Vui lòng sửa các thông tin sau:</h6>
+                            <ul class="mb-0 small">
                                 <?php foreach ($errors as $error): ?>
                                     <li><?php echo htmlspecialchars($error); ?></li>
                                 <?php endforeach; ?>
@@ -319,138 +319,145 @@ include "../includes/header.php";
                         </div>
                     <?php endif; ?>
                     
-                    <form method="POST" id="checkoutForm" class="checkout-form" novalidate>
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="checkout-label form-label text-checkout-label">Họ và tên *</label>
-                                <input type="text" class="checkout-input form-control" name="customer_name" 
+                    <form method="POST" id="checkoutForm" novalidate>
+                        <div class="row g-3 mb-3">
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold text-secondary small">Họ và tên *</label>
+                                <input type="text" class="form-control rounded-3" name="customer_name" 
                                        value="<?php echo htmlspecialchars($_POST['customer_name'] ?? ($_SESSION['user_name'] ?? '')); ?>" 
-                                       required minlength="2" maxlength="100">
+                                       required minlength="2" maxlength="100" placeholder="Nguyễn Văn A">
                                 <div class="invalid-feedback">Vui lòng nhập họ tên (ít nhất 2 ký tự)</div>
                             </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="checkout-label form-label text-checkout-label">Email *</label>
-                                <input type="email" class="checkout-input form-control" name="customer_email" 
+                            <div class="col-md-6">
+                                <label class="form-label fw-semibold text-secondary small">Địa chỉ Email *</label>
+                                <input type="email" class="form-control rounded-3" name="customer_email" 
                                        value="<?php echo htmlspecialchars($_POST['customer_email'] ?? ($_SESSION['user_email'] ?? '')); ?>" 
-                                       required maxlength="100">
+                                       required maxlength="100" placeholder="email@example.com">
                                 <div class="invalid-feedback">Vui lòng nhập email hợp lệ</div>
                             </div>
                         </div>
                         
                         <div class="mb-3">
-                            <label class="checkout-label form-label text-checkout-label">Số điện thoại *</label>
-                            <input type="tel" class="checkout-input form-control" name="customer_phone" 
+                            <label class="form-label fw-semibold text-secondary small">Số điện thoại liên hệ *</label>
+                            <input type="tel" class="form-control rounded-3" name="customer_phone" 
                                    value="<?php echo htmlspecialchars($_POST['customer_phone'] ?? ''); ?>" 
-                                   required pattern="[0-9]{10,11}" maxlength="20">
+                                   required pattern="[0-9]{10,11}" maxlength="20" placeholder="0912345678">
                             <div class="invalid-feedback">Vui lòng nhập số điện thoại (10-11 số)</div>
                         </div>
                         
-                        <div class="mb-3">
-                            <label class="checkout-label form-label text-checkout-label">Địa chỉ giao hàng *</label>
-                            <div class="address-input-wrapper" style="position: relative;">
-                                <input type="text" class="checkout-input form-control" id="shippingAddressInput" name="shipping_address" 
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold text-secondary small">Địa chỉ giao hàng chi tiết *</label>
+                            <div class="position-relative">
+                                <input type="text" class="form-control rounded-3" id="shippingAddressInput" name="shipping_address" 
                                        value="<?php echo htmlspecialchars($_POST['shipping_address'] ?? ''); ?>"
-                                       placeholder="Gõ tên tỉnh, quận, đường... (VD: Hà Nội, TP.HCM, Đống Đa)" 
+                                       placeholder="Số nhà, tên đường, phường/xã, quận/huyện, tỉnh/thành..." 
                                        required minlength="10" maxlength="500" autocomplete="off">
                                 <div class="invalid-feedback">Vui lòng nhập địa chỉ giao hàng chi tiết</div>
-                                <small class="form-text text-muted" style="display: block; margin-top: 5px;">💡 Gõ tên tỉnh/quận/đường để nhận gợi ý tự động</small>
-                                <!-- Hidden inputs để lưu tọa độ -->
+                                <small class="text-muted d-block mt-1">
+                                    <i class="fas fa-map-marker-alt text-pink me-1"></i> Nhập để tự động tìm kiếm địa chỉ chính xác
+                                </small>
                                 <input type="hidden" id="addressLat" name="address_lat" value="">
                                 <input type="hidden" id="addressLng" name="address_lng" value="">
                                 <input type="hidden" id="addressFormat" name="address_format" value="">
                             </div>
                         </div>
                         
-                        <div class="mb-3">
-                            <label class="checkout-label form-label text-checkout-label">Phương thức thanh toán</label>
-                            <div class="row">
-                                <div class="col-md-6">
-                                    <div class="form-check payment-option">
-                                        <input class="form-check-input" type="radio" name="payment_method" value="cod" 
-                                               id="cod" <?php echo (!isset($_POST['payment_method']) || $_POST['payment_method'] === 'cod') ? 'checked' : ''; ?>>
-                                        <label class="form-check-label" for="cod">
-                                            <div class="payment-card">
-                                                <span style="font-size: 1.5rem; margin-right: 8px;">💰</span>
-                                                <strong>Thanh toán khi nhận hàng (COD)</strong>
-                                                <small class="text-muted d-block">Thanh toán bằng tiền mặt khi nhận hàng</small>
-                                            </div>
-                                        </label>
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold text-secondary small mb-2">Phương thức thanh toán</label>
+                            <div class="row g-3">
+                                <div class="col-sm-6">
+                                    <div class="card p-3 border rounded-3 h-100 cursor-pointer payment-option-card">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="payment_method" value="cod" 
+                                                   id="cod" <?php echo (!isset($_POST['payment_method']) || $_POST['payment_method'] === 'cod') ? 'checked' : ''; ?>>
+                                            <label class="form-check-label w-100" for="cod">
+                                                <div class="d-flex align-items-center mb-1">
+                                                    <i class="fas fa-hand-holding-usd text-success fs-4 me-2"></i>
+                                                    <strong class="text-dark">Thanh toán khi nhận (COD)</strong>
+                                                </div>
+                                                <small class="text-muted d-block">Kiểm tra và trả tiền mặt cho shipper</small>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="form-check payment-option">
-                                        <input class="form-check-input" type="radio" name="payment_method" value="bank_transfer" 
-                                               id="bank" <?php echo ($_POST['payment_method'] ?? '') === 'bank_transfer' ? 'checked' : ''; ?>>
-                                        <label class="form-check-label" for="bank">
-                                            <div class="payment-card">
-                                                <span style="font-size: 1.5rem; margin-right: 8px;">🏦</span>
-                                                <strong>Chuyển khoản ngân hàng</strong>
-                                                <small class="text-muted d-block">Chuyển khoản trước khi giao hàng</small>
-                                            </div>
-                                        </label>
+                                <div class="col-sm-6">
+                                    <div class="card p-3 border rounded-3 h-100 cursor-pointer payment-option-card">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="payment_method" value="bank_transfer" 
+                                                   id="bank" <?php echo ($_POST['payment_method'] ?? '') === 'bank_transfer' ? 'checked' : ''; ?>>
+                                            <label class="form-check-label w-100" for="bank">
+                                                <div class="d-flex align-items-center mb-1">
+                                                    <i class="fas fa-university text-primary fs-4 me-2"></i>
+                                                    <strong class="text-dark">Chuyển khoản VietQR</strong>
+                                                </div>
+                                                <small class="text-muted d-block">Quét mã QR tự động xác nhận 24/7</small>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 mt-2">
-                                    <div class="form-check payment-option">
-                                        <input class="form-check-input" type="radio" name="payment_method" value="momo" 
-                                               id="momo" <?php echo ($_POST['payment_method'] ?? '') === 'momo' ? 'checked' : ''; ?>>
-                                        <label class="form-check-label" for="momo">
-                                            <div class="payment-card">
-                                                <span style="font-size: 1.5rem; margin-right: 8px;">📱</span>
-                                                <strong>Ví MoMo</strong>
-                                                <small class="text-muted d-block">Thanh toán qua ví điện tử MoMo</small>
-                                            </div>
-                                        </label>
+                                <div class="col-sm-6">
+                                    <div class="card p-3 border rounded-3 h-100 cursor-pointer payment-option-card">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="payment_method" value="momo" 
+                                                   id="momo" <?php echo ($_POST['payment_method'] ?? '') === 'momo' ? 'checked' : ''; ?>>
+                                            <label class="form-check-label w-100" for="momo">
+                                                <div class="d-flex align-items-center mb-1">
+                                                    <i class="fas fa-wallet text-danger fs-4 me-2"></i>
+                                                    <strong class="text-dark">Ví MoMo</strong>
+                                                </div>
+                                                <small class="text-muted d-block">Thanh toán tức thì qua ví MoMo</small>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
-                                <div class="col-md-6 mt-2">
-                                    <div class="form-check payment-option">
-                                        <input class="form-check-input" type="radio" name="payment_method" value="zalopay" 
-                                               id="zalopay" <?php echo ($_POST['payment_method'] ?? '') === 'zalopay' ? 'checked' : ''; ?>>
-                                        <label class="form-check-label" for="zalopay">
-                                            <div class="payment-card">
-                                                <span style="font-size: 1.5rem; margin-right: 8px;">💙</span>
-                                                <strong>ZaloPay</strong>
-                                                <small class="text-muted d-block">Thanh toán qua ví ZaloPay</small>
-                                            </div>
-                                        </label>
+                                <div class="col-sm-6">
+                                    <div class="card p-3 border rounded-3 h-100 cursor-pointer payment-option-card">
+                                        <div class="form-check">
+                                            <input class="form-check-input" type="radio" name="payment_method" value="zalopay" 
+                                                   id="zalopay" <?php echo ($_POST['payment_method'] ?? '') === 'zalopay' ? 'checked' : ''; ?>>
+                                            <label class="form-check-label w-100" for="zalopay">
+                                                <div class="d-flex align-items-center mb-1">
+                                                    <i class="fas fa-mobile-alt text-info fs-4 me-2"></i>
+                                                    <strong class="text-dark">Ví ZaloPay</strong>
+                                                </div>
+                                                <small class="text-muted d-block">Thanh toán bảo mật qua ZaloPay</small>
+                                            </label>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         
-                        <div class="mb-3">
-                            <label class="checkout-label form-label text-checkout-label">Ghi chú đơn hàng <small class="text-muted">(không bắt buộc)</small></label>
-                            <textarea class="checkout-input form-control" name="notes" rows="3" maxlength="1000"
-                                      placeholder="Ghi chú về đơn hàng, ví dụ: thời gian giao hàng mong muốn, chỉ dẫn địa điểm chi tiết..."><?php echo htmlspecialchars($_POST['notes'] ?? ''); ?></textarea>
-                            <div class="form-text">Tối đa 1000 ký tự</div>
+                        <div class="mb-4">
+                            <label class="form-label fw-semibold text-secondary small">Ghi chú cho đơn hàng <small class="text-muted">(tùy chọn)</small></label>
+                            <textarea class="form-control rounded-3" name="notes" rows="2" maxlength="1000"
+                                      placeholder="Ví dụ: Giao vào giờ hành chính, đóng gói quà sinh nhật..."><?php echo htmlspecialchars($_POST['notes'] ?? ''); ?></textarea>
                         </div>
                         
-                        <div class="mb-3">
+                        <div class="mb-4">
                             <div class="form-check">
-                                <input class="form-check-input" type="checkbox" id="agree_terms" required>
-                                <label class="form-check-label" for="agree_terms">
-                                    Tôi đồng ý với <a href="javascript:void(0)" onclick="alert('Điều khoản sử dụng Teddy Bear Paradise')">điều khoản sử dụng</a> 
-                                    và <a href="javascript:void(0)" onclick="alert('Chính sách bảo mật Teddy Bear Paradise')">chính sách bảo mật</a> *
+                                <input class="form-check-input" type="checkbox" id="agree_terms" required checked>
+                                <label class="form-check-label small text-muted" for="agree_terms">
+                                    Tôi đồng ý với chính sách bán hàng và bảo mật của Teddy Bear Paradise *
                                 </label>
-                                <div class="invalid-feedback">Vui lòng đồng ý với điều khoản sử dụng</div>
+                                <div class="invalid-feedback">Vui lòng tích đồng ý điều khoản</div>
                             </div>
                         </div>
                         
-                        <div class="d-grid">
-                            <button type="submit" name="place_order" class="btn btn-success btn-lg" id="placeOrderBtn">
-                                <span style="font-size: 1.2rem; margin-right: 8px;">💳</span>
-                                <span class="btn-text">Đặt hàng ngay</span>
+                        <div class="d-grid mb-3">
+                            <button type="submit" name="place_order" class="btn btn-primary btn-lg rounded-pill fw-semibold py-3" id="placeOrderBtn">
+                                <i class="fas fa-check-circle me-2"></i>
+                                <span class="btn-text">Xác nhận đặt hàng</span>
                                 <span class="btn-loading d-none">
-                                    <span style="font-size: 1.2rem; margin-right: 8px;">⏳</span> Đang xử lý...
+                                    <span class="spinner-border spinner-border-sm me-2"></span> Đang xử lý...
                                 </span>
                             </button>
                         </div>
                         
-                        <div class="text-center mt-3">
+                        <div class="text-center">
                             <small class="text-muted">
-                                <span style="font-size: 1rem; margin-right: 5px;">🛡️</span>
-                                Thông tin của bạn được bảo mật 100%
+                                <i class="fas fa-shield-alt text-success me-1"></i>
+                                Giao dịch được bảo mật và mã hóa an toàn 100%
                             </small>
                         </div>
                     </form>
@@ -459,14 +466,16 @@ include "../includes/header.php";
         </div>
         
         <!-- Tóm tắt đơn hàng -->
-        <div class="col-md-5">
-            <div class="card">
-                <div class="card-header bg-light">
-                    <h5 class="mb-0">📋 Đơn hàng của bạn</h5>
+        <div class="col-lg-5">
+            <div class="card border-0 shadow-sm rounded-4 mb-4">
+                <div class="card-header bg-white border-0 pt-4 px-4 pb-0">
+                    <h5 class="fw-bold mb-0 text-dark">
+                        <i class="fas fa-box text-pink me-2"></i> Đơn hàng của bạn
+                    </h5>
                 </div>
-                <div class="card-body">
+                <div class="card-body p-4">
                     <!-- Danh sách sản phẩm -->
-                    <div class="order-items">
+                    <div class="order-items mb-3">
                         <?php foreach ($cart_items as $item): ?>
                             <?php 
                             $product_id = $item['product_id'] ?? $item['id'];
@@ -474,42 +483,37 @@ include "../includes/header.php";
                             $price = $item['sale_price'] ?: $item['price'];
                             $total_item = $price * $item['quantity'];
                             ?>
-                            <div class="order-item d-flex justify-content-between align-items-center border-bottom py-3">
+                            <div class="d-flex justify-content-between align-items-center border-bottom py-3">
                                 <div class="d-flex align-items-center flex-grow-1">
-                                    <div class="item-image me-3">
-                                        <img src="../images/<?php echo htmlspecialchars($image_name); ?>" 
-                                             alt="<?php echo htmlspecialchars($item['name']); ?>" 
-                                             style="width: 60px; height: 60px; object-fit: cover;" 
-                                             class="rounded border">
-                                    </div>
-                                    <div class="item-details flex-grow-1">
-                                        <h6 class="mb-1"><?php echo htmlspecialchars($item['name']); ?></h6>
-                                        <div class="item-info">
+                                    <img src="../images/<?php echo htmlspecialchars($image_name); ?>" 
+                                         alt="<?php echo htmlspecialchars($item['name']); ?>" 
+                                         style="width: 55px; height: 55px; object-fit: cover;" 
+                                         class="rounded-3 border me-3 flex-shrink-0"
+                                         onerror="this.src='../images/placeholder.jpg'">
+                                    <div class="flex-grow-1 pe-2">
+                                        <h6 class="mb-1 fw-bold text-dark small"><?php echo htmlspecialchars($item['name']); ?></h6>
+                                        <div class="text-muted small">
                                             <?php if (!empty($item['size'])): ?>
-                                                <small class="text-muted">Size: <?php echo $item['size']; ?></small><br>
+                                                <span class="badge bg-light text-secondary border me-1">Size: <?php echo $item['size']; ?></span>
                                             <?php endif; ?>
-                                            <?php if (!empty($item['color'])): ?>
-                                                <small class="text-muted">Màu: <?php echo $item['color']; ?></small><br>
-                                            <?php endif; ?>
-                                            <small class="text-muted">
-                                                <?php echo formatPrice($price); ?> × <?php echo $item['quantity']; ?>
-                                            </small>
+                                            <span><?php echo formatPrice($price); ?> × <?php echo $item['quantity']; ?></span>
                                         </div>
                                     </div>
                                 </div>
-                                <div class="item-total">
-                                    <span class="fw-bold text-primary"><?php echo formatPrice($total_item); ?></span>
+                                <div class="text-end fw-bold text-dark small">
+                                    <?php echo formatPrice($total_item); ?>
                                 </div>
                             </div>
                         <?php endforeach; ?>
                     </div>
                     
-                    <!-- Coupon input -->
-                    <div class="coupon-section mt-3 border-bottom pb-3">
+                    <!-- Nhập mã giảm giá -->
+                    <div class="coupon-section mb-4 pb-3 border-bottom">
+                        <label class="form-label fw-semibold text-secondary small mb-1">Mã giảm giá / Voucher</label>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="couponCode" placeholder="Mã giảm giá">
-                            <button class="btn btn-outline-secondary" type="button" id="applyCoupon">
-                                <span style="font-size: 1rem; margin-right: 5px;">🏷️</span> Áp dụng
+                            <input type="text" class="form-control rounded-start-pill ps-3" id="couponCode" placeholder="Nhập mã ưu đãi...">
+                            <button class="btn btn-outline-primary rounded-end-pill px-3" type="button" id="applyCoupon">
+                                Áp dụng
                             </button>
                         </div>
                         <div id="couponSuggestions" class="mt-2"></div>
@@ -681,66 +685,39 @@ document.addEventListener('DOMContentLoaded', function() {
                         </div>
                         
                         <?php if (!$cart_summary['is_free_shipping'] && $cart_summary['free_shipping_remaining'] > 0): ?>
-                            <div class="free-shipping-progress mb-3">
-                                <small class="text-info">
-                                    <span style="font-size: 1rem; margin-right: 5px;">🚚</span>
-                                    Mua thêm <?php echo formatPrice($cart_summary['free_shipping_remaining']); ?> để được <strong>MIỄN PHÍ SHIP!</strong>
-                                </small>
-                                <div class="progress mt-1" style="height: 4px;">
-                                    <div class="progress-bar bg-info" style="width: <?php echo ($cart_summary['subtotal'] / FREE_SHIPPING_MIN) * 100; ?>%"></div>
+                            <div class="p-3 rounded-3 bg-light mb-3">
+                                <div class="small text-secondary mb-1">
+                                    <i class="fas fa-truck text-pink me-1"></i> Mua thêm <strong><?php echo formatPrice($cart_summary['free_shipping_remaining']); ?></strong> để được <strong>FREESHIP!</strong>
+                                </div>
+                                <div class="progress" style="height: 5px;">
+                                    <div class="progress-bar bg-pink" style="width: <?php echo ($cart_summary['subtotal'] / FREE_SHIPPING_MIN) * 100; ?>%"></div>
                                 </div>
                             </div>
                         <?php endif; ?>
                         
-                        <hr>
-                        <div class="d-flex justify-content-between mb-3">
-                            <strong class="h5">Tổng cộng:</strong>
-                            <strong class="h5 text-danger" id="total-amount"><?php echo formatPrice($cart_summary['total']); ?></strong>
+                        <hr class="my-3">
+                        <div class="d-flex justify-content-between align-items-center mb-3">
+                            <strong class="fs-5 text-dark">Tổng cộng:</strong>
+                            <strong class="fs-4 text-danger" id="total-amount"><?php echo formatPrice($cart_summary['total']); ?></strong>
                         </div>
                         
-                        <!-- Estimated delivery -->
-                        <div class="delivery-info bg-light p-3 rounded">
-                            <h6><span style="font-size: 1.2rem; margin-right: 8px;">🚛</span> Thời gian giao hàng dự kiến:</h6>
-                            <ul class="mb-0 small">
-                                <li>🏢 Nội thành TP.HCM: 1-2 ngày làm việc</li>
-                                <li>🌆 Các tỉnh thành khác: 2-5 ngày làm việc</li>
-                                <li>⏰ Giờ giao hàng: 8:00 - 21:00 hàng ngày</li>
+                        <!-- Thời gian giao hàng dự kiến -->
+                        <div class="p-3 rounded-3 bg-light mb-3">
+                            <h6 class="fw-bold text-dark small mb-2"><i class="fas fa-shipping-fast text-pink me-1"></i> Thời gian giao hàng dự kiến:</h6>
+                            <ul class="mb-0 small text-secondary ps-3">
+                                <li>Nội thành TP.HCM & Hà Nội: 1 - 2 ngày</li>
+                                <li>Các tỉnh thành khác: 2 - 4 ngày</li>
                             </ul>
                         </div>
                     </div>
-                    
-                    <!-- Security info -->
-                    <div class="security-info mt-3">
-                        <div class="alert alert-success mb-0">
-                            <small>
-                                <span style="font-size: 1rem; margin-right: 5px;">🛡️</span>
-                                <strong>Cam kết bảo mật:</strong><br>
-                                • Thanh toán an toàn 100%<br>
-                                • Thông tin được mã hóa SSL<br>
-                                • Không lưu trữ thông tin thẻ
-                            </small>
-                        </div>
-                    </div>
                 </div>
             </div>
             
-            <!-- Action buttons -->
-            <div class="action-buttons mt-3">
-                <a href="../cart/index.php" class="btn btn-outline-secondary w-100 mb-2">
-                    <span style="font-size: 1rem; margin-right: 5px;">⬅️</span> Quay lại giỏ hàng
+            <!-- Điều hướng phụ -->
+            <div class="d-flex flex-column gap-2">
+                <a href="../cart/index.php" class="btn btn-outline-secondary rounded-pill w-100 py-2">
+                    <i class="fas fa-arrow-left me-1"></i> Quay lại giỏ hàng
                 </a>
-                <a href="../pages/products.php" class="btn btn-outline-primary w-100">
-                    <span style="font-size: 1rem; margin-right: 5px;">🛍️</span> Tiếp tục mua sắm
-                </a>
-            </div>
-            
-            <!-- Contact support -->
-            <div class="support-info card mt-3">
-                <div class="card-body text-center">
-                    <h6><span style="font-size: 1.2rem; margin-right: 8px;">🎧</span> Cần hỗ trợ?</h6>
-                    <p class="mb-2 small">Hotline: <strong>0123-456-789</strong></p>
-                    <p class="mb-0 small">Email: <strong>support@teddyparadise.com</strong></p>
-                </div>
             </div>
         </div>
     </div>
@@ -759,7 +736,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (couponSuggestions) {
         couponSuggestions.innerHTML = `<?php foreach ($active_coupons as $c): ?>
             <span class="coupon-suggestion" data-code="<?php echo htmlspecialchars($c['code']); ?>">
-                <span style="font-size: 1rem; margin-right: 5px;">🎫</span> <b><?php echo htmlspecialchars($c['code']); ?></b>
+                <i class="fas fa-tag me-1 text-warning"></i> <b><?php echo htmlspecialchars($c['code']); ?></b>
                 <?php if ($c['type'] === 'percentage'): ?>- <?php echo (float)$c['value']; ?>%<?php elseif ($c['type'] === 'fixed'): ?>- <?php echo number_format($c['value']); ?>đ<?php endif; ?>
             </span>
         <?php endforeach; ?>`;

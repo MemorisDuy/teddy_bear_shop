@@ -223,29 +223,29 @@ if (!$header_included) {
     </div>
 </section>
 
-<!-- Simple Footer -->
-<?php include 'includes/footer.php'; ?>
+<!-- Categories Section -->
 <section class="py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title">
+            <h2 class="section-title fw-bold text-dark">
                 Danh mục sản phẩm
             </h2>
-            <p class="section-subtitle">Tìm kiếm những chú gấu bông phù hợp với sở thích của bạn</p>
+            <p class="section-subtitle text-muted">Tìm kiếm những chú gấu bông phù hợp với sở thích của bạn</p>
         </div>
         
-        <div class="row">
+        <div class="row g-4">
             <?php foreach ($categories as $category): ?>
-            <div class="col-lg-3 col-md-6 col-6 mb-4">
-                <div class="category-card" style="position:relative;">
-                    <div class="category-image">
+            <div class="col-lg-3 col-md-6 col-6">
+                <div class="card category-card border-0 shadow-sm rounded-4 overflow-hidden position-relative h-100">
+                    <div class="category-image" style="height: 220px; background: #fff5f7;">
                         <img src="<?php echo IMG_PATH . $category['image']; ?>" 
                              alt="<?php echo htmlspecialchars($category['name']); ?>"
-                             onerror="this.style.background='linear-gradient(45deg, #ff6b96, #f093fb)'; this.style.color='white'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='🐻 <?php echo htmlspecialchars($category['name']); ?>'; this.style.fontSize='2rem'; this.style.fontWeight='bold'; this.style.minHeight='200px'; this.style.textAlign='center';">
+                             class="w-100 h-100 object-fit-cover"
+                             onerror="this.src='<?php echo IMG_PATH; ?>placeholder.jpg';">
                         <a href="pages/products.php?category=<?php echo urlencode($category['slug']); ?>"
-                           class="btn btn-light btn-sm category-view-btn"
-                           style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:2;box-shadow:0 2px 8px rgba(0,0,0,0.08);border-radius:20px;white-space:nowrap;">
-                            Xem ngay <span style="font-size: 0.9rem; margin-left: 5px;">➡️</span>
+                           class="btn btn-white btn-sm rounded-pill px-3 py-1 fw-semibold shadow-sm category-view-btn"
+                           style="position:absolute;bottom:16px;left:50%;transform:translateX(-50%);z-index:2;white-space:nowrap;background:rgba(255,255,255,0.95);">
+                            Xem ngay <i class="fas fa-arrow-right ms-1 small"></i>
                         </a>
                     </div>
                 </div>
@@ -259,96 +259,86 @@ if (!$header_included) {
 <section class="py-5" style="background-color: var(--bg-subtle);">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title">
+            <h2 class="section-title fw-bold text-dark">
                 Sản phẩm nổi bật
             </h2>
-            <p class="section-subtitle">Những mẫu gấu bông được yêu thích và bán chạy nhất</p>
+            <p class="section-subtitle text-muted">Những mẫu gấu bông được yêu thích và bán chạy nhất</p>
         </div>
         
-        <div class="row">
+        <div class="row g-4">
             <?php foreach ($featured_products as $product): ?>
-            <div class="col-lg-3 col-md-6 col-sm-6 mb-4">
-                <div class="product-card">
-                    <div class="product-image">
+            <div class="col-lg-3 col-md-6 col-sm-6">
+                <div class="card product-card h-100 border-0 shadow-sm rounded-4 overflow-hidden position-relative">
+                    <div class="product-image position-relative" style="height: 240px; background: #fff5f7;">
                         <img src="<?php echo IMG_PATH . $product['main_image']; ?>" 
                              alt="<?php echo htmlspecialchars($product['name']); ?>"
-                             onerror="this.style.background='linear-gradient(45deg, #ff6b96, #f093fb)'; this.style.color='white'; this.style.display='flex'; this.style.alignItems='center'; this.style.justifyContent='center'; this.innerHTML='🧸 <?php echo htmlspecialchars($product['name']); ?>'; this.style.fontSize='1rem'; this.style.fontWeight='bold'; this.style.textAlign='center'; this.style.padding='20px'; this.style.minHeight='250px';">
+                             class="w-100 h-100 object-fit-cover"
+                             onerror="this.src='<?php echo IMG_PATH; ?>placeholder.jpg';">
                         
                         <?php if (!empty($product['sale_price'])): ?>
                         <div class="position-absolute top-0 end-0 m-2">
-                            <span class="badge bg-danger">SALE</span>
+                            <span class="badge bg-danger rounded-pill px-2 py-1">SALE</span>
                         </div>
                         <?php endif; ?>
                         
                         <?php if (!empty($product['is_limited'])): ?>
                         <div class="position-absolute top-0 start-0 m-2">
-                            <span class="badge bg-warning text-dark">LIMITED</span>
+                            <span class="badge bg-warning text-dark rounded-pill px-2 py-1">HOT</span>
                         </div>
                         <?php endif; ?>
                         
                         <div class="product-overlay">
-                            <div class="product-actions">
-                                <button class="btn btn-primary add-to-cart-btn" 
+                            <div class="product-actions d-flex gap-2">
+                                <button class="btn btn-primary btn-sm rounded-circle add-to-cart-btn" 
                                         data-product-id="<?php echo $product['id']; ?>"
-                                        type="button">
-                                    <span style="font-size: 1.1rem;">➕</span>
+                                        type="button" title="Thêm vào giỏ">
+                                    <i class="fas fa-cart-plus"></i>
                                 </button>
-                                <button class="btn btn-light rounded-circle" 
-                                        onclick="quickView('<?php echo urlencode($product['slug']); ?>')"
-                                        title="Xem nhanh">
-                                    <span style="font-size: 1.1rem;">👁️</span>
-                                </button>
-                                <button class="btn btn-danger rounded-circle" 
+                                <a href="pages/product-detail.php?slug=<?php echo urlencode($product['slug']); ?>" 
+                                   class="btn btn-light btn-sm rounded-circle" 
+                                   title="Xem chi tiết">
+                                    <i class="fas fa-eye"></i>
+                                </a>
+                                <button class="btn btn-danger btn-sm rounded-circle" 
                                         onclick="addToWishlist(<?php echo $product['id']; ?>)"
                                         title="Thêm vào yêu thích">
-                                    <span style="font-size: 1.1rem;">💖</span>
+                                    <i class="fas fa-heart"></i>
                                 </button>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="product-info">
-                        <div class="product-rating mb-2">
+                    <div class="card-body p-3 d-flex flex-column">
+                        <div class="product-rating mb-2 small text-warning">
                             <?php for ($i = 1; $i <= 5; $i++): ?>
-                                <span style="color: #ffd700; font-size: 1.2rem;">
-                                    <?php echo $i <= ($product['rating'] ?? 0) ? '⭐' : '☆'; ?>
-                                </span>
+                                <i class="fas <?php echo $i <= ($product['rating'] ?? 0) ? 'fa-star' : 'fa-star text-muted opacity-25'; ?>"></i>
                             <?php endfor; ?>
-                            <span class="rating-count">(<?php echo $product['review_count'] ?? 0; ?>)</span>
+                            <span class="text-muted ms-1 small">(<?php echo $product['review_count'] ?? 0; ?>)</span>
                         </div>
                         
-                        <h5 class="product-name">
-                            <a href="pages/product-detail.php?slug=<?php echo urlencode($product['slug']); ?>">
+                        <h6 class="product-name fw-bold text-dark mb-1 text-truncate" title="<?php echo htmlspecialchars($product['name']); ?>">
+                            <a href="pages/product-detail.php?slug=<?php echo urlencode($product['slug']); ?>" class="text-decoration-none text-dark hover-pink">
                                 <?php echo htmlspecialchars($product['name']); ?>
                             </a>
-                        </h5>
+                        </h6>
                         
-                        <p class="card-text text-muted small"><?php echo htmlspecialchars($product['short_description']); ?></p>
+                        <p class="card-text text-muted small flex-grow-1 text-truncate"><?php echo htmlspecialchars($product['short_description']); ?></p>
                         
                         <div class="product-price mb-3">
                             <?php if (!empty($product['sale_price'])): ?>
-                                <span class="product-price"><?php echo formatPrice($product['sale_price']); ?></span>
-                                <span class="original-price"><?php echo formatPrice($product['price']); ?></span>
-                                <div class="small text-success">
-                                    Tiết kiệm <?php echo formatPrice($product['price'] - $product['sale_price']); ?>
-                                </div>
+                                <span class="fw-bold text-danger fs-5"><?php echo formatPrice($product['sale_price']); ?></span>
+                                <small class="text-decoration-line-through text-muted ms-1"><?php echo formatPrice($product['price']); ?></small>
                             <?php else: ?>
-                                <span class="product-price"><?php echo formatPrice($product['price']); ?></span>
+                                <span class="fw-bold text-primary fs-5"><?php echo formatPrice($product['price']); ?></span>
                             <?php endif; ?>
                         </div>
                         
-                        <div class="product-actions-bottom mt-auto">
-                            <div class="d-grid gap-2">
-                                <button class="btn btn-primary btn-sm add-to-cart-btn" 
-                                        data-product-id="<?php echo $product['id']; ?>"
-                                        type="button">
-                                    Thêm vào giỏ
-                                </button>
-                                <a href="pages/product-detail.php?slug=<?php echo urlencode($product['slug']); ?>" 
-                                   class="btn btn-outline-primary btn-sm">
-                                    Xem chi tiết
-                                </a>
-                            </div>
+                        <div class="d-grid gap-2">
+                            <button class="btn btn-primary btn-sm rounded-pill add-to-cart-btn py-2" 
+                                    data-product-id="<?php echo $product['id']; ?>"
+                                    type="button">
+                                <i class="fas fa-shopping-cart me-1"></i> Thêm vào giỏ
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -356,9 +346,9 @@ if (!$header_included) {
             <?php endforeach; ?>
         </div>
         
-        <div class="text-center mt-4">
-            <a href="pages/products.php" class="cute-btn">
-                Xem tất cả sản phẩm
+        <div class="text-center mt-5">
+            <a href="pages/products.php" class="btn btn-outline-primary rounded-pill px-4 py-2">
+                Xem tất cả sản phẩm <i class="fas fa-arrow-right ms-1"></i>
             </a>
         </div>
     </div>
@@ -368,16 +358,18 @@ if (!$header_included) {
 <section class="py-5">
     <div class="container">
         <div class="text-center mb-5">
-            <h2 class="section-title">
+            <h2 class="section-title fw-bold text-dark">
                 Cam kết từ Teddy Bear Paradise
             </h2>
-            <p class="section-subtitle">Chất lượng sản phẩm và dịch vụ là ưu tiên hàng đầu của chúng tôi</p>
+            <p class="section-subtitle text-muted">Chất lượng sản phẩm và dịch vụ là ưu tiên hàng đầu của chúng tôi</p>
         </div>
         
-        <div class="row">
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card p-4 text-center h-100 border-0 shadow-sm" style="border-radius: 16px;">
-                    <div style="font-size: 2.2rem; margin-bottom: 12px;">🏆</div>
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="card p-4 text-center h-100 border-0 shadow-sm rounded-4">
+                    <div class="rounded-circle bg-pink-light d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 65px; height: 65px;">
+                        <i class="fas fa-award text-pink fs-3"></i>
+                    </div>
                     <h5 class="fw-bold mb-2">Chất lượng cao</h5>
                     <p class="text-muted small mb-0">
                         Sản phẩm được chọn lọc kỹ càng, đảm bảo chất lượng và độ bền tốt nhất
@@ -385,9 +377,11 @@ if (!$header_included) {
                 </div>
             </div>
             
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card p-4 text-center h-100 border-0 shadow-sm" style="border-radius: 16px;">
-                    <div style="font-size: 2.2rem; margin-bottom: 12px;">🛡️</div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card p-4 text-center h-100 border-0 shadow-sm rounded-4">
+                    <div class="rounded-circle bg-pink-light d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 65px; height: 65px;">
+                        <i class="fas fa-shield-alt text-pink fs-3"></i>
+                    </div>
                     <h5 class="fw-bold mb-2">An toàn 100%</h5>
                     <p class="text-muted small mb-0">
                         Chất liệu bông xoắn 3 chiều an toàn, không kích ứng da cho trẻ nhỏ
@@ -395,9 +389,11 @@ if (!$header_included) {
                 </div>
             </div>
             
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card p-4 text-center h-100 border-0 shadow-sm" style="border-radius: 16px;">
-                    <div style="font-size: 2.2rem; margin-bottom: 12px;">🚚</div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card p-4 text-center h-100 border-0 shadow-sm rounded-4">
+                    <div class="rounded-circle bg-pink-light d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 65px; height: 65px;">
+                        <i class="fas fa-shipping-fast text-pink fs-3"></i>
+                    </div>
                     <h5 class="fw-bold mb-2">Giao hàng nhanh</h5>
                     <p class="text-muted small mb-0">
                         Đóng gói cẩn thận, giao hàng toàn quốc nhanh chóng trong 24-48h
@@ -405,9 +401,11 @@ if (!$header_included) {
                 </div>
             </div>
             
-            <div class="col-lg-3 col-md-6 mb-4">
-                <div class="card p-4 text-center h-100 border-0 shadow-sm" style="border-radius: 16px;">
-                    <div style="font-size: 2.2rem; margin-bottom: 12px;">📞</div>
+            <div class="col-lg-3 col-md-6">
+                <div class="card p-4 text-center h-100 border-0 shadow-sm rounded-4">
+                    <div class="rounded-circle bg-pink-light d-inline-flex align-items-center justify-content-center mx-auto mb-3" style="width: 65px; height: 65px;">
+                        <i class="fas fa-headset text-pink fs-3"></i>
+                    </div>
                     <h5 class="fw-bold mb-2">Hỗ trợ tận tình</h5>
                     <p class="text-muted small mb-0">
                         Đội ngũ tư vấn nhiệt tình, sẵn sàng giải đáp và hỗ trợ mọi lúc
@@ -417,9 +415,6 @@ if (!$header_included) {
         </div>
     </div>
 </section>
-
-<!-- Newsletter Section -->
-<!-- (Đã xóa toàn bộ section newsletter từ dòng 434 đến 460) -->
 
 <!-- Simple Footer -->
 <?php include 'includes/footer.php'; ?>

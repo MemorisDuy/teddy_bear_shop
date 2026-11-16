@@ -54,12 +54,13 @@ if (!defined('SITE_NAME')) {
     <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Fredoka+One&family=Comfortaa:wght@700&family=Nunito:wght@400;700&family=Poppins:wght@400;700&family=Quicksand:wght@700&display=swap" rel="stylesheet">
     
-    <!-- Main Modern Clean Design System (Ưu tiên nạp chuẩn giao diện sạch) -->
-    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/clean-modern.css">
+    <!-- Base Stylesheets -->
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/style.css">
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/search.css">
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/order-management.css">
     <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/mobile-responsive.css">
+    <!-- Main Modern Clean Design System (Chuẩn hóa toàn bộ giao diện, xóa bỏ lỗi font & icon) -->
+    <link rel="stylesheet" href="<?php echo SITE_URL; ?>/css/clean-modern.css">
     
     <!-- Google Fonts: Quicksand, Nunito, Poppins, Comfortaa -->
     <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;600;700&family=Nunito:wght@400;600;700&family=Poppins:wght@400;600;700&family=Comfortaa:wght@400;600;700&display=swap" rel="stylesheet">
@@ -109,14 +110,14 @@ if (!defined('SITE_NAME')) {
             <ul class="navbar-nav">
                 <!-- Search button -->
                 <li class="nav-item">
-                    <a class="nav-link" href="#" onclick="TeddySearch.openSearchOverlay(); return false;" title="Tìm kiếm (Ctrl+K)">
-                        <span style="font-size: 1.2rem;">🔍</span>
+                    <a class="nav-link px-2" href="#" onclick="TeddySearch.openSearchOverlay(); return false;" title="Tìm kiếm (Ctrl+K)">
+                        <i class="fas fa-search text-secondary fs-5"></i>
                     </a>
                 </li>
-                <!-- Cart link - STANDARDIZED -->
+                <!-- Cart link -->
                 <li class="nav-item">
-                    <a class="nav-link cart-link" href="<?php echo SITE_URL; ?>/cart/" title="Giỏ hàng" style="position: relative;">
-                        <span style="font-size: 1.3rem; color: #333;">🛒</span>
+                    <a class="nav-link cart-link px-2 position-relative" href="<?php echo SITE_URL; ?>/cart/" title="Giỏ hàng">
+                        <i class="fas fa-shopping-bag text-secondary fs-5"></i>
                         <?php
                         $cart_count = 0;
                         if (function_exists('getCartCount')) {
@@ -125,12 +126,12 @@ if (!defined('SITE_NAME')) {
                         }
                         ?>
                         <span id="cartCount" style="
-    position: absolute; top: -8px; right: -8px;
+    position: absolute; top: 0px; right: 0px;
     min-width: 18px; height: 18px;
     display: <?php echo $cart_count > 0 ? 'flex' : 'none'; ?>;
     align-items: center; justify-content: center;
-    font-size: 11px; font-weight: bold; border-radius: 50%;
-    background: #dc3545; color: white;
+    font-size: 10px; font-weight: bold; border-radius: 50%;
+    background: #ff6b96; color: white;
 ">
                             <?php echo $cart_count; ?>
                         </span>
@@ -138,20 +139,20 @@ if (!defined('SITE_NAME')) {
                 </li>
                 <?php if (function_exists('isLoggedIn') && isLoggedIn()): ?>
                 <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                        <span style="font-size: 1.1rem; margin-right: 5px;">👤</span>
-                        <?php echo htmlspecialchars($_SESSION['user_name'] ?? 'Tài khoản'); ?>
+                    <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <i class="fas fa-user-circle text-pink fs-5 me-1"></i>
+                        <span><?php echo htmlspecialchars($_SESSION['user_name'] ?? 'Tài khoản'); ?></span>
                     </a>
-                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
-                        <li><a class="dropdown-item" href="<?php echo SITE_URL; ?>/user/profile.php">
-                            <span style="font-size: 1rem; margin-right: 8px;">👤</span> Hồ sơ
+                    <ul class="dropdown-menu dropdown-menu-end shadow-sm border-0 rounded-3" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item py-2" href="<?php echo SITE_URL; ?>/user/profile.php">
+                            <i class="fas fa-id-card text-pink me-2"></i> Hồ sơ cá nhân
                         </a></li>
-                        <li><a class="dropdown-item" href="<?php echo SITE_URL; ?>/user/orders.php">
-                            <span style="font-size: 1rem; margin-right: 8px;">🛍️</span> Đơn hàng
+                        <li><a class="dropdown-item py-2" href="<?php echo SITE_URL; ?>/user/orders.php">
+                            <i class="fas fa-receipt text-pink me-2"></i> Lịch sử đơn hàng
                         </a></li>
                         <li><hr class="dropdown-divider"></li>
-                        <li><a class="dropdown-item" href="<?php echo SITE_URL; ?>/auth/logout.php">
-                            <span style="font-size: 1rem; margin-right: 8px;">🚪</span> Đăng xuất
+                        <li><a class="dropdown-item py-2 text-danger" href="<?php echo SITE_URL; ?>/auth/logout.php">
+                            <i class="fas fa-sign-out-alt me-2"></i> Đăng xuất
                         </a></li>
                     </ul>
                 </li>

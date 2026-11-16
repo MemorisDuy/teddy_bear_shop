@@ -471,3 +471,55 @@ a:hover {
     padding-top: 15px;
     border-top: 1px solid #f8fafc;
 }
+
+/* ==========================================================================
+   9. TIỆN ÍCH MÀU SẮC & GIAO DIỆN HIỆN ĐẠI (UTILITIES)
+   ========================================================================== */
+.bg-pink {
+    background-color: var(--primary-color) !important;
+    color: #ffffff !important;
+}
+
+.bg-pink-light {
+    background-color: var(--primary-light) !important;
+}
+
+.text-pink {
+    color: var(--primary-color) !important;
+}
+
+.border-pink {
+    border-color: var(--primary-color) !important;
+}
+
+.hover-pink:hover {
+    color: var(--primary-hover) !important;
+}
+
+.hover-shadow {
+    transition: var(--transition-smooth);
+}
+
+.hover-shadow:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-card-hover) !important;
+}
+
+.cursor-pointer {
+    cursor: pointer;
+}
+
+.transition-all {
+    transition: var(--transition-smooth);
+}
+
+.object-fit-cover {
+    object-fit: cover;
+}
+
+/* Payment card selection */
+.payment-option-card:hover {
+    border-color: var(--primary-color) !important;
+    background-color: var(--primary-light) !important;
+}
+
